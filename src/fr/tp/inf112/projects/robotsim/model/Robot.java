@@ -141,6 +141,10 @@ public class Robot extends Component {
 	}
 	
 	private Motion computeMotion() {
+		if(currentPathPositionsIter == null){
+			computePathToCurrentTargetComponent();
+		}
+		
 		if (!currentPathPositionsIter.hasNext()) {
 
 			// There is no free path to the target
