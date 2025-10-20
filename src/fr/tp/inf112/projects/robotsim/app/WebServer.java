@@ -2,7 +2,7 @@ package fr.tp.inf112.projects.robotsim.app;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import fr.tp.inf112.projects.robotsim.serverutils.RequestProcessor;
+import fr.tp.inf112.projects.robotsim.model.serverutils.RequestProcessor;
 
 public class WebServer {
     public static void main(String[] args) throws Exception {
