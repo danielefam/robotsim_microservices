@@ -142,8 +142,7 @@ public abstract class Component implements Figure, Serializable, Runnable {
 	
 	@Override
 	public void run() {
-//		System.out.println("Thread partito: " + Thread.currentThread().getName());
-		LOGGER.info("Thread partito: " + Thread.currentThread().getName());
+		LOGGER.info("Thread started: " + Thread.currentThread().getName());
 		while(isSimulationStarted()) {
 			behave();
 			try {

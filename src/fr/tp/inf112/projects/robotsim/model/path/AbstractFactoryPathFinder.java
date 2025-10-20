@@ -1,10 +1,15 @@
 package fr.tp.inf112.projects.robotsim.model.path;
 
 import java.io.Serializable;
+
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
+import java.util.logging.Logger;
 
+import com.sun.tools.javac.Main;
+
+import fr.tp.inf112.projects.robotsim.app.SimulatorApplication;
 import fr.tp.inf112.projects.robotsim.model.Factory;
 import fr.tp.inf112.projects.robotsim.model.Position;
 import fr.tp.inf112.projects.robotsim.model.shapes.PositionedShape;
@@ -15,6 +20,7 @@ public abstract class AbstractFactoryPathFinder<Graph, Vertex> implements Factor
 	/**
 	 * 
 	 */
+	private static final Logger LOGGER = Logger.getLogger(AbstractFactoryPathFinder.class.getName());
 	private static final long serialVersionUID = 3864762720560889146L;
 
 	private final Factory factoryModel;
@@ -67,7 +73,7 @@ public abstract class AbstractFactoryPathFinder<Graph, Vertex> implements Factor
 				}
 			}
 			
-			System.out.println(graph.toString());
+			LOGGER.info(graph.toString());
 		}
 	}
 	
