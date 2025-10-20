@@ -121,9 +121,16 @@ public class Robot extends Component {
 	private int moveToNextPathPosition() {
 		final Motion motion = computeMotion();
 		
-		final int displacement = motion == null ? 0 : motion.moveToTarget();
-			
-		notifyObservers();
+		int displacement = motion == null ? 0 : getFactory().moveComponent(motion, this);
+		
+		if(displacement != 0) {
+			notifyObservers();
+		}else if(isLivelyLocked()) {
+			final Position freeNeighbouringPosition = findFreeNeighbouringPosition();
+			this.memorizedTargetPosition = freeNeighbouringPosition;
+			displacement = moveToNextPathPosition();
+			computePathToCurrentTargetComponent();
+		}
 		
 		return displacement;
 	}
@@ -196,5 +203,41 @@ public class Robot extends Component {
 	@Override
 	public Style getStyle() {
 		return blocked ? BLOCKED_STYLE : STYLE;
+	}
+	
+	private Position findFreeNeighbouringPosition() {
+		Position tryIfFreePosition = memorizedTargetPosition;
+		int xCoordinate = tryIfFreePosition.getxCoordinate();
+		int yCoordinate = tryIfFreePosition.getyCoordinate();
+		
+		// above
+		tryIfFreePosition.setyCoordinate(yCoordinate+1);
+		if(!(getFactory().getMobileComponentAt(tryIfFreePosition, this) instanceof Robot)) {
+			return tryIfFreePosition;
+		}
+		
+		//below
+		tryIfFreePosition.setxCoordinate(xCoordinate-1);
+		tryIfFreePosition.setyCoordinate(yCoordinate-1);
+		if(!(getFactory().getMobileComponentAt(tryIfFreePosition, this) instanceof Robot)) {
+			return tryIfFreePosition;
+		}
+		
+		//left
+		tryIfFreePosition.setyCoordinate(yCoordinate-1);
+		tryIfFreePosition.setxCoordinate(xCoordinate+1);
+		if(!(getFactory().getMobileComponentAt(tryIfFreePosition, this) instanceof Robot)) {
+			return tryIfFreePosition;
+		}
+		
+		
+		//right
+		tryIfFreePosition.setyCoordinate(yCoordinate+1);
+		tryIfFreePosition.setxCoordinate(xCoordinate-1);
+		if(!(getFactory().getMobileComponentAt(tryIfFreePosition, this) instanceof Robot)) {
+			return tryIfFreePosition;
+		}
+		
+		return null;
 	}
 }

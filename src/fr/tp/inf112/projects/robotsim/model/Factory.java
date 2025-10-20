@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import org.jgrapht.alg.clustering.GirvanNewmanClustering;
+
 import fr.tp.inf112.projects.canvas.controller.Observable;
 import fr.tp.inf112.projects.canvas.controller.Observer;
 import fr.tp.inf112.projects.canvas.model.Canvas;
 import fr.tp.inf112.projects.canvas.model.Figure;
 import fr.tp.inf112.projects.canvas.model.Style;
+import fr.tp.inf112.projects.robotsim.model.motion.Motion;
 import fr.tp.inf112.projects.robotsim.model.shapes.PositionedShape;
 import fr.tp.inf112.projects.robotsim.model.shapes.RectangularShape;
 
@@ -102,17 +105,22 @@ public class Factory extends Component implements Canvas, Observable {
 		if (!isSimulationStarted()) {
 			this.simulationStarted = true;
 			notifyObservers();
-
-			while (isSimulationStarted()) {
-				behave();
-				
-				try {
-					Thread.sleep(100);
-				}
-				catch (final InterruptedException ex) {
-					System.err.println("Simulation was abruptely interrupted");
-				}
-			}
+			
+//			while (isSimulationStarted()) {
+//				behave();
+//				
+//				try {
+//					Thread.sleep(100);
+//				}
+//				catch (final InterruptedException ex) {
+//					System.err.println("Simulation was abruptely interrupted");
+//				}
+//			}
+			behave();
+//			for(Component component: components) {
+//				Thread componentThread = new Thread(component);
+//				componentThread.start();
+//			}
 		}
 	}
 
@@ -127,10 +135,13 @@ public class Factory extends Component implements Canvas, Observable {
 	@Override
 	public boolean behave() {
 		boolean behaved = true;
+		int i = 0;
 		
 		for (final Component component : getComponents()) {
-			behaved = component.behave() || behaved;
+			Thread componentThread = new Thread(component);
+			componentThread.start();
 		}
+		
 		
 		return behaved;
 	}
@@ -183,5 +194,16 @@ public class Factory extends Component implements Canvas, Observable {
 		}
 		
 		return null;
+	}
+	
+	public synchronized int moveComponent(final Motion motion, final Component componentToMove) {
+		for (final Component component : getComponents()) {
+			if(!component.equals(componentToMove)) {
+				if(component.getPosition() == motion.getTargetPosition())
+					return 0;
+				
+			}
+		}
+		return motion.moveToTarget();
 	}
 }
