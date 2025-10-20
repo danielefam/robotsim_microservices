@@ -1,4 +1,4 @@
-package fr.tp.inf112.projects.robotsim.model.serverutils;
+package fr.tp.inf112.projects.robotsim.serverutils;
 
 import java.io.IOException;
 import java.io.InputStream;
