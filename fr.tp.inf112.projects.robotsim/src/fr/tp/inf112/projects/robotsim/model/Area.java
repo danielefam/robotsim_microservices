@@ -12,6 +12,9 @@ public class Area extends Component {
 	
 	private Machine machine;
 	
+	public Area(){	
+	}
+
 	public Area(final Room room,
 				final RectangularShape shape,
 				final String name) {

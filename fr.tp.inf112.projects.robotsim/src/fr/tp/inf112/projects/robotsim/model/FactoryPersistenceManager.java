@@ -16,7 +16,10 @@ import fr.tp.inf112.projects.canvas.model.CanvasChooser;
 import fr.tp.inf112.projects.canvas.model.impl.AbstractCanvasPersistenceManager;
 
 public class FactoryPersistenceManager extends AbstractCanvasPersistenceManager {
-	
+	public FactoryPersistenceManager(){
+		this(null);
+	}
+
 	public FactoryPersistenceManager(final CanvasChooser canvasChooser) {
 		super(canvasChooser);
 	}

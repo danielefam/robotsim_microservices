@@ -7,6 +7,8 @@ public class Machine extends Component {
 
 	private static final long serialVersionUID = -1568908860712776436L;
 
+	public Machine(){}
+
 	public Machine(final Area area,
 				   final RectangularShape shape,
 				   final String name) {

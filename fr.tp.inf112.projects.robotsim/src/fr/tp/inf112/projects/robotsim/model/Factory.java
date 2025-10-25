@@ -27,6 +27,10 @@ public class Factory extends Component implements Canvas, Observable {
 	private transient List<Observer> observers;
 
 	private transient boolean simulationStarted;
+
+	public Factory(){
+		this(0,0,null);
+	}
 	
 	public Factory(final int width,
 				   final int height,

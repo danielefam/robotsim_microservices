@@ -75,6 +75,10 @@ public class Door extends Component {
 	
 	private static final Style OPEN_STYLE = new ComponentStyle(RGBColor.WHITE, null, 0, null);
 	
+	public Door(){
+		this(null, null, 0, 0, false, null);
+	}
+
 	public Door(final Room room,
 				final Room.WALL wall,
 				final int offset,

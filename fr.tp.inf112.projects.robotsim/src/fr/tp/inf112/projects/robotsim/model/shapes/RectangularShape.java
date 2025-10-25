@@ -10,6 +10,10 @@ public class RectangularShape extends PositionedShape implements RectangleShape 
 
 	private final int heigth;
 
+	public RectangularShape(){
+		this(0,0,0,0);
+	}
+
 	public RectangularShape(final int xCoordinate,
 							final int yCoordinate,
 							final int width,

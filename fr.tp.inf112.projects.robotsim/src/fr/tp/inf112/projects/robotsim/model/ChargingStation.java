@@ -9,6 +9,8 @@ public class ChargingStation extends Component {
 	
 	private boolean charging;
 
+	public ChargingStation(){}
+
 	public ChargingStation(final Room room,
 						   final RectangularShape shape,
 						   final String name) {

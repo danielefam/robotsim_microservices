@@ -22,6 +22,11 @@ public abstract class Component implements Figure, Serializable, Runnable {
 	
 	private static final Logger LOGGER = Logger.getLogger(Component.class.getName());
 
+
+	protected Component(){
+		this(null, null, null);
+	}
+
 	protected Component(final Factory factory,
 						final PositionedShape shape,
 						final String name) {

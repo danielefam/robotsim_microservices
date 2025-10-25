@@ -23,6 +23,9 @@ public class CustomDijkstraFactoryPathFinder extends AbstractFactoryPathFinder<G
 	 */
 	private static final long serialVersionUID = 6996131946200605552L;
 
+	public CustomDijkstraFactoryPathFinder(){
+	}
+
 	public CustomDijkstraFactoryPathFinder(final Factory factoryModel,
 									 	   final int resolution) {
 		super(factoryModel, resolution);

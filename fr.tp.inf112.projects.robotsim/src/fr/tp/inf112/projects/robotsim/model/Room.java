@@ -26,6 +26,10 @@ public class Room extends Component {
 
 	private final List<Door> doors;
 
+	public Room(){
+		this(null, null, null);
+	}
+
 	public Room(final Factory factory,
 				final RectangularShape shape,
 				final String name) {

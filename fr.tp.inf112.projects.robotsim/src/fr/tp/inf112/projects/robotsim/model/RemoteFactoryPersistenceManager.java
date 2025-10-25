@@ -23,6 +23,10 @@ import fr.tp.inf112.projects.canvas.model.impl.AbstractCanvasPersistenceManager;
 public class RemoteFactoryPersistenceManager extends AbstractCanvasPersistenceManager {	
 	
 	Socket socket;	
+
+	public RemoteFactoryPersistenceManager(){
+		this(null);
+	}
 	
 	public RemoteFactoryPersistenceManager(final CanvasChooser canvasChooser) {
 		super(canvasChooser);

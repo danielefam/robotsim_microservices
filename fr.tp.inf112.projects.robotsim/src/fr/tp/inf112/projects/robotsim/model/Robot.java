@@ -37,7 +37,9 @@ public class Robot extends Component {
 	private Position memorizedTargetPosition;
 	
 	private FactoryPathFinder pathFinder;
-
+	public Robot(){
+		this(null, null, null, null, null);
+	}
 	public Robot(final Factory factory,
 				 final FactoryPathFinder pathFinder,
 				 final CircularShape shape,
