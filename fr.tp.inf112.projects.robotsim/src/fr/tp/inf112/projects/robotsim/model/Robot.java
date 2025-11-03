@@ -222,14 +222,14 @@ public class Robot extends Component {
 			return tryIfFreePosition;
 		}
 		
-		//below
+		//left
 		tryIfFreePosition.setxCoordinate(xCoordinate-1);
 		tryIfFreePosition.setyCoordinate(yCoordinate-1);
 		if(!(getFactory().getMobileComponentAt(tryIfFreePosition, this) instanceof Robot)) {
 			return tryIfFreePosition;
 		}
 		
-		//left
+		//below
 		tryIfFreePosition.setyCoordinate(yCoordinate-1);
 		tryIfFreePosition.setxCoordinate(xCoordinate+1);
 		if(!(getFactory().getMobileComponentAt(tryIfFreePosition, this) instanceof Robot)) {
@@ -239,7 +239,7 @@ public class Robot extends Component {
 		
 		//right
 		tryIfFreePosition.setyCoordinate(yCoordinate+1);
-		tryIfFreePosition.setxCoordinate(xCoordinate-1);
+		tryIfFreePosition.setxCoordinate(xCoordinate+1);
 		if(!(getFactory().getMobileComponentAt(tryIfFreePosition, this) instanceof Robot)) {
 			return tryIfFreePosition;
 		}
