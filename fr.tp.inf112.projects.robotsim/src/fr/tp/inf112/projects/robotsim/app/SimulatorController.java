@@ -1,5 +1,9 @@
 package fr.tp.inf112.projects.robotsim.app;
 
+import java.util.logging.Logger;
+
+import com.sun.tools.javac.Main;
+
 import fr.tp.inf112.projects.canvas.controller.CanvasViewerController;
 import fr.tp.inf112.projects.canvas.controller.Observer;
 import fr.tp.inf112.projects.canvas.model.Canvas;
@@ -9,7 +13,7 @@ import fr.tp.inf112.projects.robotsim.model.Factory;
 public class SimulatorController implements CanvasViewerController {
 	
 	private Factory factoryModel;
-	
+	private static final Logger LOGGER = Logger.getLogger(SimulatorController.class.getName()); 
 	private final CanvasPersistenceManager persistenceManager;
 	
 	public SimulatorController(final CanvasPersistenceManager persistenceManager) {
@@ -68,6 +72,7 @@ public class SimulatorController implements CanvasViewerController {
 	@Override
 	public void startAnimation() {
 		factoryModel.startSimulation();
+		LOGGER.info(factoryModel.getId());
 	}
 
 	/**

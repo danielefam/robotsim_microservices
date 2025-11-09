@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2025-11-07T22:13:37.773729600Z</date>
+  <millis>1762553617773</millis>
+  <nanos>729600</nanos>
+  <sequence>0</sequence>
+  <logger>org.apache.coyote.http11.Http11NioProtocol</logger>
+  <level>INFO</level>
+  <class>org.apache.coyote.AbstractProtocol</class>
+  <method>init</method>
+  <thread>1</thread>
+  <message>Initializing ProtocolHandler ["http-nio-90"]</message>
+</record>
+<record>
+  <date>2025-11-07T22:13:37.775723100Z</date>
+  <millis>1762553617775</millis>
+  <nanos>723100</nanos>
+  <sequence>1</sequence>
+  <logger>org.apache.catalina.core.StandardService</logger>
+  <level>INFO</level>
+  <class>org.apache.catalina.core.StandardService</class>
+  <method>startInternal</method>
+  <thread>1</thread>
+  <message>Starting service [Tomcat]</message>
+</record>
+<record>
+  <date>2025-11-07T22:13:37.776723200Z</date>
+  <millis>1762553617776</millis>
+  <nanos>723200</nanos>
+  <sequence>2</sequence>
+  <logger>org.apache.catalina.core.StandardEngine</logger>
+  <level>INFO</level>
+  <class>org.apache.catalina.core.StandardEngine</class>
+  <method>startInternal</method>
+  <thread>1</thread>
+  <message>Starting Servlet engine: [Apache Tomcat/10.1.46]</message>
+</record>
+<record>
+  <date>2025-11-07T22:13:37.809360400Z</date>
+  <millis>1762553617809</millis>
+  <nanos>360400</nanos>
+  <sequence>3</sequence>
+  <logger>org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]</logger>
+  <level>INFO</level>
+  <class>org.apache.catalina.core.ApplicationContext</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Initializing Spring embedded WebApplicationContext</message>
+</record>
+<record>
+  <date>2025-11-07T22:13:38.038747700Z</date>
+  <millis>1762553618038</millis>
+  <nanos>747700</nanos>
+  <sequence>4</sequence>
+  <logger>org.apache.coyote.http11.Http11NioProtocol</logger>
+  <level>INFO</level>
+  <class>org.apache.coyote.AbstractProtocol</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>Starting ProtocolHandler ["http-nio-90"]</message>
+</record>
+<record>
+  <date>2025-11-07T22:13:41.841471800Z</date>
+  <millis>1762553621841</millis>
+  <nanos>471800</nanos>
+  <sequence>5</sequence>
+  <logger>org.apache.coyote.http11.Http11Processor</logger>
+  <level>INFO</level>
+  <class>org.apache.coyote.http11.Http11Processor</class>
+  <method>service</method>
+  <thread>46</thread>
+  <message>Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.</message>
+  <exception>
+    <message>java.lang.IllegalArgumentException: Invalid character found in the request target [/startAnimation?canvasId=%22C:\Users\danie\Documents\prova%22 ]. The valid characters are defined in RFC 7230 and RFC 3986</message>
+    <frame>
+      <class>org.apache.coyote.http11.Http11InputBuffer</class>
+      <method>parseRequestLine</method>
+      <line>478</line>
+    </frame>
+    <frame>
+      <class>org.apache.coyote.http11.Http11Processor</class>
+      <method>service</method>
+      <line>271</line>
+    </frame>
+    <frame>
+      <class>org.apache.coyote.AbstractProcessorLight</class>
+      <method>process</method>
+      <line>63</line>
+    </frame>
+    <frame>
+      <class>org.apache.coyote.AbstractProtocol$ConnectionHandler</class>
+      <method>process</method>
+      <line>903</line>
+    </frame>
+    <frame>
+      <class>org.apache.tomcat.util.net.NioEndpoint$SocketProcessor</class>
+      <method>doRun</method>
+      <line>1776</line>
+    </frame>
+    <frame>
+      <class>org.apache.tomcat.util.net.SocketProcessorBase</class>
+      <method>run</method>
+      <line>52</line>
+    </frame>
+    <frame>
+      <class>org.apache.tomcat.util.threads.ThreadPoolExecutor</class>
+      <method>runWorker</method>
+      <line>975</line>
+    </frame>
+    <frame>
+      <class>org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker</class>
+      <method>run</method>
+      <line>493</line>
+    </frame>
+    <frame>
+      <class>org.apache.tomcat.util.threads.TaskThread$WrappingRunnable</class>
+      <method>run</method>
+      <line>63</line>
+    </frame>
+    <frame>
+      <class>java.lang.Thread</class>
+      <method>run</method>
+      <line>1583</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2025-11-07T22:15:33.431598900Z</date>
+  <millis>1762553733431</millis>
+  <nanos>598900</nanos>
+  <sequence>6</sequence>
+  <logger>org.apache.coyote.http11.Http11NioProtocol</logger>
+  <level>INFO</level>
+  <class>org.apache.coyote.AbstractProtocol</class>
+  <method>pause</method>
+  <thread>61</thread>
+  <message>Pausing ProtocolHandler ["http-nio-90"]</message>
+</record>
+<record>
+  <date>2025-11-07T22:15:33.438738200Z</date>
+  <millis>1762553733438</millis>
+  <nanos>738200</nanos>
+  <sequence>7</sequence>
+  <logger>org.apache.coyote.http11.Http11NioProtocol</logger>
+  <level>INFO</level>
+  <class>org.apache.coyote.AbstractProtocol</class>
+  <method>stop</method>
+  <thread>59</thread>
+  <message>Stopping ProtocolHandler ["http-nio-90"]</message>
+</record>
+<record>
+  <date>2025-11-07T22:15:33.441238Z</date>
+  <millis>1762553733441</millis>
+  <nanos>238000</nanos>
+  <sequence>8</sequence>
+  <logger>org.apache.catalina.core.StandardService</logger>
+  <level>INFO</level>
+  <class>org.apache.catalina.core.StandardService</class>
+  <method>stopInternal</method>
+  <thread>59</thread>
+  <message>Stopping service [Tomcat]</message>
+</record>
+</log>

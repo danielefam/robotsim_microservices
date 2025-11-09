@@ -19,17 +19,21 @@ import java.net.UnknownHostException;
 import fr.tp.inf112.projects.canvas.model.Canvas;
 import fr.tp.inf112.projects.canvas.model.CanvasChooser;
 import fr.tp.inf112.projects.canvas.model.impl.AbstractCanvasPersistenceManager;
+import fr.tp.inf112.projects.canvas.view.FileCanvasChooser;
 
 public class RemoteFactoryPersistenceManager extends AbstractCanvasPersistenceManager {	
 	
 	Socket socket;	
+	int port;
 
 	public RemoteFactoryPersistenceManager(){
-		this(null);
+		super(null);
+		port = 8081;
 	}
 	
-	public RemoteFactoryPersistenceManager(final CanvasChooser canvasChooser) {
+	public RemoteFactoryPersistenceManager(final CanvasChooser canvasChooser, int port) {
 		super(canvasChooser);
+		this.port = port;
 	}
 
 	/**
@@ -38,7 +42,7 @@ public class RemoteFactoryPersistenceManager extends AbstractCanvasPersistenceMa
 	@Override
 	public Canvas read(final String canvasId) throws IOException {
 		try (
-				Socket socket = new Socket("localhost", 80);
+				Socket socket = new Socket("localhost", port);
 				OutputStream outStr = socket.getOutputStream();
 	        	ObjectOutputStream outObjectStream = new ObjectOutputStream(outStr);
 				
@@ -63,7 +67,7 @@ public class RemoteFactoryPersistenceManager extends AbstractCanvasPersistenceMa
 	public void persist(Canvas canvasModel) throws IOException {
 		
 		try (
-				Socket socket = new Socket("localhost", 80);
+				Socket socket = new Socket("localhost", port);
 				OutputStream outStr = socket.getOutputStream();
 	        	ObjectOutputStream outObjectStream = new ObjectOutputStream(outStr);
 		){

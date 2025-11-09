@@ -2,3 +2,4 @@
 simulation/
 fr.tp.slr201.projects.robotsim.service.simulation/src/main/resources/application.properties
 .vscode/settings.json
+fr.tp.inf112.projects.robotsim/canvas/

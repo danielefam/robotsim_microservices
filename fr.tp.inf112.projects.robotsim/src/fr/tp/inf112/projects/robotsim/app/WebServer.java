@@ -5,9 +5,10 @@ import java.net.Socket;
 import fr.tp.inf112.projects.robotsim.serverutils.RequestProcessor;
 
 public class WebServer {
+	static int port = 8081;
     public static void main(String[] args) throws Exception {
         try (
-            ServerSocket serverSocket = new ServerSocket(80); 
+            ServerSocket serverSocket = new ServerSocket(port); 
         ){
             do{
                 try {

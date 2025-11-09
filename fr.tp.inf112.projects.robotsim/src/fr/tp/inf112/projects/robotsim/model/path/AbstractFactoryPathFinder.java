@@ -77,7 +77,7 @@ public abstract class AbstractFactoryPathFinder<Graph, Vertex> implements Factor
 				}
 			}
 			
-			LOGGER.info(graph.toString());
+			// LOGGER.info(graph.toString());
 		}
 	}
 	
