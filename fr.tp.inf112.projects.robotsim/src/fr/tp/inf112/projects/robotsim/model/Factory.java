@@ -97,6 +97,7 @@ public class Factory extends Component implements Canvas, Observable {
 		return components;
 	}
 
+	@JsonIgnore
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public Collection<Figure> getFigures() {
@@ -148,6 +149,7 @@ public class Factory extends Component implements Canvas, Observable {
 		return DEFAULT;
 	}
 	
+	@JsonIgnore
 	public boolean hasObstacleAt(final PositionedShape shape) {
 		for (final Component component : getComponents()) {
 			if (component.overlays(shape) && !component.canBeOverlayed(shape)) {
@@ -158,6 +160,7 @@ public class Factory extends Component implements Canvas, Observable {
 		return false;
 	}
 	
+	@JsonIgnore
 	public boolean hasMobileComponentAt(final PositionedShape shape,
 										final Component movingComponent) {
 		for (final Component component : getComponents()) {

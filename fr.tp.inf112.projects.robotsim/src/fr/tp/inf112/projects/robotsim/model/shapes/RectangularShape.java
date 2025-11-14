@@ -11,7 +11,10 @@ public class RectangularShape extends PositionedShape implements RectangleShape 
 	private final int heigth;
 
 	public RectangularShape(){
-		this(0,0,0,0);
+		super(0, 0);
+		
+		this.width = 0;
+		this.heigth = 0;
 	}
 
 	public RectangularShape(final int xCoordinate,
@@ -24,12 +27,10 @@ public class RectangularShape extends PositionedShape implements RectangleShape 
 		this.heigth = heigth;
 	}
 
-	@Override
 	public int getWidth() {
 		return width;
 	}
 
-	@Override
 	public int getHeight() {
 		return heigth;
 	}
