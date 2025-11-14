@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2025-11-14T19:42:41.123954300Z</date>
+  <millis>1763149361123</millis>
+  <nanos>954300</nanos>
+  <sequence>0</sequence>
+  <logger>org.apache.coyote.http11.Http11NioProtocol</logger>
+  <level>INFO</level>
+  <class>org.apache.coyote.AbstractProtocol</class>
+  <method>init</method>
+  <thread>1</thread>
+  <message>Initializing ProtocolHandler ["http-nio-90"]</message>
+</record>
+<record>
+  <date>2025-11-14T19:42:41.127956900Z</date>
+  <millis>1763149361127</millis>
+  <nanos>956900</nanos>
+  <sequence>1</sequence>
+  <logger>org.apache.catalina.core.StandardService</logger>
+  <level>INFO</level>
+  <class>org.apache.catalina.core.StandardService</class>
+  <method>startInternal</method>
+  <thread>1</thread>
+  <message>Starting service [Tomcat]</message>
+</record>
+<record>
+  <date>2025-11-14T19:42:41.155891500Z</date>
+  <millis>1763149361155</millis>
+  <nanos>891500</nanos>
+  <sequence>2</sequence>
+  <logger>org.apache.catalina.core.StandardEngine</logger>
+  <level>INFO</level>
+  <class>org.apache.catalina.core.StandardEngine</class>
+  <method>startInternal</method>
+  <thread>1</thread>
+  <message>Starting Servlet engine: [Apache Tomcat/10.1.46]</message>
+</record>
+<record>
+  <date>2025-11-14T19:42:41.216389Z</date>
+  <millis>1763149361216</millis>
+  <nanos>389000</nanos>
+  <sequence>3</sequence>
+  <logger>org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]</logger>
+  <level>INFO</level>
+  <class>org.apache.catalina.core.ApplicationContext</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Initializing Spring embedded WebApplicationContext</message>
+</record>
+<record>
+  <date>2025-11-14T19:42:41.604769Z</date>
+  <millis>1763149361604</millis>
+  <nanos>769000</nanos>
+  <sequence>4</sequence>
+  <logger>org.apache.coyote.http11.Http11NioProtocol</logger>
+  <level>INFO</level>
+  <class>org.apache.coyote.AbstractProtocol</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>Starting ProtocolHandler ["http-nio-90"]</message>
+</record>
+<record>
+  <date>2025-11-14T19:42:41.613165Z</date>
+  <millis>1763149361613</millis>
+  <nanos>165000</nanos>
+  <sequence>5</sequence>
+  <logger>org.apache.catalina.core.StandardService</logger>
+  <level>INFO</level>
+  <class>org.apache.catalina.core.StandardService</class>
+  <method>stopInternal</method>
+  <thread>1</thread>
+  <message>Stopping service [Tomcat]</message>
+</record>
+</log>

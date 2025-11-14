@@ -2,9 +2,9 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2025-11-07T22:13:37.773729600Z</date>
-  <millis>1762553617773</millis>
-  <nanos>729600</nanos>
+  <date>2025-11-14T20:35:29.554691600Z</date>
+  <millis>1763152529554</millis>
+  <nanos>691600</nanos>
   <sequence>0</sequence>
   <logger>org.apache.coyote.http11.Http11NioProtocol</logger>
   <level>INFO</level>
@@ -14,9 +14,9 @@
   <message>Initializing ProtocolHandler ["http-nio-90"]</message>
 </record>
 <record>
-  <date>2025-11-07T22:13:37.775723100Z</date>
-  <millis>1762553617775</millis>
-  <nanos>723100</nanos>
+  <date>2025-11-14T20:35:29.558897900Z</date>
+  <millis>1763152529558</millis>
+  <nanos>897900</nanos>
   <sequence>1</sequence>
   <logger>org.apache.catalina.core.StandardService</logger>
   <level>INFO</level>
@@ -26,9 +26,9 @@
   <message>Starting service [Tomcat]</message>
 </record>
 <record>
-  <date>2025-11-07T22:13:37.776723200Z</date>
-  <millis>1762553617776</millis>
-  <nanos>723200</nanos>
+  <date>2025-11-14T20:35:29.559897700Z</date>
+  <millis>1763152529559</millis>
+  <nanos>897700</nanos>
   <sequence>2</sequence>
   <logger>org.apache.catalina.core.StandardEngine</logger>
   <level>INFO</level>
@@ -38,9 +38,9 @@
   <message>Starting Servlet engine: [Apache Tomcat/10.1.46]</message>
 </record>
 <record>
-  <date>2025-11-07T22:13:37.809360400Z</date>
-  <millis>1762553617809</millis>
-  <nanos>360400</nanos>
+  <date>2025-11-14T20:35:29.617468600Z</date>
+  <millis>1763152529617</millis>
+  <nanos>468600</nanos>
   <sequence>3</sequence>
   <logger>org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]</logger>
   <level>INFO</level>
@@ -50,9 +50,9 @@
   <message>Initializing Spring embedded WebApplicationContext</message>
 </record>
 <record>
-  <date>2025-11-07T22:13:38.038747700Z</date>
-  <millis>1762553618038</millis>
-  <nanos>747700</nanos>
+  <date>2025-11-14T20:35:29.995422800Z</date>
+  <millis>1763152529995</millis>
+  <nanos>422800</nanos>
   <sequence>4</sequence>
   <logger>org.apache.coyote.http11.Http11NioProtocol</logger>
   <level>INFO</level>
@@ -62,105 +62,195 @@
   <message>Starting ProtocolHandler ["http-nio-90"]</message>
 </record>
 <record>
-  <date>2025-11-07T22:13:41.841471800Z</date>
-  <millis>1762553621841</millis>
-  <nanos>471800</nanos>
+  <date>2025-11-14T20:35:36.295418100Z</date>
+  <millis>1763152536295</millis>
+  <nanos>418100</nanos>
   <sequence>5</sequence>
-  <logger>org.apache.coyote.http11.Http11Processor</logger>
+  <logger>org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]</logger>
   <level>INFO</level>
-  <class>org.apache.coyote.http11.Http11Processor</class>
-  <method>service</method>
+  <class>org.apache.catalina.core.ApplicationContext</class>
+  <method>log</method>
   <thread>46</thread>
-  <message>Error parsing HTTP request header
- Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.</message>
-  <exception>
-    <message>java.lang.IllegalArgumentException: Invalid character found in the request target [/startAnimation?canvasId=%22C:\Users\danie\Documents\prova%22 ]. The valid characters are defined in RFC 7230 and RFC 3986</message>
-    <frame>
-      <class>org.apache.coyote.http11.Http11InputBuffer</class>
-      <method>parseRequestLine</method>
-      <line>478</line>
-    </frame>
-    <frame>
-      <class>org.apache.coyote.http11.Http11Processor</class>
-      <method>service</method>
-      <line>271</line>
-    </frame>
-    <frame>
-      <class>org.apache.coyote.AbstractProcessorLight</class>
-      <method>process</method>
-      <line>63</line>
-    </frame>
-    <frame>
-      <class>org.apache.coyote.AbstractProtocol$ConnectionHandler</class>
-      <method>process</method>
-      <line>903</line>
-    </frame>
-    <frame>
-      <class>org.apache.tomcat.util.net.NioEndpoint$SocketProcessor</class>
-      <method>doRun</method>
-      <line>1776</line>
-    </frame>
-    <frame>
-      <class>org.apache.tomcat.util.net.SocketProcessorBase</class>
-      <method>run</method>
-      <line>52</line>
-    </frame>
-    <frame>
-      <class>org.apache.tomcat.util.threads.ThreadPoolExecutor</class>
-      <method>runWorker</method>
-      <line>975</line>
-    </frame>
-    <frame>
-      <class>org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker</class>
-      <method>run</method>
-      <line>493</line>
-    </frame>
-    <frame>
-      <class>org.apache.tomcat.util.threads.TaskThread$WrappingRunnable</class>
-      <method>run</method>
-      <line>63</line>
-    </frame>
-    <frame>
-      <class>java.lang.Thread</class>
-      <method>run</method>
-      <line>1583</line>
-    </frame>
-  </exception>
+  <message>Initializing Spring DispatcherServlet 'dispatcherServlet'</message>
 </record>
 <record>
-  <date>2025-11-07T22:15:33.431598900Z</date>
-  <millis>1762553733431</millis>
-  <nanos>598900</nanos>
+  <date>2025-11-14T20:35:36.355621800Z</date>
+  <millis>1763152536355</millis>
+  <nanos>621800</nanos>
   <sequence>6</sequence>
+  <logger>fr.tp.server.ApplicationController</logger>
+  <level>INFO</level>
+  <class>fr.tp.server.ApplicationController</class>
+  <method>startAnimation</method>
+  <thread>46</thread>
+  <message>start animation called</message>
+</record>
+<record>
+  <date>2025-11-14T20:35:36.356911400Z</date>
+  <millis>1763152536356</millis>
+  <nanos>911400</nanos>
+  <sequence>7</sequence>
+  <logger>fr.tp.server.ApplicationController</logger>
+  <level>INFO</level>
+  <class>fr.tp.server.ApplicationController</class>
+  <method>startAnimation</method>
+  <thread>46</thread>
+  <message>reading factory...</message>
+</record>
+<record>
+  <date>2025-11-14T20:35:36.556820900Z</date>
+  <millis>1763152536556</millis>
+  <nanos>820900</nanos>
+  <sequence>8</sequence>
+  <logger>fr.tp.server.ApplicationController</logger>
+  <level>INFO</level>
+  <class>fr.tp.server.ApplicationController</class>
+  <method>startAnimation</method>
+  <thread>46</thread>
+  <message>Model not found</message>
+</record>
+<record>
+  <date>2025-11-14T20:35:52.730963300Z</date>
+  <millis>1763152552730</millis>
+  <nanos>963300</nanos>
+  <sequence>9</sequence>
+  <logger>fr.tp.server.ApplicationController</logger>
+  <level>INFO</level>
+  <class>fr.tp.server.ApplicationController</class>
+  <method>startAnimation</method>
+  <thread>47</thread>
+  <message>start animation called</message>
+</record>
+<record>
+  <date>2025-11-14T20:35:52.731982900Z</date>
+  <millis>1763152552731</millis>
+  <nanos>982900</nanos>
+  <sequence>10</sequence>
+  <logger>fr.tp.server.ApplicationController</logger>
+  <level>INFO</level>
+  <class>fr.tp.server.ApplicationController</class>
+  <method>startAnimation</method>
+  <thread>47</thread>
+  <message>reading factory...</message>
+</record>
+<record>
+  <date>2025-11-14T20:35:52.745364500Z</date>
+  <millis>1763152552745</millis>
+  <nanos>364500</nanos>
+  <sequence>11</sequence>
+  <logger>fr.tp.server.ApplicationController</logger>
+  <level>INFO</level>
+  <class>fr.tp.server.ApplicationController</class>
+  <method>startAnimation</method>
+  <thread>47</thread>
+  <message>Model not found</message>
+</record>
+<record>
+  <date>2025-11-14T20:37:48.702625300Z</date>
+  <millis>1763152668702</millis>
+  <nanos>625300</nanos>
+  <sequence>12</sequence>
+  <logger>fr.tp.server.ApplicationController</logger>
+  <level>INFO</level>
+  <class>fr.tp.server.ApplicationController</class>
+  <method>startAnimation</method>
+  <thread>50</thread>
+  <message>start animation called</message>
+</record>
+<record>
+  <date>2025-11-14T20:37:48.703626Z</date>
+  <millis>1763152668703</millis>
+  <nanos>626000</nanos>
+  <sequence>13</sequence>
+  <logger>fr.tp.server.ApplicationController</logger>
+  <level>INFO</level>
+  <class>fr.tp.server.ApplicationController</class>
+  <method>startAnimation</method>
+  <thread>50</thread>
+  <message>reading factory...</message>
+</record>
+<record>
+  <date>2025-11-14T20:37:49.258985200Z</date>
+  <millis>1763152669258</millis>
+  <nanos>985200</nanos>
+  <sequence>14</sequence>
+  <logger>fr.tp.server.ApplicationController</logger>
+  <level>INFO</level>
+  <class>fr.tp.server.ApplicationController</class>
+  <method>startAnimation</method>
+  <thread>50</thread>
+  <message>factory read</message>
+</record>
+<record>
+  <date>2025-11-14T20:37:49.261459800Z</date>
+  <millis>1763152669261</millis>
+  <nanos>459800</nanos>
+  <sequence>15</sequence>
+  <logger>fr.tp.server.ApplicationController</logger>
+  <level>INFO</level>
+  <class>fr.tp.server.ApplicationController</class>
+  <method>startAnimation</method>
+  <thread>50</thread>
+  <message>Model id: test3.factory started its simulation</message>
+</record>
+<record>
+  <date>2025-11-14T20:37:56.212048300Z</date>
+  <millis>1763152676212</millis>
+  <nanos>48300</nanos>
+  <sequence>16</sequence>
+  <logger>fr.tp.server.ApplicationController</logger>
+  <level>INFO</level>
+  <class>fr.tp.server.ApplicationController</class>
+  <method>stopAnimation</method>
+  <thread>51</thread>
+  <message>Model id: test3.factory stopped its simulation</message>
+</record>
+<record>
+  <date>2025-11-14T20:38:02.494491700Z</date>
+  <millis>1763152682494</millis>
+  <nanos>491700</nanos>
+  <sequence>17</sequence>
   <logger>org.apache.coyote.http11.Http11NioProtocol</logger>
   <level>INFO</level>
   <class>org.apache.coyote.AbstractProtocol</class>
   <method>pause</method>
-  <thread>61</thread>
+  <thread>76</thread>
   <message>Pausing ProtocolHandler ["http-nio-90"]</message>
 </record>
 <record>
-  <date>2025-11-07T22:15:33.438738200Z</date>
-  <millis>1762553733438</millis>
-  <nanos>738200</nanos>
-  <sequence>7</sequence>
+  <date>2025-11-14T20:38:02.506115400Z</date>
+  <millis>1763152682506</millis>
+  <nanos>115400</nanos>
+  <sequence>18</sequence>
   <logger>org.apache.coyote.http11.Http11NioProtocol</logger>
   <level>INFO</level>
   <class>org.apache.coyote.AbstractProtocol</class>
   <method>stop</method>
-  <thread>59</thread>
+  <thread>74</thread>
   <message>Stopping ProtocolHandler ["http-nio-90"]</message>
 </record>
 <record>
-  <date>2025-11-07T22:15:33.441238Z</date>
-  <millis>1762553733441</millis>
-  <nanos>238000</nanos>
-  <sequence>8</sequence>
+  <date>2025-11-14T20:38:02.511982700Z</date>
+  <millis>1763152682511</millis>
+  <nanos>982700</nanos>
+  <sequence>19</sequence>
   <logger>org.apache.catalina.core.StandardService</logger>
   <level>INFO</level>
   <class>org.apache.catalina.core.StandardService</class>
   <method>stopInternal</method>
-  <thread>59</thread>
+  <thread>74</thread>
   <message>Stopping service [Tomcat]</message>
+</record>
+<record>
+  <date>2025-11-14T20:38:02.513027200Z</date>
+  <millis>1763152682513</millis>
+  <nanos>27200</nanos>
+  <sequence>20</sequence>
+  <logger>org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]</logger>
+  <level>INFO</level>
+  <class>org.apache.catalina.core.ApplicationContext</class>
+  <method>log</method>
+  <thread>74</thread>
+  <message>Destroying Spring FrameworkServlet 'dispatcherServlet'</message>
 </record>
 </log>

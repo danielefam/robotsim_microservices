@@ -10,12 +10,14 @@ import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
+import java.util.logging.Logger;
 
 import fr.tp.inf112.projects.canvas.model.Canvas;
 import fr.tp.inf112.projects.canvas.model.CanvasChooser;
 import fr.tp.inf112.projects.canvas.model.impl.AbstractCanvasPersistenceManager;
 
 public class FactoryPersistenceManager extends AbstractCanvasPersistenceManager {
+	private static final Logger LOGGER = Logger.getLogger(FactoryPersistenceManager.class.getName());
 	public FactoryPersistenceManager(){
 		this(null);
 	}
@@ -30,11 +32,17 @@ public class FactoryPersistenceManager extends AbstractCanvasPersistenceManager 
 	@Override
 	public Canvas read(final String canvasId)
 	throws IOException {
+		String currentDir = System.getProperty("user.dir");
+        System.out.println("Working directory: " + currentDir);
+		LOGGER.info("path work: " + currentDir);
+		LOGGER.info("path read: " + currentDir+"\\canvas\\"+canvasId);
+		// the canvas are saved inside the directory canvas inside the project containing the model and the web server
 		try (
-			final InputStream fileInputStream = new FileInputStream(canvasId);
+			final InputStream fileInputStream = new FileInputStream(currentDir+"\\canvas\\"+canvasId);
 			final InputStream bufInputStream = new BufferedInputStream(fileInputStream);
 			final ObjectInputStream objectInputStrteam = new ObjectInputStream(bufInputStream);
 		) {
+			
 			return (Canvas) objectInputStrteam.readObject();
 		}
 		catch (ClassNotFoundException | IOException ex) {

@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.logging.Logger;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.tools.javac.Main;
 
 import fr.tp.inf112.projects.robotsim.app.SimulatorApplication;
@@ -27,10 +28,11 @@ public abstract class AbstractFactoryPathFinder<Graph, Vertex> implements Factor
 	
 	private final int resolution;
 	
+	@JsonIgnore
 	private transient Graph graph;
 
 	public AbstractFactoryPathFinder(){
-		this(null, 0);
+		this(new Factory(200, 200, "Simple Test Puck Factory"), 5);
 	}
 
 	public AbstractFactoryPathFinder(final Factory factoryModel,
@@ -77,7 +79,7 @@ public abstract class AbstractFactoryPathFinder<Graph, Vertex> implements Factor
 				}
 			}
 			
-			// LOGGER.info(graph.toString());
+			LOGGER.fine(graph.toString());
 		}
 	}
 	
