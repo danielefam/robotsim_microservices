@@ -24,7 +24,18 @@ public class Area extends Component {
 		
 		machine = null;
 	}
+
 	
+	public Machine getMachine() {
+		if(machine == null){
+			final Factory factory = new Factory(200, 200, "Simple Test Puck Factory");
+			final Room room1 = new Room(factory, new RectangularShape(20, 20, 75, 75), "Production Room 1");
+			final Area area1 = new Area(room1, new RectangularShape(35, 35, 50, 50), "Production Area 1");
+			return new Machine(area1, new RectangularShape(50, 50, 15, 15), "Machine 1");
+		}
+		return machine;
+	}
+
 	protected void setMachine( final Machine machine ) {
 		this.machine = machine;
 	}

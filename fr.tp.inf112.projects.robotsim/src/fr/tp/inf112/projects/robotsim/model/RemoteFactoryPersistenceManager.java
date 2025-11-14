@@ -26,11 +26,6 @@ public class RemoteFactoryPersistenceManager extends AbstractCanvasPersistenceMa
 	
 	Socket socket;	
 	int port;
-
-	public RemoteFactoryPersistenceManager(){
-		super(null);
-		port = 8081;
-	}
 	
 	public RemoteFactoryPersistenceManager(final CanvasChooser canvasChooser, int port) {
 		super(canvasChooser);

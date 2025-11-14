@@ -3,8 +3,12 @@ package fr.tp.inf112.projects.robotsim.model;
 import java.io.Serializable;
 import java.util.logging.Logger;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import fr.tp.inf112.projects.canvas.model.Figure;
 import fr.tp.inf112.projects.canvas.model.Style;
+import fr.tp.inf112.projects.robotsim.model.shapes.CircularShape;
 import fr.tp.inf112.projects.robotsim.model.shapes.PositionedShape;
 import fr.tp.inf112.projects.canvas.model.Shape;
 
@@ -14,6 +18,7 @@ public abstract class Component implements Figure, Serializable, Runnable {
 
 	private String id;
 
+	@JsonBackReference
 	private final Factory factory;
 	
 	private final PositionedShape positionedShape;
@@ -24,7 +29,9 @@ public abstract class Component implements Figure, Serializable, Runnable {
 
 
 	protected Component(){
-		this(null, null, null);
+		
+		this(new Factory(200, 200, "Simple Test Puck Factory"), 
+		new CircularShape(5, 5, 2), "default Component");
 	}
 
 	protected Component(final Factory factory,
@@ -51,6 +58,7 @@ public abstract class Component implements Figure, Serializable, Runnable {
 		return positionedShape;
 	}
 	
+	@JsonIgnore
 	public Position getPosition() {
 		return getPositionedShape().getPosition();
 	}
@@ -59,6 +67,7 @@ public abstract class Component implements Figure, Serializable, Runnable {
 		return factory;
 	}
 
+	@JsonIgnore
 	@Override
 	public int getxCoordinate() {
 		return getPositionedShape().getxCoordinate();
@@ -74,6 +83,7 @@ public abstract class Component implements Figure, Serializable, Runnable {
 		return false;
 	}
 
+	@JsonIgnore
 	@Override
 	public int getyCoordinate() {
 		return getPositionedShape().getyCoordinate();
@@ -103,10 +113,12 @@ public abstract class Component implements Figure, Serializable, Runnable {
 				+ ", shape=" + getPositionedShape();
 	}
 
+	@JsonIgnore
 	public int getWidth() {
 		return getPositionedShape().getWidth();
 	}
 
+	@JsonIgnore
 	public int getHeight() {
 		return getPositionedShape().getHeight();
 	}
@@ -131,11 +143,13 @@ public abstract class Component implements Figure, Serializable, Runnable {
 		return false;
 	}
 	
+	@JsonIgnore
 	@Override
 	public Style getStyle() {
 		return ComponentStyle.DEFAULT;
 	}
 	
+	@JsonIgnore
 	@Override
 	public Shape getShape() {
 		return getPositionedShape();

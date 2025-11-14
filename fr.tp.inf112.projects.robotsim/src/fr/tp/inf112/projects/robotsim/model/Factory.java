@@ -6,6 +6,9 @@ import java.util.List;
 
 import org.jgrapht.alg.clustering.GirvanNewmanClustering;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import fr.tp.inf112.projects.canvas.controller.Observable;
 import fr.tp.inf112.projects.canvas.controller.Observer;
 import fr.tp.inf112.projects.canvas.model.Canvas;
@@ -21,15 +24,17 @@ public class Factory extends Component implements Canvas, Observable {
 	
 	private static final ComponentStyle DEFAULT = new ComponentStyle(5.0f);
 
-
+	@JsonManagedReference
     private final List<Component> components;
 
+	@JsonIgnore
 	private transient List<Observer> observers;
 
+	@JsonIgnore
 	private transient boolean simulationStarted;
 
 	public Factory(){
-		this(0,0,null);
+		this(200, 200, "default factory");
 	}
 	
 	public Factory(final int width,
@@ -41,7 +46,9 @@ public class Factory extends Component implements Canvas, Observable {
 		observers = null;
 		simulationStarted = false;
 	}
+
 	
+	@JsonIgnore
 	protected List<Observer> getObservers() {
 		if (observers == null) {
 			observers = new ArrayList<>();
@@ -162,6 +169,7 @@ public class Factory extends Component implements Canvas, Observable {
 		return false;
 	}
 	
+	@JsonIgnore
 	public Component getMobileComponentAt(	final Position position,
 											final Component ignoredComponent) {
 		if (position == null) {
@@ -171,6 +179,7 @@ public class Factory extends Component implements Canvas, Observable {
 		return getMobileComponentAt(new RectangularShape(position.getxCoordinate(), position.getyCoordinate(), 2, 2), ignoredComponent);
 	}
 	
+	@JsonIgnore
 	public Component getMobileComponentAt(	final PositionedShape shape,
 											final Component ignoredComponent) {
 		if (shape == null) {

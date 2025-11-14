@@ -11,7 +11,8 @@ public class Position implements Serializable {
 	private int yCoordinate;
 
 	public Position(){
-		
+		xCoordinate = -1;
+		yCoordinate = -1;
 	}
 
 	public Position(final int xCoordinate, 

@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import fr.tp.inf112.projects.canvas.model.Style;
 import fr.tp.inf112.projects.canvas.model.impl.RGBColor;
 import fr.tp.inf112.projects.robotsim.model.motion.Motion;
 import fr.tp.inf112.projects.robotsim.model.path.FactoryPathFinder;
+import fr.tp.inf112.projects.robotsim.model.path.JGraphTDijkstraFactoryPathFinder;
 import fr.tp.inf112.projects.robotsim.model.shapes.CircularShape;
 import fr.tp.inf112.projects.robotsim.model.shapes.PositionedShape;
 import fr.tp.inf112.projects.robotsim.model.shapes.RectangularShape;
@@ -26,19 +29,25 @@ public class Robot extends Component {
 	
 	private List<Component> targetComponents;
 	
+	@JsonIgnore
 	private transient Iterator<Component> targetComponentsIterator;
 	
 	private Component currTargetComponent;
 	
+	@JsonIgnore
 	private transient Iterator<Position> currentPathPositionsIter;
 	
+	@JsonIgnore
 	private transient boolean blocked;
 	
 	private Position memorizedTargetPosition;
 	
 	private FactoryPathFinder pathFinder;
 	public Robot(){
-		this(null, null, null, null, null);
+		this(new Factory(200, 200, "Simple Test Puck Factory"), 
+		new JGraphTDijkstraFactoryPathFinder(new Factory(200, 200, "Simple Test Puck Factory"), 5), 
+		new CircularShape(5, 5, 2), 
+		new Battery(10), "default Robot");
 	}
 	public Robot(final Factory factory,
 				 final FactoryPathFinder pathFinder,
@@ -64,6 +73,25 @@ public class Robot extends Component {
 		return super.toString() + " battery=" + battery + "]";
 	}
 
+
+	public Battery getBattery() {
+		return battery;
+	}
+	public Iterator<Component> getTargetComponentsIterator() {
+		return targetComponentsIterator;
+	}
+	public Component getCurrTargetComponent() {
+		return currTargetComponent;
+	}
+	public Iterator<Position> getCurrentPathPositionsIter() {
+		return currentPathPositionsIter;
+	}
+	public boolean isBlocked() {
+		return blocked;
+	}
+	public FactoryPathFinder getPathFinder() {
+		return pathFinder;
+	}
 	protected int getSpeed() {
 		return speed;
 	}
@@ -175,6 +203,7 @@ public class Robot extends Component {
 		return new Motion(getPosition(), targetPosition);
 	}
 	
+	@JsonIgnore
 	private Position getTargetPosition() {
 		// If a target position was memorized, it means that the robot was blocked during the last iteration 
 		// so it waited for another robot to pass. So try to move to this memorized position otherwise move to  
@@ -206,6 +235,7 @@ public class Robot extends Component {
 		return true;
 	}
 	
+	@JsonIgnore
 	@Override
 	public Style getStyle() {
 		return blocked ? BLOCKED_STYLE : STYLE;

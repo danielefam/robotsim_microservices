@@ -3,6 +3,9 @@ package fr.tp.inf112.projects.robotsim.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import fr.tp.inf112.projects.robotsim.model.shapes.PositionedShape;
 import fr.tp.inf112.projects.robotsim.model.shapes.RectangularShape;
 
@@ -24,10 +27,12 @@ public class Room extends Component {
 	
 	private final List<Area> areas;
 
+	@JsonManagedReference
 	private final List<Door> doors;
 
 	public Room(){
-		this(null, null, null);
+		this(new Factory(200, 200, "Simple Test Puck Factory"), 
+		new RectangularShape(20, 20, 75, 75), "Production Room 1");
 	}
 
 	public Room(final Factory factory,
@@ -60,6 +65,22 @@ public class Room extends Component {
 		return doors;
 	}
 
+	public PositionedShape getLeftWall() {
+		return leftWall;
+	}
+
+	public PositionedShape getRightWall() {
+		return rightWall;
+	}
+
+	public PositionedShape getTopWall() {
+		return topWall;
+	}
+
+	public PositionedShape getBottomWall() {
+		return bottomWall;
+	}
+
 	@Override
 	public boolean overlays(final PositionedShape shape) {
 		return leftWall.overlays(shape) || rightWall.overlays(shape) || 
@@ -82,6 +103,7 @@ public class Room extends Component {
 		return true;
 	}
 	
+	@JsonIgnore
 	private Door getOverlayedDoor(final PositionedShape shape) {
 		for (final Door door : getDoors()) {
 			if (door.overlays(shape)) {
@@ -96,4 +118,5 @@ public class Room extends Component {
 	public String toString() {
 		return super.toString() + " areas=" + areas + "]";
 	}
+
 }

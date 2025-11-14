@@ -18,9 +18,6 @@ import fr.tp.inf112.projects.canvas.model.impl.AbstractCanvasPersistenceManager;
 
 public class FactoryPersistenceManager extends AbstractCanvasPersistenceManager {
 	private static final Logger LOGGER = Logger.getLogger(FactoryPersistenceManager.class.getName());
-	public FactoryPersistenceManager(){
-		this(null);
-	}
 
 	public FactoryPersistenceManager(final CanvasChooser canvasChooser) {
 		super(canvasChooser);
