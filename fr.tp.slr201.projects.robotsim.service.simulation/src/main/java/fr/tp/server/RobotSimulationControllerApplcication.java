@@ -22,11 +22,6 @@ public class RobotSimulationControllerApplcication {
 	final FileCanvasChooser canvasChooser = new FileCanvasChooser("factory", "Puck Factory");
 	private final RemoteFactoryPersistenceManager persistenceManager = new RemoteFactoryPersistenceManager(canvasChooser, port);
 	
-	@GetMapping("/hello")
-	public String hello(@RequestParam(value = "name", defaultValue="World") String name) {
-		return String.format("Hello %s", name);
-	}
-	
 	@GetMapping("/startAnimation/{canvasId}")
 	public boolean startAnimation(@PathVariable("canvasId") String canvasId) {
 		Factory factory;

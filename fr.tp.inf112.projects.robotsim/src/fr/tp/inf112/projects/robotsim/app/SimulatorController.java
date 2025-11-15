@@ -2,8 +2,6 @@ package fr.tp.inf112.projects.robotsim.app;
 
 import java.util.logging.Logger;
 
-import com.sun.tools.javac.Main;
-
 import fr.tp.inf112.projects.canvas.controller.CanvasViewerController;
 import fr.tp.inf112.projects.canvas.controller.Observer;
 import fr.tp.inf112.projects.canvas.model.Canvas;

@@ -2,16 +2,12 @@ package fr.tp.inf112.projects.robotsim.serverutils;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
-import java.io.Reader;
 import java.net.Socket;
 
 import fr.tp.inf112.projects.canvas.model.Canvas;
-import fr.tp.inf112.projects.canvas.model.CanvasChooser;
-import fr.tp.inf112.projects.canvas.model.CanvasPersistenceManager;
 import fr.tp.inf112.projects.robotsim.model.Factory;
 import fr.tp.inf112.projects.robotsim.model.FactoryPersistenceManager;
 
@@ -27,13 +23,13 @@ public class RequestProcessor implements Runnable {
     @Override
     public void run() {
         try(
-            Socket socket = this.socket;
-            InputStream inpStr = socket.getInputStream();
-        	ObjectInputStream inpObjectStream = new ObjectInputStream(inpStr);
-
+            Socket socket = this.socket;   
             OutputStream outStr = socket.getOutputStream();
         	ObjectOutputStream outObjectStream = new ObjectOutputStream(outStr);
         ){
+            outObjectStream.flush();
+            InputStream inpStr = socket.getInputStream();
+        	ObjectInputStream inpObjectStream = new ObjectInputStream(inpStr);
             Object receivedObject = inpObjectStream.readObject();
             if (receivedObject instanceof Factory) {
             	Factory factoryToSaveFactory = (Factory) receivedObject;

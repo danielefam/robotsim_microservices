@@ -34,8 +34,21 @@ public class RemoteSimulatorController extends SimulatorController {
 		super(factoryModel, persistenceManager);
 		client = HttpClient.newHttpClient();
 	}
+
 	@Override
 	public void startAnimation() {
+		String id = this.getCanvas().getId();
+		if(id == null)
+			this.getCanvas().setId("default.factory");
+		else {
+			String[] aux = id.split("\\\\");
+			if(aux.length != 1){
+				String filename;
+				filename = aux[aux.length-1];
+				this.getCanvas().setId(filename);
+			}
+		}
+		
 		HttpRequest request = HttpRequest.newBuilder()
 					.uri(URI.create(BASE_URL+"startAnimation/"+this.getCanvas().getId()))
 					.GET()

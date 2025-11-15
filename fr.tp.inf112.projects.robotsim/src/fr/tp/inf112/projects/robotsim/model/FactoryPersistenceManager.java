@@ -32,7 +32,7 @@ public class FactoryPersistenceManager extends AbstractCanvasPersistenceManager 
 		String currentDir = System.getProperty("user.dir");
         System.out.println("Working directory: " + currentDir);
 		LOGGER.info("path work: " + currentDir);
-		
+		LOGGER.info("path base: " +canvasId);
 		String[] aux = canvasId.split("\\\\");
 		String filename;
 		filename = aux[aux.length-1];

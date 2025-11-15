@@ -206,4 +206,6 @@ public class Factory extends Component implements Canvas, Observable {
 		}
 		return motion.moveToTarget();
 	}
+
+	
 }

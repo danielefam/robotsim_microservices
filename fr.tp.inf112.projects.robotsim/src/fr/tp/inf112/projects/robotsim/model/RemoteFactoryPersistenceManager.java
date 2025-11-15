@@ -1,26 +1,16 @@
 package fr.tp.inf112.projects.robotsim.model;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.io.Writer;
 import java.net.Socket;
-import java.net.UnknownHostException;
-import java.util.logging.Logger;
 
 import fr.tp.inf112.projects.canvas.model.Canvas;
 import fr.tp.inf112.projects.canvas.model.CanvasChooser;
 import fr.tp.inf112.projects.canvas.model.impl.AbstractCanvasPersistenceManager;
-import fr.tp.inf112.projects.canvas.view.FileCanvasChooser;
 
 public class RemoteFactoryPersistenceManager extends AbstractCanvasPersistenceManager {	
 	
@@ -46,6 +36,7 @@ public class RemoteFactoryPersistenceManager extends AbstractCanvasPersistenceMa
 				ObjectInputStream inpObjectStream = new ObjectInputStream(inpStr);
 		){
 			outObjectStream.writeObject(canvasId);
+			outObjectStream.flush();
 			return (Canvas) inpObjectStream.readObject();
 			
 		} catch (ClassNotFoundException e) {
