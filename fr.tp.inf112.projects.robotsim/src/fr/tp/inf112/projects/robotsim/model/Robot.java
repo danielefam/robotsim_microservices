@@ -31,6 +31,8 @@ public class Robot extends Component {
 	
 	@JsonIgnore
 	private transient Iterator<Component> targetComponentsIterator;
+
+	private int currentTargetIndex;
 	
 	private Component currTargetComponent;
 	
@@ -74,6 +76,9 @@ public class Robot extends Component {
 	}
 
 
+	public int getCurrentTargetIndex() {
+		return currentTargetIndex;
+	}
 	public Battery getBattery() {
 		return battery;
 	}
@@ -140,13 +145,24 @@ public class Robot extends Component {
 		return moveToNextPathPosition() != 0;
 	}
 		
-	private Component nextTargetComponentToVisit() {
-		if (targetComponentsIterator == null || !targetComponentsIterator.hasNext()) {
-			targetComponentsIterator = getTargetComponents().iterator();
-		}
+	// private Component nextTargetComponentToVisit() {
+	// 	if (targetComponentsIterator == null || !targetComponentsIterator.hasNext()) {
+	// 		targetComponentsIterator = getTargetComponents().iterator();
+	// 	}
 		
-		return targetComponentsIterator.hasNext() ? targetComponentsIterator.next() : null;
-	}
+	// 	return targetComponentsIterator.hasNext() ? targetComponentsIterator.next() : null;
+	// }
+
+	private Component nextTargetComponentToVisit() {
+        List<Component> targets = getTargetComponents();
+        
+        if (currentTargetIndex < targets.size()) {
+            Component nextComp = targets.get(currentTargetIndex++);
+            return nextComp;
+        }
+        
+        return null; 
+    }
 	
 	private int moveToNextPathPosition() {
 		final Motion motion = computeMotion();

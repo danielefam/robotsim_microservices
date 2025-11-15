@@ -27,9 +27,9 @@ import fr.tp.inf112.projects.robotsim.model.RemoteFactoryPersistenceManager;
 
 @SpringBootApplication
 @RestController
-public class Application {
+public class RobotSimulationServerApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(RobotSimulationServerApplication.class, args);
 	}
 
 }

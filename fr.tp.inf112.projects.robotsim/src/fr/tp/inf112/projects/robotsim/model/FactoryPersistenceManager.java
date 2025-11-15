@@ -32,10 +32,15 @@ public class FactoryPersistenceManager extends AbstractCanvasPersistenceManager 
 		String currentDir = System.getProperty("user.dir");
         System.out.println("Working directory: " + currentDir);
 		LOGGER.info("path work: " + currentDir);
-		LOGGER.info("path read: " + currentDir+"\\canvas\\"+canvasId);
-		// the canvas are saved inside the directory canvas inside the project containing the model and the web server
+		
+		String[] aux = canvasId.split("\\\\");
+		String filename;
+		filename = aux[aux.length-1];
+		LOGGER.info("path read: " + currentDir+"\\canvas\\"+filename);
+		// the canvas is saved inside the directory canvas inside the project containing the model and the web server
+		// it would have been better to use an absulet path, but for the project scope it is unconvinient
 		try (
-			final InputStream fileInputStream = new FileInputStream(currentDir+"\\canvas\\"+canvasId);
+			final InputStream fileInputStream = new FileInputStream(currentDir+"\\canvas\\"+filename);
 			final InputStream bufInputStream = new BufferedInputStream(fileInputStream);
 			final ObjectInputStream objectInputStrteam = new ObjectInputStream(bufInputStream);
 		) {

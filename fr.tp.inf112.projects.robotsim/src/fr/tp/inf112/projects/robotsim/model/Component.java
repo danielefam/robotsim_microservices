@@ -47,8 +47,6 @@ public abstract class Component implements Figure, Serializable, Runnable {
 	}
 	
 	public String getId() {
-		if(id==null)
-			return "-1";
 		return id;
 	}
 
