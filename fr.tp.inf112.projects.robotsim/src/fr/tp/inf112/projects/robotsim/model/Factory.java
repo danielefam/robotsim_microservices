@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.jgrapht.alg.clustering.GirvanNewmanClustering;
-
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import fr.tp.inf112.projects.canvas.controller.Observable;
 import fr.tp.inf112.projects.canvas.controller.Observer;
@@ -18,13 +18,17 @@ import fr.tp.inf112.projects.robotsim.model.motion.Motion;
 import fr.tp.inf112.projects.robotsim.model.shapes.PositionedShape;
 import fr.tp.inf112.projects.robotsim.model.shapes.RectangularShape;
 
+@JsonIdentityInfo(
+  generator = ObjectIdGenerators.IntSequenceGenerator.class, 
+  property = "@id"
+)
 public class Factory extends Component implements Canvas, Observable {
 
 	private static final long serialVersionUID = 5156526483612458192L;
 	
 	private static final ComponentStyle DEFAULT = new ComponentStyle(5.0f);
 
-	@JsonManagedReference
+	// @JsonManagedReference(value="factory-controller")
     private final List<Component> components;
 
 	@JsonIgnore
@@ -34,7 +38,7 @@ public class Factory extends Component implements Canvas, Observable {
 	private transient boolean simulationStarted;
 
 	public Factory(){
-		this(200, 200, "default factory");
+		this(0, 0, null);
 	}
 	
 	public Factory(final int width,
@@ -93,7 +97,8 @@ public class Factory extends Component implements Canvas, Observable {
 		return false;
 	}
 
-	protected List<Component> getComponents() {
+	// modified to public for jackson
+	public List<Component> getComponents() {
 		return components;
 	}
 
@@ -106,9 +111,15 @@ public class Factory extends Component implements Canvas, Observable {
 
 	@Override
 	public String toString() {
-		return super.toString() + " components=" + components + "]";
+		// return super.toString() + " components=" + components + "]";
+		return "Factory [name=" + getName() + 
+           ", id=" + getId() + 
+           ", numComponents=" + (components != null ? components.size() : 0) + 
+           "]";
+		
 	}
 	
+	@JsonIgnore
 	public boolean isSimulationStarted() {
 		return simulationStarted;
 	}

@@ -31,7 +31,7 @@ public class SimulationRegisterModuleConfig {
 			.build();
 		final ObjectMapper objectMapper = new ObjectMapper();
 		objectMapper.activateDefaultTyping(typeValidator,
-		ObjectMapper.DefaultTyping.NON_FINAL);
+				ObjectMapper.DefaultTyping.NON_FINAL);
 		return objectMapper;
 	}
 }

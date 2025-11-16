@@ -46,10 +46,14 @@ public class Robot extends Component {
 	
 	private FactoryPathFinder pathFinder;
 	public Robot(){
-		this(new Factory(200, 200, "Simple Test Puck Factory"), 
-		new JGraphTDijkstraFactoryPathFinder(new Factory(200, 200, "Simple Test Puck Factory"), 5), 
-		new CircularShape(5, 5, 2), 
-		new Battery(10), "default Robot");
+//		this(new Factory(200, 200, "Simple Test Puck Factory"), 
+//		new JGraphTDijkstraFactoryPathFinder(new Factory(200, 200, "Simple Test Puck Factory"), 5), 
+//		new CircularShape(5, 5, 2), 
+//		new Battery(10), "default Robot");
+		this(null, null, null, null, null);
+		blocked = false;
+		this.targetComponents = null;
+		this.pathFinder = null;
 	}
 	public Robot(final Factory factory,
 				 final FactoryPathFinder pathFinder,
@@ -227,6 +231,7 @@ public class Robot extends Component {
 		return this.memorizedTargetPosition == null ? currentPathPositionsIter.next() : this.memorizedTargetPosition;
 	}
 	
+	@JsonIgnore
 	public boolean isLivelyLocked() {
 	    if (memorizedTargetPosition == null) {
 	        return false;

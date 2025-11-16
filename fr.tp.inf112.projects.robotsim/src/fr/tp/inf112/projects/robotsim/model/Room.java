@@ -3,12 +3,18 @@ package fr.tp.inf112.projects.robotsim.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import fr.tp.inf112.projects.robotsim.model.shapes.PositionedShape;
 import fr.tp.inf112.projects.robotsim.model.shapes.RectangularShape;
 
+@JsonIdentityInfo(
+  generator = ObjectIdGenerators.IntSequenceGenerator.class, 
+  property = "@id"
+)
 public class Room extends Component {
 	
 	private static final long serialVersionUID = 1449569724908316962L;
@@ -27,12 +33,13 @@ public class Room extends Component {
 	
 	private final List<Area> areas;
 
-	@JsonManagedReference
+	// @JsonManagedReference(value="door-room")
 	private final List<Door> doors;
 
 	public Room(){
-		this(new Factory(200, 200, "Simple Test Puck Factory"), 
-		new RectangularShape(20, 20, 75, 75), "Production Room 1");
+//		this(new Factory(200, 200, "Simple Test Puck Factory"), 
+//		new RectangularShape(20, 20, 75, 75), "Production Room 1");
+		this(null, new RectangularShape(), null);
 	}
 
 	public Room(final Factory factory,

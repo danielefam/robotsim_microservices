@@ -4,7 +4,9 @@ import java.io.Serializable;
 import java.util.logging.Logger;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import fr.tp.inf112.projects.canvas.model.Figure;
 import fr.tp.inf112.projects.canvas.model.Style;
@@ -12,13 +14,17 @@ import fr.tp.inf112.projects.robotsim.model.shapes.CircularShape;
 import fr.tp.inf112.projects.robotsim.model.shapes.PositionedShape;
 import fr.tp.inf112.projects.canvas.model.Shape;
 
+@JsonIdentityInfo(
+  generator = ObjectIdGenerators.IntSequenceGenerator.class, 
+  property = "@id"
+)
 public abstract class Component implements Figure, Serializable, Runnable {
 	
 	private static final long serialVersionUID = -5960950869184030220L;
 
 	private String id;
 
-	@JsonBackReference
+	// @JsonBackReference(value="factory-controller")
 	private final Factory factory;
 	
 	private final PositionedShape positionedShape;
@@ -29,9 +35,9 @@ public abstract class Component implements Figure, Serializable, Runnable {
 
 
 	protected Component(){
-		
-		this(new Factory(200, 200, "Simple Test Puck Factory"), 
-		new CircularShape(5, 5, 2), "default Component");
+		this(null, null, null);
+//		this(new Factory(200, 200, "Simple Test Puck Factory"), 
+//		new CircularShape(5, 5, 2), "default Component");
 	}
 
 	protected Component(final Factory factory,
@@ -156,6 +162,7 @@ public abstract class Component implements Figure, Serializable, Runnable {
 		return getPositionedShape();
 	}
 	
+	@JsonIgnore
 	public boolean isSimulationStarted() {
 		return getFactory().isSimulationStarted();
 	}

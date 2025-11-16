@@ -8,9 +8,7 @@ import java.util.Set;
 import java.util.logging.Logger;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.sun.tools.javac.Main;
 
-import fr.tp.inf112.projects.robotsim.app.SimulatorApplication;
 import fr.tp.inf112.projects.robotsim.model.Factory;
 import fr.tp.inf112.projects.robotsim.model.Position;
 import fr.tp.inf112.projects.robotsim.model.shapes.PositionedShape;
@@ -32,7 +30,8 @@ public abstract class AbstractFactoryPathFinder<Graph, Vertex> implements Factor
 	private transient Graph graph;
 
 	public AbstractFactoryPathFinder(){
-		this(new Factory(200, 200, "Simple Test Puck Factory"), 5);
+//		this(new Factory(200, 200, "Simple Test Puck Factory"), 5);
+		this(null, 0);
 	}
 
 	public AbstractFactoryPathFinder(final Factory factoryModel,

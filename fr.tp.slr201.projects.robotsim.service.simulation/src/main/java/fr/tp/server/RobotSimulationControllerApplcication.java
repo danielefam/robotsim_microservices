@@ -70,7 +70,6 @@ public class RobotSimulationControllerApplcication {
 			LOGGER.info("This model is not running");
 			return null;
 		}
-		
 		return modelInSimulations.get(canvasId);
 	}
 }

@@ -1,13 +1,19 @@
 package fr.tp.inf112.projects.robotsim.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import fr.tp.inf112.projects.canvas.model.Style;
 import fr.tp.inf112.projects.canvas.model.impl.RGBColor;
 import fr.tp.inf112.projects.robotsim.model.shapes.PositionedShape;
 import fr.tp.inf112.projects.robotsim.model.shapes.RectangularShape;
 
+@JsonIdentityInfo(
+  generator = ObjectIdGenerators.IntSequenceGenerator.class, 
+  property = "@id"
+)
 public class Door extends Component {
 
 	private static final long serialVersionUID = 4038942468211075735L;
@@ -74,14 +80,19 @@ public class Door extends Component {
 	
 	private boolean open;
 	
-	@JsonBackReference
+	// @JsonBackReference(value="door-room")
 	private final Room room;
 	
 	private static final Style OPEN_STYLE = new ComponentStyle(RGBColor.WHITE, null, 0, null);
 	
 	public Door(){
-		this(null, 
-		Room.WALL.LEFT, 0, 0, false, "door");
+//		this(
+//			new Room(new Factory(200, 200, "Simple Test Puck Factory"), 
+//				new RectangularShape(20, 20, 75, 75),
+//				"Production Room 1"), 
+//			Room.WALL.LEFT, 0, 0, false, "door"
+//		);
+		this(new Room(), Room.WALL.TOP, 0, 0, true, null);
 	}
 
 	public Door(final Room room,
