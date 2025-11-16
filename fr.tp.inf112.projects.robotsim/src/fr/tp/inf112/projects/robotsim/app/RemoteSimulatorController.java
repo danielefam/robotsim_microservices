@@ -12,7 +12,6 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-import fr.tp.inf112.projects.canvas.controller.CanvasViewerController;
 import fr.tp.inf112.projects.canvas.controller.Observer;
 import fr.tp.inf112.projects.canvas.model.Canvas;
 import fr.tp.inf112.projects.canvas.model.CanvasPersistenceManager;
@@ -22,7 +21,7 @@ public class RemoteSimulatorController extends SimulatorController {
 	
 	private static final Logger LOGGER = Logger.getLogger(RemoteSimulatorController.class.getName()); 
     private final HttpClient client;
-    private Integer port = 90;
+    private Integer port = 8080;
 	private final String BASE_URL = "http://localhost:"+port.toString()+"/";
 	
 	public RemoteSimulatorController(CanvasPersistenceManager persistenceManager) {

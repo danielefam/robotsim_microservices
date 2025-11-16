@@ -87,7 +87,7 @@ public class SimulatorApplication {
 	        public void run() {
 				int port = 8081;
 				final FileCanvasChooser canvasChooser = new FileCanvasChooser("factory", "Puck Factory");
-				final Component factoryViewer = new CanvasViewer(new SimulatorController(factory, new RemoteFactoryPersistenceManager(canvasChooser, port)));
+				final Component factoryViewer = new CanvasViewer(new RemoteSimulatorController(factory, new RemoteFactoryPersistenceManager(canvasChooser, port)));
 				canvasChooser.setViewer(factoryViewer);
 			}
 		});

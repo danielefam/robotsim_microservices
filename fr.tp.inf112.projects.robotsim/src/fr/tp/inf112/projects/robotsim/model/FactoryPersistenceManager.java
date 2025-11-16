@@ -30,17 +30,19 @@ public class FactoryPersistenceManager extends AbstractCanvasPersistenceManager 
 	public Canvas read(final String canvasId)
 	throws IOException {
 		String currentDir = System.getProperty("user.dir");
-        System.out.println("Working directory: " + currentDir);
 		LOGGER.info("path work: " + currentDir);
-		LOGGER.info("path base: " +canvasId);
-		String[] aux = canvasId.split("\\\\");
+		LOGGER.info("path base: " + canvasId);
+		// if run on windows split("\\\\")
+		String[] aux = canvasId.split("/");
 		String filename;
 		filename = aux[aux.length-1];
-		LOGGER.info("path read: " + currentDir+"\\canvas\\"+filename);
+		// if run on windows LOGGER.info("path read: " + currentDir+"\\canvas\\"+filename);
+		LOGGER.info("path read: " + currentDir+"/canvas/"+filename);
 		// the canvas is saved inside the directory canvas inside the project containing the model and the web server
-		// it would have been better to use an absulet path, but for the project scope it is unconvinient
+		// it would have been better to use an absolute path, but for the project scope it is inconvenient
 		try (
-			final InputStream fileInputStream = new FileInputStream(currentDir+"\\canvas\\"+filename);
+				// if on windows new FileInputStream(currentDir+"\\canvas\\"+filename);
+			final InputStream fileInputStream = new FileInputStream(currentDir+"/canvas/"+filename);
 			final InputStream bufInputStream = new BufferedInputStream(fileInputStream);
 			final ObjectInputStream objectInputStrteam = new ObjectInputStream(bufInputStream);
 		) {
