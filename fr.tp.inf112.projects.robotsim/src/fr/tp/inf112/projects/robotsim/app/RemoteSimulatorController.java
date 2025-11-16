@@ -62,8 +62,6 @@ public class RemoteSimulatorController extends SimulatorController {
 			
 			if(bool == true) {
 				super.startAnimation();
-				// ricontrolla se giusto
-				// IMPORTANTE
 				updateViewer();
 			}
 			else {
@@ -71,6 +69,7 @@ public class RemoteSimulatorController extends SimulatorController {
 			}
 		} catch (IOException | InterruptedException | URISyntaxException e) {
 			// TODO Auto-generated catch block
+			e.printStackTrace();
 			LOGGER.warning("startAnimation response failed");
 		}
 		
@@ -96,7 +95,7 @@ public class RemoteSimulatorController extends SimulatorController {
 			}
 		} catch (IOException | InterruptedException e) {
 			// TODO Auto-generated catch block
-			LOGGER.warning("startAnimation response failed");
+			LOGGER.warning("stopAnimation response failed");
 		}
 	}
 	
