@@ -10,7 +10,6 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import fr.tp.inf112.projects.canvas.model.Figure;
 import fr.tp.inf112.projects.canvas.model.Style;
-import fr.tp.inf112.projects.robotsim.model.shapes.CircularShape;
 import fr.tp.inf112.projects.robotsim.model.shapes.PositionedShape;
 import fr.tp.inf112.projects.canvas.model.Shape;
 

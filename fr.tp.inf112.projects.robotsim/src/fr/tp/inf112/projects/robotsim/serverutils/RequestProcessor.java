@@ -31,6 +31,7 @@ public class RequestProcessor implements Runnable {
             InputStream inpStr = socket.getInputStream();
         	ObjectInputStream inpObjectStream = new ObjectInputStream(inpStr);
             Object receivedObject = inpObjectStream.readObject();
+            
             if (receivedObject instanceof Factory) {
             	Factory factoryToSaveFactory = (Factory) receivedObject;
             	localFileManager.persist(factoryToSaveFactory);

@@ -5,6 +5,8 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.logging.Logger;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.exc.MismatchedInputException;
 import com.fasterxml.jackson.databind.jsontype.BasicPolymorphicTypeValidator;
@@ -38,12 +40,12 @@ public class RemoteSimulatorController extends SimulatorController {
 		client = HttpClient.newHttpClient();
 		objectMapper = new ObjectMapper();
         PolymorphicTypeValidator typeValidator = BasicPolymorphicTypeValidator.builder()
-        .allowIfSubType(PositionedShape.class.getPackageName())
-        .allowIfSubType(Component.class.getPackageName())
-        .allowIfSubType(BasicVertex.class.getPackageName())
-        .allowIfSubType(ArrayList.class.getName())
-        .allowIfSubType(LinkedHashSet.class.getName())
-        .build();
+												.allowIfSubType(PositionedShape.class.getPackageName())
+												.allowIfSubType(Component.class.getPackageName())
+												.allowIfSubType(BasicVertex.class.getPackageName())
+												.allowIfSubType(ArrayList.class.getName())
+												.allowIfSubType(LinkedHashSet.class.getName())
+												.build();
         objectMapper.activateDefaultTyping(typeValidator, ObjectMapper.DefaultTyping.NON_FINAL);
 	}
 
@@ -52,13 +54,14 @@ public class RemoteSimulatorController extends SimulatorController {
 		client = HttpClient.newHttpClient();
 		objectMapper = new ObjectMapper();
         PolymorphicTypeValidator typeValidator = BasicPolymorphicTypeValidator.builder()
-        .allowIfSubType(PositionedShape.class.getPackageName())
-        .allowIfSubType(Component.class.getPackageName())
-        .allowIfSubType(BasicVertex.class.getPackageName())
-        .allowIfSubType(ArrayList.class.getName())
-        .allowIfSubType(LinkedHashSet.class.getName())
-        .build();
+												.allowIfSubType(PositionedShape.class.getPackageName())
+												.allowIfSubType(Component.class.getPackageName())
+												.allowIfSubType(BasicVertex.class.getPackageName())
+												.allowIfSubType(ArrayList.class.getName())
+												.allowIfSubType(LinkedHashSet.class.getName())
+												.build();
         objectMapper.activateDefaultTyping(typeValidator, ObjectMapper.DefaultTyping.NON_FINAL);
+        objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
 	}
 
 	@Override
@@ -89,9 +92,17 @@ public class RemoteSimulatorController extends SimulatorController {
 			Boolean bool = objectMapper.readValue(response.body(), Boolean.class);
 			
 			if(bool == true) {
-				super.startAnimation();	
-				LOGGER.fine("start: "+((Factory) getCanvas()).isSimulationStarted());
-				updateViewer();
+				// super.startAnimation();	
+				// LOGGER.fine("start: "+((Factory) getCanvas()).isSimulationStarted());
+//				updateViewer();
+//				if i do not start a new thread, i cannot stop the current one
+				new Thread(() -> {
+	                try {
+	                    updateViewer();
+	                } catch (Exception e) {
+	                    LOGGER.severe(e.getMessage());
+	                }
+	            }).start();
 			}
 			else {
 				LOGGER.info("animation failed starting");
@@ -102,7 +113,7 @@ public class RemoteSimulatorController extends SimulatorController {
 			LOGGER.warning("serialization error");
 			LOGGER.severe(e.getMessage());
 		}
-		catch (IOException | InterruptedException | URISyntaxException e) {
+		catch (IOException | InterruptedException e) {
 			// TODO Auto-generated catch block
 			LOGGER.warning("startAnimation response failed");
 			LOGGER.severe(e.getMessage());
@@ -123,9 +134,11 @@ public class RemoteSimulatorController extends SimulatorController {
 //			ObjectMapper objectMapper = new ObjectMapper();
 			Boolean bool = objectMapper.readValue(response.body(), Boolean.class);
 			
-			if(bool == true)
-				super.stopAnimation();
-			else {
+			// if(bool == true)
+			// 	super.stopAnimation();
+			// else 
+			if(bool==false)
+			{
 				LOGGER.info("animation failed stopping");
 			}
 		} catch (IOException | InterruptedException e) {
@@ -138,14 +151,15 @@ public class RemoteSimulatorController extends SimulatorController {
 	public void setCanvas(final Canvas canvasModel) {
 		if(!(getCanvas() instanceof Factory))
 			return;
-		
-		final List<Observer> observers =((Factory) getCanvas()).getObservers();
+//		Factory myFactory = (Factory) getCanvas();
+//		final List<Observer> observers = myFactory.getObservers();
+		final List<Observer> observers = new ArrayList<>(((Factory) getCanvas()).getObservers());
 		super.setCanvas(canvasModel);
 		
 		for (final Observer observer : observers) {
-			((Factory) getCanvas()).addObserver(observer);
+			((Factory)canvasModel).addObserver(observer);
 		}
-		((Factory) getCanvas()).notifyObservers();
+		((Factory)canvasModel).notifyObservers();
 	}
 	
 	private void updateViewer() throws InterruptedException, URISyntaxException, IOException {
@@ -153,8 +167,10 @@ public class RemoteSimulatorController extends SimulatorController {
 		if(!(getCanvas() instanceof Factory))
 			return; 
 		final URI uri = URI.create(BASE_URL+"retrieveFactory/"+this.getCanvas().getId());
+		LOGGER.info("uri: " + uri.toString());
 		Integer i = 0;
-		while (((Factory) getCanvas()).isSimulationStarted()) {
+		Factory remoteFactoryModel;
+		do {
 			LOGGER.info("iter " + (i++).toString());
 			HttpRequest request = HttpRequest.newBuilder()
 					.uri(uri)
@@ -166,12 +182,14 @@ public class RemoteSimulatorController extends SimulatorController {
 			if(response == null)
 				break;
 			LOGGER.info("block 2");
-			final Factory remoteFactoryModel = objectMapper.readValue(response.body(), Factory.class);
+			remoteFactoryModel = objectMapper.readValue(response.body(), Factory.class);
 			setCanvas(remoteFactoryModel);
 			Thread.sleep(100);
 			LOGGER.info("block 3");
+			LOGGER.info("this: " +getCanvas().toString());
+			LOGGER.info("remote: "+ remoteFactoryModel.toString());
 			LOGGER.info(""+((Factory) getCanvas()).isSimulationStarted());
-		}
+		} while (remoteFactoryModel.isSimulationStarted());
 		LOGGER.info("block 4");
 	}
 }

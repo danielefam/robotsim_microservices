@@ -6,7 +6,9 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import fr.tp.inf112.projects.canvas.controller.Observable;
@@ -34,8 +36,10 @@ public class Factory extends Component implements Canvas, Observable {
 	@JsonIgnore
 	private transient List<Observer> observers;
 
-	@JsonIgnore
-	private transient boolean simulationStarted;
+	// @JsonIgnore
+	// private transient boolean simulationStarted;
+	
+	private boolean simulationStarted;
 
 	public Factory(){
 		this(0, 0, null);
@@ -115,13 +119,20 @@ public class Factory extends Component implements Canvas, Observable {
 		return "Factory [name=" + getName() + 
            ", id=" + getId() + 
            ", numComponents=" + (components != null ? components.size() : 0) + 
+		   ", isRunning=" + isSimulationStarted() +
+		   ", height=" + getHeight()+
            "]";
 		
 	}
 	
-	@JsonIgnore
+	@JsonProperty("simulationStarted")
 	public boolean isSimulationStarted() {
 		return simulationStarted;
+	}
+	
+	@JsonProperty("simulationStarted")
+	public void setSimulationStarted(boolean simulationStarted) {
+		this.simulationStarted =  simulationStarted;
 	}
 
 	public void startSimulation() {

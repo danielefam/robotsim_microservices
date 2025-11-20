@@ -44,4 +44,8 @@ public class Battery implements Serializable {
 	public String toString() {
 		return "Battery [capacity=" + capacity + "]";
 	}
+
+	public void setLevel(float level) {
+		this.level = level;
+	}
 }

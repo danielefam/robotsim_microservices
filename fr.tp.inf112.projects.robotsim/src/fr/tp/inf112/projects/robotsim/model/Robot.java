@@ -109,6 +109,22 @@ public class Robot extends Component {
 		this.speed = speed;
 	}
 	
+	
+	public void setTargetComponents(List<Component> targetComponents) {
+		this.targetComponents = targetComponents;
+	}
+	public void setTargetComponentsIterator(Iterator<Component> targetComponentsIterator) {
+		this.targetComponentsIterator = targetComponentsIterator;
+	}
+	public void setCurrentTargetIndex(int currentTargetIndex) {
+		this.currentTargetIndex = currentTargetIndex;
+	}
+	public void setMemorizedTargetPosition(Position memorizedTargetPosition) {
+		this.memorizedTargetPosition = memorizedTargetPosition;
+	}
+	public void setPathFinder(FactoryPathFinder pathFinder) {
+		this.pathFinder = pathFinder;
+	}
 	public Position getMemorizedTargetPosition() {
 		return memorizedTargetPosition;
 	}

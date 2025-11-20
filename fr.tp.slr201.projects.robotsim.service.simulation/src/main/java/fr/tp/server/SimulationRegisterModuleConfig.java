@@ -8,6 +8,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.jsontype.BasicPolymorphicTypeValidator;
 import com.fasterxml.jackson.databind.jsontype.PolymorphicTypeValidator;
@@ -32,6 +34,7 @@ public class SimulationRegisterModuleConfig {
 		final ObjectMapper objectMapper = new ObjectMapper();
 		objectMapper.activateDefaultTyping(typeValidator,
 				ObjectMapper.DefaultTyping.NON_FINAL);
+		objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
 		return objectMapper;
 	}
 }

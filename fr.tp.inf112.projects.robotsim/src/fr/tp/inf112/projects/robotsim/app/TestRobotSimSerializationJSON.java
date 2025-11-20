@@ -11,6 +11,8 @@ import java.util.logging.Logger;
 
 import org.junit.Test;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.jsontype.BasicPolymorphicTypeValidator;
 import com.fasterxml.jackson.databind.jsontype.PolymorphicTypeValidator;
@@ -49,12 +51,13 @@ public class TestRobotSimSerializationJSON {
         .allowIfSubType(LinkedHashSet.class.getName())
         .build();
         objectMapper.activateDefaultTyping(typeValidator, ObjectMapper.DefaultTyping.NON_FINAL);
+        objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
     }
 
 
     @Test
     public void testSerialization() throws IOException, InterruptedException {
-    	final Factory factory = new Factory(200, 200, "Simple Test Puck Factory");
+    	/*final Factory factory = new Factory(200, 200, "Simple Test Puck Factory");
 		final Room room1 = new Room(factory, new RectangularShape(20, 20, 75, 75), "Production Room 1");
 		new Door(room1, Room.WALL.BOTTOM, 10, 20, true, "Entrance");
 		final Area area1 = new Area(room1, new RectangularShape(35, 35, 50, 50), "Production Area 1");
@@ -100,33 +103,32 @@ public class TestRobotSimSerializationJSON {
         String factoryAsJsonString = objectMapper.writeValueAsString(factory);
         LOGGER.info(factoryAsJsonString);
         final Factory roundTrip = objectMapper.readValue(factoryAsJsonString, Factory.class);
-        LOGGER.info(roundTrip.toString());
+        LOGGER.info(roundTrip.toString());*/
     	
     	
-//    	final String BASE_URL = "http://localhost:8080/";
-//    	
-//    	
-//    	final HttpClient clientStart = HttpClient.newHttpClient();
-//    	final URI start = URI.create(BASE_URL+"startAnimation/default.factory");
-//    	HttpRequest startRequest = HttpRequest.newBuilder()
-//				.uri(start)
-//				.GET()
-//				.build();
-//    	clientStart.send(startRequest, HttpResponse.BodyHandlers.ofString());
-//    	
-//        
-//        final URI uri = URI.create(BASE_URL+"retrieveFactory/default.factory");
-//        HttpRequest request = HttpRequest.newBuilder()
-//				.uri(uri)
-//				.GET()
-//				.build();
-//		
-//        final HttpClient client = HttpClient.newHttpClient();
-//		HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());	
-//		if(response == null)
-//			System.out.println("errore");
-//		
-//		final Factory roundTrip = objectMapper.readValue(response.body(), Factory.class);
-//		LOGGER.info(roundTrip.toString());
+		final String BASE_URL = "http://localhost:8080/";
+		
+		final HttpClient clientStart = HttpClient.newHttpClient();
+		final URI start = URI.create(BASE_URL+"startAnimation/default.factory");
+		HttpRequest startRequest = HttpRequest.newBuilder()
+					.uri(start)
+					.GET()
+					.build();
+		clientStart.send(startRequest, HttpResponse.BodyHandlers.ofString());
+   	
+       
+       final URI uri = URI.create(BASE_URL+"retrieveFactory/default.factory");
+       HttpRequest request = HttpRequest.newBuilder()
+				.uri(uri)
+				.GET()
+				.build();
+		
+        final HttpClient client = HttpClient.newHttpClient();
+		HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());	
+		if(response == null)
+			System.out.println("errore");
+
+		final Factory roundTrip = objectMapper.readValue(response.body(), Factory.class);
+		System.out.println(roundTrip.toString());
     }
 }

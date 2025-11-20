@@ -42,4 +42,5 @@ public class ChargingStation extends Component {
 	public boolean canBeOverlayed(final PositionedShape shape) {
 		return true;
 	}
+	
 }

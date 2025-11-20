@@ -171,4 +171,8 @@ public class Door extends Component {
 //	public Shape getShape() {
 //		return isOpen() ? openShape : super.getShape();
 //	}
+
+	public void setOpen(boolean open) {
+		this.open = open;
+	}
 }
