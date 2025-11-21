@@ -3,10 +3,12 @@ package fr.tp.inf112.projects.robotsim.model.shapes;
 import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 import fr.tp.inf112.projects.canvas.model.Shape;
 import fr.tp.inf112.projects.robotsim.model.Position;
 
+//@JsonTypeInfo(use = JsonTypeInfo.Id.CLASS, include = JsonTypeInfo.As.PROPERTY, property = "@class")
 public abstract class PositionedShape implements Shape, Serializable {
 
 	private static final long serialVersionUID = 2217860927757709195L;

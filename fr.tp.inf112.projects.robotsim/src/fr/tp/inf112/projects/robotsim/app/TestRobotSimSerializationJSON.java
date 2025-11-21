@@ -130,5 +130,13 @@ public class TestRobotSimSerializationJSON {
 
 		final Factory roundTrip = objectMapper.readValue(response.body(), Factory.class);
 		System.out.println(roundTrip.toString());
+		
+		final HttpClient clientStop = HttpClient.newHttpClient();
+		final URI stop = URI.create(BASE_URL+"stopAnimation/default.factory");
+		HttpRequest stopRequest = HttpRequest.newBuilder()
+					.uri(stop)
+					.GET()
+					.build();
+		clientStop.send(stopRequest, HttpResponse.BodyHandlers.ofString());
     }
 }

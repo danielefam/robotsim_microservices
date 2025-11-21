@@ -1,14 +1,18 @@
 package fr.tp.inf112.projects.robotsim.model.shapes;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import fr.tp.inf112.projects.canvas.model.RectangleShape;
 
 public class RectangularShape extends PositionedShape implements RectangleShape {
 	
 	private static final long serialVersionUID = -6113167952556242089L;
 
-	private final int width;
+	@JsonProperty("width")
+	private int width;
 
-	private final int heigth;
+	@JsonProperty("height")
+	private int height;
 
 	public RectangularShape(){
 		this(0,0,0,0);
@@ -17,23 +21,34 @@ public class RectangularShape extends PositionedShape implements RectangleShape 
 	public RectangularShape(final int xCoordinate,
 							final int yCoordinate,
 							final int width,
-							final int heigth) {
+							final int height) {
 		super(xCoordinate, yCoordinate);
 	
 		this.width = width;
-		this.heigth = heigth;
+		this.height = height;
 	}
 
 	public int getWidth() {
 		return width;
 	}
 
+//	@JsonProperty("height")
 	public int getHeight() {
-		return heigth;
+		return height;
+	}
+	
+	
+
+	public void setWidth(int width) {
+		this.width = width;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
 	}
 
 	@Override
 	public String toString() {
-		return super.toString() + " [width=" + width + ", heigth=" + heigth + "]";
+		return super.toString() + " [width=" + width + ", heigth=" + height + "]";
 	}
 }

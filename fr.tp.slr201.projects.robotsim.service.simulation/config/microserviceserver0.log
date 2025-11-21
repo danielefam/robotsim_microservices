@@ -2,9 +2,9 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2025-11-16T18:19:44.079196012Z</date>
-  <millis>1763317184079</millis>
-  <nanos>196012</nanos>
+  <date>2025-11-21T19:38:42.822642772Z</date>
+  <millis>1763753922822</millis>
+  <nanos>642772</nanos>
   <sequence>0</sequence>
   <logger>org.apache.coyote.http11.Http11NioProtocol</logger>
   <level>INFO</level>
@@ -14,9 +14,9 @@
   <message>Initializing ProtocolHandler ["http-nio-8080"]</message>
 </record>
 <record>
-  <date>2025-11-16T18:19:44.081397290Z</date>
-  <millis>1763317184081</millis>
-  <nanos>397290</nanos>
+  <date>2025-11-21T19:38:42.824738904Z</date>
+  <millis>1763753922824</millis>
+  <nanos>738904</nanos>
   <sequence>1</sequence>
   <logger>org.apache.catalina.core.StandardService</logger>
   <level>INFO</level>
@@ -26,9 +26,9 @@
   <message>Starting service [Tomcat]</message>
 </record>
 <record>
-  <date>2025-11-16T18:19:44.081759281Z</date>
-  <millis>1763317184081</millis>
-  <nanos>759281</nanos>
+  <date>2025-11-21T19:38:42.825084755Z</date>
+  <millis>1763753922825</millis>
+  <nanos>84755</nanos>
   <sequence>2</sequence>
   <logger>org.apache.catalina.core.StandardEngine</logger>
   <level>INFO</level>
@@ -38,9 +38,9 @@
   <message>Starting Servlet engine: [Apache Tomcat/10.1.46]</message>
 </record>
 <record>
-  <date>2025-11-16T18:19:44.106200535Z</date>
-  <millis>1763317184106</millis>
-  <nanos>200535</nanos>
+  <date>2025-11-21T19:38:42.849163692Z</date>
+  <millis>1763753922849</millis>
+  <nanos>163692</nanos>
   <sequence>3</sequence>
   <logger>org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]</logger>
   <level>INFO</level>
@@ -50,9 +50,9 @@
   <message>Initializing Spring embedded WebApplicationContext</message>
 </record>
 <record>
-  <date>2025-11-16T18:19:44.339730373Z</date>
-  <millis>1763317184339</millis>
-  <nanos>730373</nanos>
+  <date>2025-11-21T19:38:43.068188503Z</date>
+  <millis>1763753923068</millis>
+  <nanos>188503</nanos>
   <sequence>4</sequence>
   <logger>org.apache.coyote.http11.Http11NioProtocol</logger>
   <level>INFO</level>
@@ -62,9 +62,9 @@
   <message>Starting ProtocolHandler ["http-nio-8080"]</message>
 </record>
 <record>
-  <date>2025-11-16T18:19:54.630986834Z</date>
-  <millis>1763317194630</millis>
-  <nanos>986834</nanos>
+  <date>2025-11-21T19:38:47.427807444Z</date>
+  <millis>1763753927427</millis>
+  <nanos>807444</nanos>
   <sequence>5</sequence>
   <logger>org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]</logger>
   <level>INFO</level>
@@ -74,339 +74,219 @@
   <message>Initializing Spring DispatcherServlet 'dispatcherServlet'</message>
 </record>
 <record>
-  <date>2025-11-16T18:19:54.680930800Z</date>
-  <millis>1763317194680</millis>
-  <nanos>930800</nanos>
+  <date>2025-11-21T19:38:47.478084917Z</date>
+  <millis>1763753927478</millis>
+  <nanos>84917</nanos>
   <sequence>6</sequence>
-  <logger>fr.tp.server.RobotSimulationControllerApplcication</logger>
+  <logger>fr.tp.server.RobotSimulationControllerApplication</logger>
   <level>INFO</level>
-  <class>fr.tp.server.RobotSimulationControllerApplcication</class>
+  <class>fr.tp.server.RobotSimulationControllerApplication</class>
   <method>startAnimation</method>
   <thread>45</thread>
   <message>start animation called</message>
 </record>
 <record>
-  <date>2025-11-16T18:19:54.682725668Z</date>
-  <millis>1763317194682</millis>
-  <nanos>725668</nanos>
+  <date>2025-11-21T19:38:47.479858454Z</date>
+  <millis>1763753927479</millis>
+  <nanos>858454</nanos>
   <sequence>7</sequence>
-  <logger>fr.tp.server.RobotSimulationControllerApplcication</logger>
+  <logger>fr.tp.server.RobotSimulationControllerApplication</logger>
   <level>INFO</level>
-  <class>fr.tp.server.RobotSimulationControllerApplcication</class>
+  <class>fr.tp.server.RobotSimulationControllerApplication</class>
   <method>startAnimation</method>
   <thread>45</thread>
   <message>reading factory...</message>
 </record>
 <record>
-  <date>2025-11-16T18:19:54.934280804Z</date>
-  <millis>1763317194934</millis>
-  <nanos>280804</nanos>
+  <date>2025-11-21T19:38:47.742757113Z</date>
+  <millis>1763753927742</millis>
+  <nanos>757113</nanos>
   <sequence>8</sequence>
-  <logger>fr.tp.server.RobotSimulationControllerApplcication</logger>
+  <logger>fr.tp.server.RobotSimulationControllerApplication</logger>
   <level>INFO</level>
-  <class>fr.tp.server.RobotSimulationControllerApplcication</class>
+  <class>fr.tp.server.RobotSimulationControllerApplication</class>
   <method>startAnimation</method>
   <thread>45</thread>
   <message>factory read</message>
 </record>
 <record>
-  <date>2025-11-16T18:19:54.940201654Z</date>
-  <millis>1763317194940</millis>
-  <nanos>201654</nanos>
+  <date>2025-11-21T19:38:47.748942422Z</date>
+  <millis>1763753927748</millis>
+  <nanos>942422</nanos>
   <sequence>9</sequence>
-  <logger>fr.tp.server.RobotSimulationControllerApplcication</logger>
+  <logger>fr.tp.server.RobotSimulationControllerApplication</logger>
   <level>INFO</level>
-  <class>fr.tp.server.RobotSimulationControllerApplcication</class>
+  <class>fr.tp.server.RobotSimulationControllerApplication</class>
   <method>startAnimation</method>
   <thread>45</thread>
   <message>Model id: default.factory started its simulation</message>
 </record>
 <record>
-  <date>2025-11-16T18:20:02.008143924Z</date>
-  <millis>1763317202008</millis>
-  <nanos>143924</nanos>
+  <date>2025-11-21T19:38:47.838694115Z</date>
+  <millis>1763753927838</millis>
+  <nanos>694115</nanos>
   <sequence>10</sequence>
+  <logger>fr.tp.server.RobotSimulationControllerApplication</logger>
+  <level>INFO</level>
+  <class>fr.tp.server.RobotSimulationControllerApplication</class>
+  <method>retrieveFactory</method>
+  <thread>46</thread>
+  <message>id: default.factory</message>
+</record>
+<record>
+  <date>2025-11-21T19:38:47.852001229Z</date>
+  <millis>1763753927852</millis>
+  <nanos>1229</nanos>
+  <sequence>11</sequence>
+  <logger>fr.tp.server.RobotSimulationControllerApplication</logger>
+  <level>INFO</level>
+  <class>fr.tp.server.RobotSimulationControllerApplication</class>
+  <method>retrieveFactory</method>
+  <thread>46</thread>
+  <message>simulating: {default.factory=Factory [name=Simple Test Puck Factory, id=default.factory, numComponents=15, isRunning=true, height=200, components=[Room [name=Production Room 1 xCoordinate=20, yCoordinate=20, shape=RectangularShape at Position = (20, 20) [width=75, heigth=75] areas=[Area [name=Production Area 1 xCoordinate=35, yCoordinate=35, shape=RectangularShape at Position = (35, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=50, yCoordinate=50, shape=RectangularShape at Position = (50, 50) [width=15, heigth=15]]]]], Door [name=Entrance xCoordinate=30, yCoordinate=95, shape=RectangularShape at Position = (30, 95) [width=20, heigth=1]], Area [name=Production Area 1 xCoordinate=35, yCoordinate=35, shape=RectangularShape at Position = (35, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=50, yCoordinate=50, shape=RectangularShape at Position = (50, 50) [width=15, heigth=15]]], Machine [name=Machine 1 xCoordinate=50, yCoordinate=50, shape=RectangularShape at Position = (50, 50) [width=15, heigth=15]], Room [name=Production Room 2 xCoordinate=120, yCoordinate=22, shape=RectangularShape at Position = (120, 22) [width=75, heigth=75] areas=[Area [name=Production Area 1 xCoordinate=135, yCoordinate=35, shape=RectangularShape at Position = (135, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=150, yCoordinate=50, shape=RectangularShape at Position = (150, 50) [width=15, heigth=15]]]]], Door [name=Entrance xCoordinate=120, yCoordinate=32, shape=RectangularShape at Position = (120, 32) [width=1, heigth=20]], Area [name=Production Area 1 xCoordinate=135, yCoordinate=35, shape=RectangularShape at Position = (135, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=150, yCoordinate=50, shape=RectangularShape at Position = (150, 50) [width=15, heigth=15]]], Machine [name=Machine 1 xCoordinate=150, yCoordinate=50, shape=RectangularShape at Position = (150, 50) [width=15, heigth=15]], Room [name=Charging Room xCoordinate=125, yCoordinate=125, shape=RectangularShape at Position = (125, 125) [width=50, heigth=50] areas=[]], Door [name=Entrance xCoordinate=175, yCoordinate=135, shape=RectangularShape at Position = (175, 135) [width=1, heigth=20]], ChargingStation [name=Charging Station xCoordinate=150, yCoordinate=145, shape=RectangularShape at Position = (150, 145) [width=15, heigth=15]], Robot [name=Robot 1 xCoordinate=5, yCoordinate=5, shape=CircularShape at Position = (5, 5) [radius=2] battery=Battery [capacity=10.0]], Conveyor [name=Conveyor 1 xCoordinate=7, yCoordinate=165, shape=BasicPolygonShape at Position = (7, 165)], Robot [name=Robot 2 xCoordinate=45, yCoordinate=5, shape=CircularShape at Position = (45, 5) [radius=2] battery=Battery [capacity=10.0]], Conveyor [name=Conveyor 1 xCoordinate=7, yCoordinate=165, shape=BasicPolygonShape at Position = (7, 165)]]]}</message>
+</record>
+<record>
+  <date>2025-11-21T19:38:48.093207481Z</date>
+  <millis>1763753928093</millis>
+  <nanos>207481</nanos>
+  <sequence>12</sequence>
+  <logger>fr.tp.server.RobotSimulationControllerApplication</logger>
+  <level>INFO</level>
+  <class>fr.tp.server.RobotSimulationControllerApplication</class>
+  <method>stopAnimation</method>
+  <thread>47</thread>
+  <message>Model id: default.factory stopped its simulation</message>
+</record>
+<record>
+  <date>2025-11-21T19:41:44.046352675Z</date>
+  <millis>1763754104046</millis>
+  <nanos>352675</nanos>
+  <sequence>13</sequence>
+  <logger>fr.tp.server.RobotSimulationControllerApplication</logger>
+  <level>INFO</level>
+  <class>fr.tp.server.RobotSimulationControllerApplication</class>
+  <method>startAnimation</method>
+  <thread>51</thread>
+  <message>start animation called</message>
+</record>
+<record>
+  <date>2025-11-21T19:41:44.047339057Z</date>
+  <millis>1763754104047</millis>
+  <nanos>339057</nanos>
+  <sequence>14</sequence>
+  <logger>fr.tp.server.RobotSimulationControllerApplication</logger>
+  <level>INFO</level>
+  <class>fr.tp.server.RobotSimulationControllerApplication</class>
+  <method>startAnimation</method>
+  <thread>51</thread>
+  <message>reading factory...</message>
+</record>
+<record>
+  <date>2025-11-21T19:41:44.072674890Z</date>
+  <millis>1763754104072</millis>
+  <nanos>674890</nanos>
+  <sequence>15</sequence>
+  <logger>fr.tp.server.RobotSimulationControllerApplication</logger>
+  <level>INFO</level>
+  <class>fr.tp.server.RobotSimulationControllerApplication</class>
+  <method>startAnimation</method>
+  <thread>51</thread>
+  <message>factory read</message>
+</record>
+<record>
+  <date>2025-11-21T19:41:44.075909214Z</date>
+  <millis>1763754104075</millis>
+  <nanos>909214</nanos>
+  <sequence>16</sequence>
+  <logger>fr.tp.server.RobotSimulationControllerApplication</logger>
+  <level>INFO</level>
+  <class>fr.tp.server.RobotSimulationControllerApplication</class>
+  <method>startAnimation</method>
+  <thread>51</thread>
+  <message>Model id: default.factory started its simulation</message>
+</record>
+<record>
+  <date>2025-11-21T19:41:44.107769221Z</date>
+  <millis>1763754104107</millis>
+  <nanos>769221</nanos>
+  <sequence>17</sequence>
+  <logger>fr.tp.server.RobotSimulationControllerApplication</logger>
+  <level>INFO</level>
+  <class>fr.tp.server.RobotSimulationControllerApplication</class>
+  <method>retrieveFactory</method>
+  <thread>52</thread>
+  <message>id: default.factory</message>
+</record>
+<record>
+  <date>2025-11-21T19:41:44.108758466Z</date>
+  <millis>1763754104108</millis>
+  <nanos>758466</nanos>
+  <sequence>18</sequence>
+  <logger>fr.tp.server.RobotSimulationControllerApplication</logger>
+  <level>INFO</level>
+  <class>fr.tp.server.RobotSimulationControllerApplication</class>
+  <method>retrieveFactory</method>
+  <thread>52</thread>
+  <message>simulating: {default.factory=Factory [name=Simple Test Puck Factory, id=default.factory, numComponents=15, isRunning=true, height=200, components=[Room [name=Production Room 1 xCoordinate=20, yCoordinate=20, shape=RectangularShape at Position = (20, 20) [width=75, heigth=75] areas=[Area [name=Production Area 1 xCoordinate=35, yCoordinate=35, shape=RectangularShape at Position = (35, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=50, yCoordinate=50, shape=RectangularShape at Position = (50, 50) [width=15, heigth=15]]]]], Door [name=Entrance xCoordinate=30, yCoordinate=95, shape=RectangularShape at Position = (30, 95) [width=20, heigth=1]], Area [name=Production Area 1 xCoordinate=35, yCoordinate=35, shape=RectangularShape at Position = (35, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=50, yCoordinate=50, shape=RectangularShape at Position = (50, 50) [width=15, heigth=15]]], Machine [name=Machine 1 xCoordinate=50, yCoordinate=50, shape=RectangularShape at Position = (50, 50) [width=15, heigth=15]], Room [name=Production Room 2 xCoordinate=120, yCoordinate=22, shape=RectangularShape at Position = (120, 22) [width=75, heigth=75] areas=[Area [name=Production Area 1 xCoordinate=135, yCoordinate=35, shape=RectangularShape at Position = (135, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=150, yCoordinate=50, shape=RectangularShape at Position = (150, 50) [width=15, heigth=15]]]]], Door [name=Entrance xCoordinate=120, yCoordinate=32, shape=RectangularShape at Position = (120, 32) [width=1, heigth=20]], Area [name=Production Area 1 xCoordinate=135, yCoordinate=35, shape=RectangularShape at Position = (135, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=150, yCoordinate=50, shape=RectangularShape at Position = (150, 50) [width=15, heigth=15]]], Machine [name=Machine 1 xCoordinate=150, yCoordinate=50, shape=RectangularShape at Position = (150, 50) [width=15, heigth=15]], Room [name=Charging Room xCoordinate=125, yCoordinate=125, shape=RectangularShape at Position = (125, 125) [width=50, heigth=50] areas=[]], Door [name=Entrance xCoordinate=175, yCoordinate=135, shape=RectangularShape at Position = (175, 135) [width=1, heigth=20]], ChargingStation [name=Charging Station xCoordinate=150, yCoordinate=145, shape=RectangularShape at Position = (150, 145) [width=15, heigth=15]], Robot [name=Robot 1 xCoordinate=5, yCoordinate=5, shape=CircularShape at Position = (5, 5) [radius=2] battery=Battery [capacity=10.0]], Conveyor [name=Conveyor 1 xCoordinate=7, yCoordinate=165, shape=BasicPolygonShape at Position = (7, 165)], Robot [name=Robot 2 xCoordinate=45, yCoordinate=5, shape=CircularShape at Position = (45, 5) [radius=2] battery=Battery [capacity=10.0]], Conveyor [name=Conveyor 1 xCoordinate=7, yCoordinate=165, shape=BasicPolygonShape at Position = (7, 165)]]]}</message>
+</record>
+<record>
+  <date>2025-11-21T19:41:44.340149172Z</date>
+  <millis>1763754104340</millis>
+  <nanos>149172</nanos>
+  <sequence>19</sequence>
+  <logger>fr.tp.server.RobotSimulationControllerApplication</logger>
+  <level>INFO</level>
+  <class>fr.tp.server.RobotSimulationControllerApplication</class>
+  <method>stopAnimation</method>
+  <thread>53</thread>
+  <message>Model id: default.factory stopped its simulation</message>
+</record>
+<record>
+  <date>2025-11-21T19:47:36.437135035Z</date>
+  <millis>1763754456437</millis>
+  <nanos>135035</nanos>
+  <sequence>20</sequence>
   <logger>org.apache.coyote.http11.Http11NioProtocol</logger>
   <level>INFO</level>
   <class>org.apache.coyote.AbstractProtocol</class>
   <method>pause</method>
-  <thread>74</thread>
+  <thread>90</thread>
   <message>Pausing ProtocolHandler ["http-nio-8080"]</message>
 </record>
 <record>
-  <date>2025-11-16T18:20:02.011774936Z</date>
-  <millis>1763317202011</millis>
-  <nanos>774936</nanos>
-  <sequence>11</sequence>
+  <date>2025-11-21T19:47:36.440467026Z</date>
+  <millis>1763754456440</millis>
+  <nanos>467026</nanos>
+  <sequence>21</sequence>
   <logger>org.apache.coyote.http11.Http11NioProtocol</logger>
   <level>INFO</level>
   <class>org.apache.coyote.AbstractProtocol</class>
   <method>stop</method>
-  <thread>26</thread>
+  <thread>88</thread>
   <message>Stopping ProtocolHandler ["http-nio-8080"]</message>
 </record>
 <record>
-  <date>2025-11-16T18:20:02.017080618Z</date>
-  <millis>1763317202017</millis>
-  <nanos>80618</nanos>
-  <sequence>12</sequence>
+  <date>2025-11-21T19:47:36.446070187Z</date>
+  <millis>1763754456446</millis>
+  <nanos>70187</nanos>
+  <sequence>22</sequence>
   <logger>org.apache.catalina.core.StandardService</logger>
   <level>INFO</level>
   <class>org.apache.catalina.core.StandardService</class>
   <method>stopInternal</method>
-  <thread>26</thread>
+  <thread>88</thread>
   <message>Stopping service [Tomcat]</message>
 </record>
 <record>
-  <date>2025-11-16T18:20:02.018382542Z</date>
-  <millis>1763317202018</millis>
-  <nanos>382542</nanos>
-  <sequence>13</sequence>
+  <date>2025-11-21T19:47:36.447572265Z</date>
+  <millis>1763754456447</millis>
+  <nanos>572265</nanos>
+  <sequence>23</sequence>
   <logger>org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]</logger>
   <level>INFO</level>
   <class>org.apache.catalina.core.ApplicationContext</class>
   <method>log</method>
-  <thread>26</thread>
+  <thread>88</thread>
   <message>Destroying Spring FrameworkServlet 'dispatcherServlet'</message>
-</record>
-<record>
-  <date>2025-11-16T18:20:02.023969966Z</date>
-  <millis>1763317202023</millis>
-  <nanos>969966</nanos>
-  <sequence>14</sequence>
-  <logger>org.apache.catalina.loader.WebappClassLoaderBase</logger>
-  <level>WARNING</level>
-  <class>org.apache.catalina.loader.WebappClassLoaderBase</class>
-  <method>clearReferencesThreads</method>
-  <thread>26</thread>
-  <message>The web application [ROOT] appears to have started a thread named [Thread-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base/java.lang.Thread.sleep0(Native Method)
- java.base/java.lang.Thread.sleep(Thread.java:509)
- fr.tp.inf112.projects.robotsim.model.Component.run(Component.java:176)
- java.base/java.lang.Thread.run(Thread.java:1583)</message>
-</record>
-<record>
-  <date>2025-11-16T18:20:02.024601826Z</date>
-  <millis>1763317202024</millis>
-  <nanos>601826</nanos>
-  <sequence>15</sequence>
-  <logger>org.apache.catalina.loader.WebappClassLoaderBase</logger>
-  <level>WARNING</level>
-  <class>org.apache.catalina.loader.WebappClassLoaderBase</class>
-  <method>clearReferencesThreads</method>
-  <thread>26</thread>
-  <message>The web application [ROOT] appears to have started a thread named [Thread-2] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base/java.lang.Thread.sleep0(Native Method)
- java.base/java.lang.Thread.sleep(Thread.java:509)
- fr.tp.inf112.projects.robotsim.model.Component.run(Component.java:176)
- java.base/java.lang.Thread.run(Thread.java:1583)</message>
-</record>
-<record>
-  <date>2025-11-16T18:20:02.025184867Z</date>
-  <millis>1763317202025</millis>
-  <nanos>184867</nanos>
-  <sequence>16</sequence>
-  <logger>org.apache.catalina.loader.WebappClassLoaderBase</logger>
-  <level>WARNING</level>
-  <class>org.apache.catalina.loader.WebappClassLoaderBase</class>
-  <method>clearReferencesThreads</method>
-  <thread>26</thread>
-  <message>The web application [ROOT] appears to have started a thread named [Thread-3] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base/java.lang.Thread.sleep0(Native Method)
- java.base/java.lang.Thread.sleep(Thread.java:509)
- fr.tp.inf112.projects.robotsim.model.Component.run(Component.java:176)
- java.base/java.lang.Thread.run(Thread.java:1583)</message>
-</record>
-<record>
-  <date>2025-11-16T18:20:02.025793818Z</date>
-  <millis>1763317202025</millis>
-  <nanos>793818</nanos>
-  <sequence>17</sequence>
-  <logger>org.apache.catalina.loader.WebappClassLoaderBase</logger>
-  <level>WARNING</level>
-  <class>org.apache.catalina.loader.WebappClassLoaderBase</class>
-  <method>clearReferencesThreads</method>
-  <thread>26</thread>
-  <message>The web application [ROOT] appears to have started a thread named [Thread-4] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base/java.lang.Thread.sleep0(Native Method)
- java.base/java.lang.Thread.sleep(Thread.java:509)
- fr.tp.inf112.projects.robotsim.model.Component.run(Component.java:176)
- java.base/java.lang.Thread.run(Thread.java:1583)</message>
-</record>
-<record>
-  <date>2025-11-16T18:20:02.026410313Z</date>
-  <millis>1763317202026</millis>
-  <nanos>410313</nanos>
-  <sequence>18</sequence>
-  <logger>org.apache.catalina.loader.WebappClassLoaderBase</logger>
-  <level>WARNING</level>
-  <class>org.apache.catalina.loader.WebappClassLoaderBase</class>
-  <method>clearReferencesThreads</method>
-  <thread>26</thread>
-  <message>The web application [ROOT] appears to have started a thread named [Thread-5] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base/java.lang.Thread.sleep0(Native Method)
- java.base/java.lang.Thread.sleep(Thread.java:509)
- fr.tp.inf112.projects.robotsim.model.Component.run(Component.java:176)
- java.base/java.lang.Thread.run(Thread.java:1583)</message>
-</record>
-<record>
-  <date>2025-11-16T18:20:02.027038821Z</date>
-  <millis>1763317202027</millis>
-  <nanos>38821</nanos>
-  <sequence>19</sequence>
-  <logger>org.apache.catalina.loader.WebappClassLoaderBase</logger>
-  <level>WARNING</level>
-  <class>org.apache.catalina.loader.WebappClassLoaderBase</class>
-  <method>clearReferencesThreads</method>
-  <thread>26</thread>
-  <message>The web application [ROOT] appears to have started a thread named [Thread-6] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base/java.lang.Thread.sleep0(Native Method)
- java.base/java.lang.Thread.sleep(Thread.java:509)
- fr.tp.inf112.projects.robotsim.model.Component.run(Component.java:176)
- java.base/java.lang.Thread.run(Thread.java:1583)</message>
-</record>
-<record>
-  <date>2025-11-16T18:20:02.027593505Z</date>
-  <millis>1763317202027</millis>
-  <nanos>593505</nanos>
-  <sequence>20</sequence>
-  <logger>org.apache.catalina.loader.WebappClassLoaderBase</logger>
-  <level>WARNING</level>
-  <class>org.apache.catalina.loader.WebappClassLoaderBase</class>
-  <method>clearReferencesThreads</method>
-  <thread>26</thread>
-  <message>The web application [ROOT] appears to have started a thread named [Thread-7] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base/java.lang.Thread.sleep0(Native Method)
- java.base/java.lang.Thread.sleep(Thread.java:509)
- fr.tp.inf112.projects.robotsim.model.Component.run(Component.java:176)
- java.base/java.lang.Thread.run(Thread.java:1583)</message>
-</record>
-<record>
-  <date>2025-11-16T18:20:02.028119485Z</date>
-  <millis>1763317202028</millis>
-  <nanos>119485</nanos>
-  <sequence>21</sequence>
-  <logger>org.apache.catalina.loader.WebappClassLoaderBase</logger>
-  <level>WARNING</level>
-  <class>org.apache.catalina.loader.WebappClassLoaderBase</class>
-  <method>clearReferencesThreads</method>
-  <thread>26</thread>
-  <message>The web application [ROOT] appears to have started a thread named [Thread-8] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base/java.lang.Thread.sleep0(Native Method)
- java.base/java.lang.Thread.sleep(Thread.java:509)
- fr.tp.inf112.projects.robotsim.model.Component.run(Component.java:176)
- java.base/java.lang.Thread.run(Thread.java:1583)</message>
-</record>
-<record>
-  <date>2025-11-16T18:20:02.028719078Z</date>
-  <millis>1763317202028</millis>
-  <nanos>719078</nanos>
-  <sequence>22</sequence>
-  <logger>org.apache.catalina.loader.WebappClassLoaderBase</logger>
-  <level>WARNING</level>
-  <class>org.apache.catalina.loader.WebappClassLoaderBase</class>
-  <method>clearReferencesThreads</method>
-  <thread>26</thread>
-  <message>The web application [ROOT] appears to have started a thread named [Thread-9] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base/java.lang.Thread.sleep0(Native Method)
- java.base/java.lang.Thread.sleep(Thread.java:509)
- fr.tp.inf112.projects.robotsim.model.Component.run(Component.java:176)
- java.base/java.lang.Thread.run(Thread.java:1583)</message>
-</record>
-<record>
-  <date>2025-11-16T18:20:02.029238911Z</date>
-  <millis>1763317202029</millis>
-  <nanos>238911</nanos>
-  <sequence>23</sequence>
-  <logger>org.apache.catalina.loader.WebappClassLoaderBase</logger>
-  <level>WARNING</level>
-  <class>org.apache.catalina.loader.WebappClassLoaderBase</class>
-  <method>clearReferencesThreads</method>
-  <thread>26</thread>
-  <message>The web application [ROOT] appears to have started a thread named [Thread-10] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base/java.lang.Thread.sleep0(Native Method)
- java.base/java.lang.Thread.sleep(Thread.java:509)
- fr.tp.inf112.projects.robotsim.model.Component.run(Component.java:176)
- java.base/java.lang.Thread.run(Thread.java:1583)</message>
-</record>
-<record>
-  <date>2025-11-16T18:20:02.029808892Z</date>
-  <millis>1763317202029</millis>
-  <nanos>808892</nanos>
-  <sequence>24</sequence>
-  <logger>org.apache.catalina.loader.WebappClassLoaderBase</logger>
-  <level>WARNING</level>
-  <class>org.apache.catalina.loader.WebappClassLoaderBase</class>
-  <method>clearReferencesThreads</method>
-  <thread>26</thread>
-  <message>The web application [ROOT] appears to have started a thread named [Thread-11] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base/java.lang.Thread.sleep0(Native Method)
- java.base/java.lang.Thread.sleep(Thread.java:509)
- fr.tp.inf112.projects.robotsim.model.Component.run(Component.java:176)
- java.base/java.lang.Thread.run(Thread.java:1583)</message>
-</record>
-<record>
-  <date>2025-11-16T18:20:02.030859733Z</date>
-  <millis>1763317202030</millis>
-  <nanos>859733</nanos>
-  <sequence>25</sequence>
-  <logger>org.apache.catalina.loader.WebappClassLoaderBase</logger>
-  <level>WARNING</level>
-  <class>org.apache.catalina.loader.WebappClassLoaderBase</class>
-  <method>clearReferencesThreads</method>
-  <thread>26</thread>
-  <message>The web application [ROOT] appears to have started a thread named [Thread-12] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base/java.lang.Thread.sleep0(Native Method)
- java.base/java.lang.Thread.sleep(Thread.java:509)
- fr.tp.inf112.projects.robotsim.model.Component.run(Component.java:176)
- java.base/java.lang.Thread.run(Thread.java:1583)</message>
-</record>
-<record>
-  <date>2025-11-16T18:20:02.031584832Z</date>
-  <millis>1763317202031</millis>
-  <nanos>584832</nanos>
-  <sequence>26</sequence>
-  <logger>org.apache.catalina.loader.WebappClassLoaderBase</logger>
-  <level>WARNING</level>
-  <class>org.apache.catalina.loader.WebappClassLoaderBase</class>
-  <method>clearReferencesThreads</method>
-  <thread>26</thread>
-  <message>The web application [ROOT] appears to have started a thread named [Thread-13] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base/java.lang.Thread.sleep0(Native Method)
- java.base/java.lang.Thread.sleep(Thread.java:509)
- fr.tp.inf112.projects.robotsim.model.Component.run(Component.java:176)
- java.base/java.lang.Thread.run(Thread.java:1583)</message>
-</record>
-<record>
-  <date>2025-11-16T18:20:02.032268235Z</date>
-  <millis>1763317202032</millis>
-  <nanos>268235</nanos>
-  <sequence>27</sequence>
-  <logger>org.apache.catalina.loader.WebappClassLoaderBase</logger>
-  <level>WARNING</level>
-  <class>org.apache.catalina.loader.WebappClassLoaderBase</class>
-  <method>clearReferencesThreads</method>
-  <thread>26</thread>
-  <message>The web application [ROOT] appears to have started a thread named [Thread-14] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base/java.lang.Thread.sleep0(Native Method)
- java.base/java.lang.Thread.sleep(Thread.java:509)
- fr.tp.inf112.projects.robotsim.model.Component.run(Component.java:176)
- java.base/java.lang.Thread.run(Thread.java:1583)</message>
-</record>
-<record>
-  <date>2025-11-16T18:20:02.032738621Z</date>
-  <millis>1763317202032</millis>
-  <nanos>738621</nanos>
-  <sequence>28</sequence>
-  <logger>org.apache.catalina.loader.WebappClassLoaderBase</logger>
-  <level>WARNING</level>
-  <class>org.apache.catalina.loader.WebappClassLoaderBase</class>
-  <method>clearReferencesThreads</method>
-  <thread>26</thread>
-  <message>The web application [ROOT] appears to have started a thread named [Thread-15] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base/java.lang.Thread.sleep0(Native Method)
- java.base/java.lang.Thread.sleep(Thread.java:509)
- fr.tp.inf112.projects.robotsim.model.Component.run(Component.java:176)
- java.base/java.lang.Thread.run(Thread.java:1583)</message>
 </record>
 </log>

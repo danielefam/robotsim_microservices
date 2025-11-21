@@ -121,7 +121,8 @@ public class Factory extends Component implements Canvas, Observable {
            ", numComponents=" + (components != null ? components.size() : 0) + 
 		   ", isRunning=" + isSimulationStarted() +
 		   ", height=" + getHeight()+
-           "]";
+		   ", components=" + components+
+		   "]";
 		
 	}
 	

@@ -26,7 +26,7 @@ public abstract class Component implements Figure, Serializable, Runnable {
 	// @JsonBackReference(value="factory-controller")
 	private final Factory factory;
 	
-	private final PositionedShape positionedShape;
+	private PositionedShape positionedShape;
 	
 	private final String name;
 	
