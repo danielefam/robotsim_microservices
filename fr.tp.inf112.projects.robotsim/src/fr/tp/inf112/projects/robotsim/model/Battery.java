@@ -3,11 +3,11 @@ package fr.tp.inf112.projects.robotsim.model;
 import java.io.Serializable;
 
 public class Battery implements Serializable {
-	
+
 	private static final long serialVersionUID = 5744149485828674046L;
 
 	private final float capacity;
-	
+
 	private float level;
 
 	public Battery(){
@@ -19,7 +19,7 @@ public class Battery implements Serializable {
 		level = capacity;
 	}
 
-	
+
 	public float getCapacity() {
 		return capacity;
 	}
@@ -30,13 +30,13 @@ public class Battery implements Serializable {
 
 	public float consume(float energy) {
 		level-= energy;
-		
+
 		return level;
 	}
-	
+
 	public float charge(float energy) {
 		level+= energy;
-		
+
 		return level;
 	}
 

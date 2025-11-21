@@ -46,7 +46,7 @@ public class FactoryPersistenceManager extends AbstractCanvasPersistenceManager 
 			final InputStream bufInputStream = new BufferedInputStream(fileInputStream);
 			final ObjectInputStream objectInputStrteam = new ObjectInputStream(bufInputStream);
 		) {
-			
+
 			return (Canvas) objectInputStrteam.readObject();
 		}
 		catch (ClassNotFoundException | IOException ex) {
@@ -65,7 +65,7 @@ public class FactoryPersistenceManager extends AbstractCanvasPersistenceManager 
 			final OutputStream fileOutStream = new FileOutputStream(canvasModel.getId());
 			final OutputStream bufOutStream = new BufferedOutputStream(fileOutStream);
 			final ObjectOutputStream objOutStream = new ObjectOutputStream(bufOutStream);
-		) {	
+		) {
 			objOutStream.writeObject(canvasModel);
 		}
 	}
@@ -77,7 +77,7 @@ public class FactoryPersistenceManager extends AbstractCanvasPersistenceManager 
 	public boolean delete(final Canvas canvasModel)
 	throws IOException {
 		final File canvasFile = new File(canvasModel.getId());
-		
+
 		return canvasFile.delete();
 	}
 }

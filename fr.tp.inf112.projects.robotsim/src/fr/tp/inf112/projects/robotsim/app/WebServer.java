@@ -8,13 +8,13 @@ public class WebServer {
 	static int port = 8081;
     public static void main(String[] args) throws Exception {
         try (
-            ServerSocket serverSocket = new ServerSocket(port); 
+            ServerSocket serverSocket = new ServerSocket(port);
         ){
             do{
                 try {
                     Socket socket = serverSocket.accept();
                     Runnable reqProcessor = new RequestProcessor(socket);
-                    new Thread(reqProcessor).start(); 
+                    new Thread(reqProcessor).start();
                 } catch (Exception e) {
                     // TODO: handle exception
                     e.printStackTrace();

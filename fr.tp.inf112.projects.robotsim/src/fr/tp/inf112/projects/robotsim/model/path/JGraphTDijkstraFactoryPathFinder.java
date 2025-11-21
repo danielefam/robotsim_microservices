@@ -19,9 +19,9 @@ import fr.tp.inf112.projects.robotsim.model.shapes.PositionedShape;
 import fr.tp.inf112.projects.robotsim.model.shapes.RectangularShape;
 
 public class JGraphTDijkstraFactoryPathFinder extends AbstractFactoryPathFinder<DefaultDirectedGraph<PositionedShape, DefaultEdge>, PositionedShape> implements Serializable {
-	
+
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = -7396132432169002382L;
 
@@ -37,17 +37,17 @@ public class JGraphTDijkstraFactoryPathFinder extends AbstractFactoryPathFinder<
 	public List<Position> findPath(final Component sourceComponent,
 								   final Component targetComponent) {
 		buildGraph();
-		
+
 		final PositionedShape sourceVertex = getVertex(sourceComponent.getPosition());
 		assert sourceVertex != null : "Start vertex should never be null!";
 
 		final PositionedShape targetVertex = getVertex(targetComponent.getPosition());
 		assert targetVertex != null : "Target vertex should never be null!";
-		
-		final AbstractBaseGraph<PositionedShape, DefaultEdge> graph = getGraph(); 
+
+		final AbstractBaseGraph<PositionedShape, DefaultEdge> graph = getGraph();
 		final GraphPath<PositionedShape, DefaultEdge> shortestPath = DijkstraShortestPath.findPathBetween(graph, sourceVertex, targetVertex);
 		final List<Position> shortestPathPositions = new ArrayList<>();
-		
+
 		if (shortestPath != null) {
 			for (final PositionedShape vertex : shortestPath.getVertexList()) {
 				if (vertex != sourceVertex) {
@@ -55,7 +55,7 @@ public class JGraphTDijkstraFactoryPathFinder extends AbstractFactoryPathFinder<
 				}
 			}
 		}
-		
+
 		return shortestPathPositions;
 	}
 
@@ -68,12 +68,12 @@ public class JGraphTDijkstraFactoryPathFinder extends AbstractFactoryPathFinder<
 
 		while (iterator.hasNext()) {
 			final PositionedShape shape = iterator.next();
-			
+
 			if (position.equals(shape.getPosition())) {
 				return shape;
 			}
 		}
-		
+
 		return null;
 	}
 
@@ -90,7 +90,7 @@ public class JGraphTDijkstraFactoryPathFinder extends AbstractFactoryPathFinder<
 
 	@Override
 	protected DefaultDirectedGraph<PositionedShape, DefaultEdge> newGraph() {
-		return new DefaultDirectedGraph<PositionedShape, DefaultEdge>(DefaultEdge.class);
+		return new DefaultDirectedGraph<>(DefaultEdge.class);
 	}
 
 	@Override

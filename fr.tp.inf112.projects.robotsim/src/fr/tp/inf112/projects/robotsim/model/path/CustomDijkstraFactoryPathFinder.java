@@ -17,9 +17,9 @@ import fr.tp.inf112.projects.robotsim.model.Position;
 import fr.tp.inf112.projects.robotsim.model.shapes.PositionedShape;
 
 public class CustomDijkstraFactoryPathFinder extends AbstractFactoryPathFinder<GridGraph, SquareVertex> implements Serializable {
-	
+
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 6996131946200605552L;
 
@@ -35,22 +35,22 @@ public class CustomDijkstraFactoryPathFinder extends AbstractFactoryPathFinder<G
 	public List<Position> findPath(final Component sourceComponent,
 								   final Component targetComponent) {
 		buildGraph();
-		
+
 		final Position sourcePosition = sourceComponent.getPosition();
 		final Position targetPosition = targetComponent.getPosition();
-		
+
 		final Vertex startVertex = getVertex(sourcePosition);
 		assert startVertex != null : "Start vertex should never be null!";
 
 		final Vertex targetVertex = getVertex(targetPosition);
 		assert targetVertex != null : "Target vertex should never be null!";
-		
+
 		final GridGraph graph = getGraph();
 		graph.setTargetVertex((GridVertex) targetVertex);
-		
+
 		final List<Vertex> shortestPath = DijkstraAlgorithm.findShortestPath(graph, startVertex, targetVertex);
 		final List<Position> shortestPathPositions = new ArrayList<>();
-		
+
 		for (final Vertex vertex : shortestPath) {
 			if (vertex != startVertex) {
 				shortestPathPositions.add(( (SquareVertex) vertex ).getPosition());
@@ -61,7 +61,7 @@ public class CustomDijkstraFactoryPathFinder extends AbstractFactoryPathFinder<G
 	}
 
 	@Override
-	protected SquareVertex getVertex(final int xIndex, 
+	protected SquareVertex getVertex(final int xIndex,
 									 final int yIndex) {
 		final Iterator<SquareVertex> iterator = getGraphVertexesIterator();
 		final int resolution = getResolution();
@@ -69,17 +69,17 @@ public class CustomDijkstraFactoryPathFinder extends AbstractFactoryPathFinder<G
 
 		while (iterator.hasNext()) {
 			final SquareVertex squareVertex = iterator.next();
-			
+
 			if (position.equals(squareVertex.getPosition())) {
 				return squareVertex;
 			}
 		}
-		
+
 		return null;
 	}
 
 	@Override
-	protected float overlayedSurface(final SquareVertex vertex, 
+	protected float overlayedSurface(final SquareVertex vertex,
 									 final PositionedShape shape) {
 		return vertex.getShape().getOverlayedSurface(shape);
 	}
@@ -112,7 +112,7 @@ public class CustomDijkstraFactoryPathFinder extends AbstractFactoryPathFinder<G
 		final GridGraph graph = getGraph();
 		final Edge edge = new GridEdge(graph, vertex1, vertex2, 1);
 		vertex1.addEdge(edge);
-		
+
 		return graph.addEdge(edge);
 	}
 

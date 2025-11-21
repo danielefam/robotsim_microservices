@@ -5,7 +5,7 @@ import fr.tp.inf112.projects.robotsim.model.Position;
 import fr.tp.inf112.projects.robotsim.model.shapes.RectangularShape;
 
 public class SquareVertex extends GridVertex {
-	
+
 	private final RectangularShape shape;
 
 	public SquareVertex(){
@@ -24,7 +24,7 @@ public class SquareVertex extends GridVertex {
 	public RectangularShape getShape() {
 		return shape;
 	}
-	
+
 	public Position getPosition() {
 		return getShape() == null ? null : getShape().getPosition();
 	}

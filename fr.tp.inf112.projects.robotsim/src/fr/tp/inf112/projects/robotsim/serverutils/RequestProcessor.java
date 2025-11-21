@@ -23,7 +23,7 @@ public class RequestProcessor implements Runnable {
     @Override
     public void run() {
         try(
-            Socket socket = this.socket;   
+            Socket socket = this.socket;
             OutputStream outStr = socket.getOutputStream();
         	ObjectOutputStream outObjectStream = new ObjectOutputStream(outStr);
         ){
@@ -31,7 +31,7 @@ public class RequestProcessor implements Runnable {
             InputStream inpStr = socket.getInputStream();
         	ObjectInputStream inpObjectStream = new ObjectInputStream(inpStr);
             Object receivedObject = inpObjectStream.readObject();
-            
+
             if (receivedObject instanceof Factory) {
             	Factory factoryToSaveFactory = (Factory) receivedObject;
             	localFileManager.persist(factoryToSaveFactory);
@@ -39,7 +39,7 @@ public class RequestProcessor implements Runnable {
             } else if (receivedObject instanceof String) {
             	String factoryId = (String) receivedObject;
             	Canvas objOutCanvas = localFileManager.read(factoryId);
-            	
+
             	outObjectStream.writeObject(objOutCanvas);
             }
 

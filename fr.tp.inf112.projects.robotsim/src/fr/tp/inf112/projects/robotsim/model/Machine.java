@@ -13,7 +13,7 @@ public class Machine extends Component {
 				   final RectangularShape shape,
 				   final String name) {
 		super(area.getFactory(), shape, name);
-		
+
 		area.setMachine(this);
 	}
 
@@ -21,7 +21,7 @@ public class Machine extends Component {
 	public String toString() {
 		return super.toString() + "]";
 	}
-	
+
 	@Override
 	public boolean canBeOverlayed(final PositionedShape shape) {
 		return true;

@@ -14,7 +14,7 @@ public class Position implements Serializable {
 		this(0,0);
 	}
 
-	public Position(final int xCoordinate, 
+	public Position(final int xCoordinate,
 					final int yCoordinate) {
 		super();
 
@@ -34,9 +34,9 @@ public class Position implements Serializable {
 		if (this.xCoordinate == xCoordinate) {
 			return false;
 		}
-		
+
 		this.xCoordinate = xCoordinate;
-		
+
 		return true;
 	}
 
@@ -44,23 +44,23 @@ public class Position implements Serializable {
 		if (this.yCoordinate == yCoordinate) {
 			return false;
 		}
-		
+
 		this.yCoordinate = yCoordinate;
-		
+
 		return true;
 	}
-	
+
 	@Override
 	public boolean equals(final Object objectToCompare) {
 		if (objectToCompare == null) {
 			return false;
 		}
-		
+
 		final Position position = (Position) objectToCompare;
-		
+
 		return getxCoordinate() == position.getxCoordinate() && getyCoordinate() == position.getyCoordinate();
 	}
-	
+
 	@Override
 	public String toString() {
 		final StringBuilder strBuild = new StringBuilder("Position = (");
@@ -68,7 +68,7 @@ public class Position implements Serializable {
 		strBuild.append(", ");
 		strBuild.append(getyCoordinate());
 		strBuild.append(")");
-		
+
 		return strBuild.toString();
 	}
 }

@@ -29,14 +29,14 @@ import fr.tp.inf112.projects.robotsim.model.shapes.CircularShape;
 import fr.tp.inf112.projects.robotsim.model.shapes.RectangularShape;
 
 public class SimulatorApplication {
-	
+
 	private static final Logger LOGGER = Logger.getLogger(Main.class.getName());
-	
-	public static void main(String[] args) {	
-		
-		LOGGER.info("Starting the robot simulator..."); 
+
+	public static void main(String[] args) {
+
+		LOGGER.info("Starting the robot simulator...");
 		LOGGER.config("With parameters " + Arrays.toString(args) + ".");
-		
+
 		final Factory factory = new Factory(200, 200, "Simple Test Puck Factory");
 		final Room room1 = new Room(factory, new RectangularShape(20, 20, 75, 75), "Production Room 1");
 		new Door(room1, Room.WALL.BOTTOM, 10, 20, true, "Entrance");
@@ -47,7 +47,7 @@ public class SimulatorApplication {
 		new Door(room2, Room.WALL.LEFT, 10, 20, true, "Entrance");
 		final Area area2 = new Area(room2, new RectangularShape( 135, 35, 50, 50 ), "Production Area 1");
 		final Machine machine2 = new Machine(area2, new RectangularShape( 150, 50, 15, 15 ), "Machine 1");
-		
+
 		final int baselineSize = 3;
 		final int xCoordinate = 10;
 		final int yCoordinate = 165;
@@ -80,9 +80,9 @@ public class SimulatorApplication {
 		robot2.addTargetComponent(machine2);
 		robot2.addTargetComponent(new Conveyor(factory, conveyorShape, "Conveyor 1"));
 		robot2.addTargetComponent(chargingStation);
-		
+
 		SwingUtilities.invokeLater(new Runnable() {
-			  
+
 			@Override
 	        public void run() {
 				int port = 8081;

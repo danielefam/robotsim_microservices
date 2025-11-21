@@ -2,130 +2,106 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2025-11-21T19:38:42.822642772Z</date>
-  <millis>1763753922822</millis>
-  <nanos>642772</nanos>
-  <sequence>0</sequence>
-  <logger>org.apache.coyote.http11.Http11NioProtocol</logger>
-  <level>INFO</level>
-  <class>org.apache.coyote.AbstractProtocol</class>
-  <method>init</method>
-  <thread>1</thread>
-  <message>Initializing ProtocolHandler ["http-nio-8080"]</message>
-</record>
-<record>
-  <date>2025-11-21T19:38:42.824738904Z</date>
-  <millis>1763753922824</millis>
-  <nanos>738904</nanos>
-  <sequence>1</sequence>
-  <logger>org.apache.catalina.core.StandardService</logger>
-  <level>INFO</level>
-  <class>org.apache.catalina.core.StandardService</class>
-  <method>startInternal</method>
-  <thread>1</thread>
-  <message>Starting service [Tomcat]</message>
-</record>
-<record>
-  <date>2025-11-21T19:38:42.825084755Z</date>
-  <millis>1763753922825</millis>
-  <nanos>84755</nanos>
-  <sequence>2</sequence>
-  <logger>org.apache.catalina.core.StandardEngine</logger>
-  <level>INFO</level>
-  <class>org.apache.catalina.core.StandardEngine</class>
-  <method>startInternal</method>
-  <thread>1</thread>
-  <message>Starting Servlet engine: [Apache Tomcat/10.1.46]</message>
-</record>
-<record>
-  <date>2025-11-21T19:38:42.849163692Z</date>
-  <millis>1763753922849</millis>
-  <nanos>163692</nanos>
-  <sequence>3</sequence>
-  <logger>org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]</logger>
-  <level>INFO</level>
-  <class>org.apache.catalina.core.ApplicationContext</class>
-  <method>log</method>
-  <thread>1</thread>
-  <message>Initializing Spring embedded WebApplicationContext</message>
-</record>
-<record>
-  <date>2025-11-21T19:38:43.068188503Z</date>
-  <millis>1763753923068</millis>
-  <nanos>188503</nanos>
-  <sequence>4</sequence>
-  <logger>org.apache.coyote.http11.Http11NioProtocol</logger>
-  <level>INFO</level>
-  <class>org.apache.coyote.AbstractProtocol</class>
-  <method>start</method>
-  <thread>1</thread>
-  <message>Starting ProtocolHandler ["http-nio-8080"]</message>
-</record>
-<record>
-  <date>2025-11-21T19:38:47.427807444Z</date>
-  <millis>1763753927427</millis>
-  <nanos>807444</nanos>
-  <sequence>5</sequence>
-  <logger>org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]</logger>
-  <level>INFO</level>
-  <class>org.apache.catalina.core.ApplicationContext</class>
-  <method>log</method>
-  <thread>45</thread>
-  <message>Initializing Spring DispatcherServlet 'dispatcherServlet'</message>
-</record>
-<record>
-  <date>2025-11-21T19:38:47.478084917Z</date>
-  <millis>1763753927478</millis>
-  <nanos>84917</nanos>
-  <sequence>6</sequence>
+  <date>2025-11-21T21:43:30.512432606Z</date>
+  <millis>1763761410512</millis>
+  <nanos>432606</nanos>
+  <sequence>180</sequence>
   <logger>fr.tp.server.RobotSimulationControllerApplication</logger>
   <level>INFO</level>
   <class>fr.tp.server.RobotSimulationControllerApplication</class>
-  <method>startAnimation</method>
-  <thread>45</thread>
-  <message>start animation called</message>
+  <method>retrieveFactory</method>
+  <thread>52</thread>
+  <message>id: default.factory</message>
 </record>
 <record>
-  <date>2025-11-21T19:38:47.479858454Z</date>
-  <millis>1763753927479</millis>
-  <nanos>858454</nanos>
-  <sequence>7</sequence>
+  <date>2025-11-21T21:43:30.512900475Z</date>
+  <millis>1763761410512</millis>
+  <nanos>900475</nanos>
+  <sequence>181</sequence>
   <logger>fr.tp.server.RobotSimulationControllerApplication</logger>
   <level>INFO</level>
   <class>fr.tp.server.RobotSimulationControllerApplication</class>
-  <method>startAnimation</method>
-  <thread>45</thread>
-  <message>reading factory...</message>
+  <method>retrieveFactory</method>
+  <thread>52</thread>
+  <message>simulating: {default.factory=Factory [name=Simple Test Puck Factory, id=default.factory, numComponents=15, isRunning=true, height=200, components=[Room [name=Production Room 1 xCoordinate=20, yCoordinate=20, shape=RectangularShape at Position = (20, 20) [width=75, heigth=75] areas=[Area [name=Production Area 1 xCoordinate=35, yCoordinate=35, shape=RectangularShape at Position = (35, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=50, yCoordinate=50, shape=RectangularShape at Position = (50, 50) [width=15, heigth=15]]]]], Door [name=Entrance xCoordinate=30, yCoordinate=95, shape=RectangularShape at Position = (30, 95) [width=20, heigth=1]], Area [name=Production Area 1 xCoordinate=35, yCoordinate=35, shape=RectangularShape at Position = (35, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=50, yCoordinate=50, shape=RectangularShape at Position = (50, 50) [width=15, heigth=15]]], Machine [name=Machine 1 xCoordinate=50, yCoordinate=50, shape=RectangularShape at Position = (50, 50) [width=15, heigth=15]], Room [name=Production Room 2 xCoordinate=120, yCoordinate=22, shape=RectangularShape at Position = (120, 22) [width=75, heigth=75] areas=[Area [name=Production Area 1 xCoordinate=135, yCoordinate=35, shape=RectangularShape at Position = (135, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=150, yCoordinate=50, shape=RectangularShape at Position = (150, 50) [width=15, heigth=15]]]]], Door [name=Entrance xCoordinate=120, yCoordinate=32, shape=RectangularShape at Position = (120, 32) [width=1, heigth=20]], Area [name=Production Area 1 xCoordinate=135, yCoordinate=35, shape=RectangularShape at Position = (135, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=150, yCoordinate=50, shape=RectangularShape at Position = (150, 50) [width=15, heigth=15]]], Machine [name=Machine 1 xCoordinate=150, yCoordinate=50, shape=RectangularShape at Position = (150, 50) [width=15, heigth=15]], Room [name=Charging Room xCoordinate=125, yCoordinate=125, shape=RectangularShape at Position = (125, 125) [width=50, heigth=50] areas=[]], Door [name=Entrance xCoordinate=175, yCoordinate=135, shape=RectangularShape at Position = (175, 135) [width=1, heigth=20]], ChargingStation [name=Charging Station xCoordinate=150, yCoordinate=145, shape=RectangularShape at Position = (150, 145) [width=15, heigth=15]], Robot [name=Robot 1 xCoordinate=5, yCoordinate=160, shape=CircularShape at Position = (5, 160) [radius=2] battery=Battery [capacity=10.0]], Conveyor [name=Conveyor 1 xCoordinate=7, yCoordinate=165, shape=BasicPolygonShape at Position = (7, 165)], Robot [name=Robot 2 xCoordinate=5, yCoordinate=165, shape=CircularShape at Position = (5, 165) [radius=2] battery=Battery [capacity=10.0]], Conveyor [name=Conveyor 1 xCoordinate=7, yCoordinate=165, shape=BasicPolygonShape at Position = (7, 165)]]]}</message>
 </record>
 <record>
-  <date>2025-11-21T19:38:47.742757113Z</date>
-  <millis>1763753927742</millis>
-  <nanos>757113</nanos>
-  <sequence>8</sequence>
+  <date>2025-11-21T21:43:30.619079750Z</date>
+  <millis>1763761410619</millis>
+  <nanos>79750</nanos>
+  <sequence>182</sequence>
   <logger>fr.tp.server.RobotSimulationControllerApplication</logger>
   <level>INFO</level>
   <class>fr.tp.server.RobotSimulationControllerApplication</class>
-  <method>startAnimation</method>
-  <thread>45</thread>
-  <message>factory read</message>
+  <method>retrieveFactory</method>
+  <thread>53</thread>
+  <message>id: default.factory</message>
 </record>
 <record>
-  <date>2025-11-21T19:38:47.748942422Z</date>
-  <millis>1763753927748</millis>
-  <nanos>942422</nanos>
-  <sequence>9</sequence>
+  <date>2025-11-21T21:43:30.619547131Z</date>
+  <millis>1763761410619</millis>
+  <nanos>547131</nanos>
+  <sequence>183</sequence>
   <logger>fr.tp.server.RobotSimulationControllerApplication</logger>
   <level>INFO</level>
   <class>fr.tp.server.RobotSimulationControllerApplication</class>
-  <method>startAnimation</method>
-  <thread>45</thread>
-  <message>Model id: default.factory started its simulation</message>
+  <method>retrieveFactory</method>
+  <thread>53</thread>
+  <message>simulating: {default.factory=Factory [name=Simple Test Puck Factory, id=default.factory, numComponents=15, isRunning=true, height=200, components=[Room [name=Production Room 1 xCoordinate=20, yCoordinate=20, shape=RectangularShape at Position = (20, 20) [width=75, heigth=75] areas=[Area [name=Production Area 1 xCoordinate=35, yCoordinate=35, shape=RectangularShape at Position = (35, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=50, yCoordinate=50, shape=RectangularShape at Position = (50, 50) [width=15, heigth=15]]]]], Door [name=Entrance xCoordinate=30, yCoordinate=95, shape=RectangularShape at Position = (30, 95) [width=20, heigth=1]], Area [name=Production Area 1 xCoordinate=35, yCoordinate=35, shape=RectangularShape at Position = (35, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=50, yCoordinate=50, shape=RectangularShape at Position = (50, 50) [width=15, heigth=15]]], Machine [name=Machine 1 xCoordinate=50, yCoordinate=50, shape=RectangularShape at Position = (50, 50) [width=15, heigth=15]], Room [name=Production Room 2 xCoordinate=120, yCoordinate=22, shape=RectangularShape at Position = (120, 22) [width=75, heigth=75] areas=[Area [name=Production Area 1 xCoordinate=135, yCoordinate=35, shape=RectangularShape at Position = (135, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=150, yCoordinate=50, shape=RectangularShape at Position = (150, 50) [width=15, heigth=15]]]]], Door [name=Entrance xCoordinate=120, yCoordinate=32, shape=RectangularShape at Position = (120, 32) [width=1, heigth=20]], Area [name=Production Area 1 xCoordinate=135, yCoordinate=35, shape=RectangularShape at Position = (135, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=150, yCoordinate=50, shape=RectangularShape at Position = (150, 50) [width=15, heigth=15]]], Machine [name=Machine 1 xCoordinate=150, yCoordinate=50, shape=RectangularShape at Position = (150, 50) [width=15, heigth=15]], Room [name=Charging Room xCoordinate=125, yCoordinate=125, shape=RectangularShape at Position = (125, 125) [width=50, heigth=50] areas=[]], Door [name=Entrance xCoordinate=175, yCoordinate=135, shape=RectangularShape at Position = (175, 135) [width=1, heigth=20]], ChargingStation [name=Charging Station xCoordinate=150, yCoordinate=145, shape=RectangularShape at Position = (150, 145) [width=15, heigth=15]], Robot [name=Robot 1 xCoordinate=5, yCoordinate=160, shape=CircularShape at Position = (5, 160) [radius=2] battery=Battery [capacity=10.0]], Conveyor [name=Conveyor 1 xCoordinate=7, yCoordinate=165, shape=BasicPolygonShape at Position = (7, 165)], Robot [name=Robot 2 xCoordinate=5, yCoordinate=165, shape=CircularShape at Position = (5, 165) [radius=2] battery=Battery [capacity=10.0]], Conveyor [name=Conveyor 1 xCoordinate=7, yCoordinate=165, shape=BasicPolygonShape at Position = (7, 165)]]]}</message>
 </record>
 <record>
-  <date>2025-11-21T19:38:47.838694115Z</date>
-  <millis>1763753927838</millis>
-  <nanos>694115</nanos>
-  <sequence>10</sequence>
+  <date>2025-11-21T21:43:30.725447318Z</date>
+  <millis>1763761410725</millis>
+  <nanos>447318</nanos>
+  <sequence>184</sequence>
+  <logger>fr.tp.server.RobotSimulationControllerApplication</logger>
+  <level>INFO</level>
+  <class>fr.tp.server.RobotSimulationControllerApplication</class>
+  <method>retrieveFactory</method>
+  <thread>54</thread>
+  <message>id: default.factory</message>
+</record>
+<record>
+  <date>2025-11-21T21:43:30.725878312Z</date>
+  <millis>1763761410725</millis>
+  <nanos>878312</nanos>
+  <sequence>185</sequence>
+  <logger>fr.tp.server.RobotSimulationControllerApplication</logger>
+  <level>INFO</level>
+  <class>fr.tp.server.RobotSimulationControllerApplication</class>
+  <method>retrieveFactory</method>
+  <thread>54</thread>
+  <message>simulating: {default.factory=Factory [name=Simple Test Puck Factory, id=default.factory, numComponents=15, isRunning=true, height=200, components=[Room [name=Production Room 1 xCoordinate=20, yCoordinate=20, shape=RectangularShape at Position = (20, 20) [width=75, heigth=75] areas=[Area [name=Production Area 1 xCoordinate=35, yCoordinate=35, shape=RectangularShape at Position = (35, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=50, yCoordinate=50, shape=RectangularShape at Position = (50, 50) [width=15, heigth=15]]]]], Door [name=Entrance xCoordinate=30, yCoordinate=95, shape=RectangularShape at Position = (30, 95) [width=20, heigth=1]], Area [name=Production Area 1 xCoordinate=35, yCoordinate=35, shape=RectangularShape at Position = (35, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=50, yCoordinate=50, shape=RectangularShape at Position = (50, 50) [width=15, heigth=15]]], Machine [name=Machine 1 xCoordinate=50, yCoordinate=50, shape=RectangularShape at Position = (50, 50) [width=15, heigth=15]], Room [name=Production Room 2 xCoordinate=120, yCoordinate=22, shape=RectangularShape at Position = (120, 22) [width=75, heigth=75] areas=[Area [name=Production Area 1 xCoordinate=135, yCoordinate=35, shape=RectangularShape at Position = (135, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=150, yCoordinate=50, shape=RectangularShape at Position = (150, 50) [width=15, heigth=15]]]]], Door [name=Entrance xCoordinate=120, yCoordinate=32, shape=RectangularShape at Position = (120, 32) [width=1, heigth=20]], Area [name=Production Area 1 xCoordinate=135, yCoordinate=35, shape=RectangularShape at Position = (135, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=150, yCoordinate=50, shape=RectangularShape at Position = (150, 50) [width=15, heigth=15]]], Machine [name=Machine 1 xCoordinate=150, yCoordinate=50, shape=RectangularShape at Position = (150, 50) [width=15, heigth=15]], Room [name=Charging Room xCoordinate=125, yCoordinate=125, shape=RectangularShape at Position = (125, 125) [width=50, heigth=50] areas=[]], Door [name=Entrance xCoordinate=175, yCoordinate=135, shape=RectangularShape at Position = (175, 135) [width=1, heigth=20]], ChargingStation [name=Charging Station xCoordinate=150, yCoordinate=145, shape=RectangularShape at Position = (150, 145) [width=15, heigth=15]], Robot [name=Robot 1 xCoordinate=5, yCoordinate=160, shape=CircularShape at Position = (5, 160) [radius=2] battery=Battery [capacity=10.0]], Conveyor [name=Conveyor 1 xCoordinate=7, yCoordinate=165, shape=BasicPolygonShape at Position = (7, 165)], Robot [name=Robot 2 xCoordinate=5, yCoordinate=165, shape=CircularShape at Position = (5, 165) [radius=2] battery=Battery [capacity=10.0]], Conveyor [name=Conveyor 1 xCoordinate=7, yCoordinate=165, shape=BasicPolygonShape at Position = (7, 165)]]]}</message>
+</record>
+<record>
+  <date>2025-11-21T21:43:30.832152082Z</date>
+  <millis>1763761410832</millis>
+  <nanos>152082</nanos>
+  <sequence>186</sequence>
+  <logger>fr.tp.server.RobotSimulationControllerApplication</logger>
+  <level>INFO</level>
+  <class>fr.tp.server.RobotSimulationControllerApplication</class>
+  <method>retrieveFactory</method>
+  <thread>45</thread>
+  <message>id: default.factory</message>
+</record>
+<record>
+  <date>2025-11-21T21:43:30.832658016Z</date>
+  <millis>1763761410832</millis>
+  <nanos>658016</nanos>
+  <sequence>187</sequence>
+  <logger>fr.tp.server.RobotSimulationControllerApplication</logger>
+  <level>INFO</level>
+  <class>fr.tp.server.RobotSimulationControllerApplication</class>
+  <method>retrieveFactory</method>
+  <thread>45</thread>
+  <message>simulating: {default.factory=Factory [name=Simple Test Puck Factory, id=default.factory, numComponents=15, isRunning=true, height=200, components=[Room [name=Production Room 1 xCoordinate=20, yCoordinate=20, shape=RectangularShape at Position = (20, 20) [width=75, heigth=75] areas=[Area [name=Production Area 1 xCoordinate=35, yCoordinate=35, shape=RectangularShape at Position = (35, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=50, yCoordinate=50, shape=RectangularShape at Position = (50, 50) [width=15, heigth=15]]]]], Door [name=Entrance xCoordinate=30, yCoordinate=95, shape=RectangularShape at Position = (30, 95) [width=20, heigth=1]], Area [name=Production Area 1 xCoordinate=35, yCoordinate=35, shape=RectangularShape at Position = (35, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=50, yCoordinate=50, shape=RectangularShape at Position = (50, 50) [width=15, heigth=15]]], Machine [name=Machine 1 xCoordinate=50, yCoordinate=50, shape=RectangularShape at Position = (50, 50) [width=15, heigth=15]], Room [name=Production Room 2 xCoordinate=120, yCoordinate=22, shape=RectangularShape at Position = (120, 22) [width=75, heigth=75] areas=[Area [name=Production Area 1 xCoordinate=135, yCoordinate=35, shape=RectangularShape at Position = (135, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=150, yCoordinate=50, shape=RectangularShape at Position = (150, 50) [width=15, heigth=15]]]]], Door [name=Entrance xCoordinate=120, yCoordinate=32, shape=RectangularShape at Position = (120, 32) [width=1, heigth=20]], Area [name=Production Area 1 xCoordinate=135, yCoordinate=35, shape=RectangularShape at Position = (135, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=150, yCoordinate=50, shape=RectangularShape at Position = (150, 50) [width=15, heigth=15]]], Machine [name=Machine 1 xCoordinate=150, yCoordinate=50, shape=RectangularShape at Position = (150, 50) [width=15, heigth=15]], Room [name=Charging Room xCoordinate=125, yCoordinate=125, shape=RectangularShape at Position = (125, 125) [width=50, heigth=50] areas=[]], Door [name=Entrance xCoordinate=175, yCoordinate=135, shape=RectangularShape at Position = (175, 135) [width=1, heigth=20]], ChargingStation [name=Charging Station xCoordinate=150, yCoordinate=145, shape=RectangularShape at Position = (150, 145) [width=15, heigth=15]], Robot [name=Robot 1 xCoordinate=5, yCoordinate=160, shape=CircularShape at Position = (5, 160) [radius=2] battery=Battery [capacity=10.0]], Conveyor [name=Conveyor 1 xCoordinate=7, yCoordinate=165, shape=BasicPolygonShape at Position = (7, 165)], Robot [name=Robot 2 xCoordinate=5, yCoordinate=165, shape=CircularShape at Position = (5, 165) [radius=2] battery=Battery [capacity=10.0]], Conveyor [name=Conveyor 1 xCoordinate=7, yCoordinate=165, shape=BasicPolygonShape at Position = (7, 165)]]]}</message>
+</record>
+<record>
+  <date>2025-11-21T21:43:30.939530888Z</date>
+  <millis>1763761410939</millis>
+  <nanos>530888</nanos>
+  <sequence>188</sequence>
   <logger>fr.tp.server.RobotSimulationControllerApplication</logger>
   <level>INFO</level>
   <class>fr.tp.server.RobotSimulationControllerApplication</class>
@@ -134,22 +110,22 @@
   <message>id: default.factory</message>
 </record>
 <record>
-  <date>2025-11-21T19:38:47.852001229Z</date>
-  <millis>1763753927852</millis>
-  <nanos>1229</nanos>
-  <sequence>11</sequence>
+  <date>2025-11-21T21:43:30.940035634Z</date>
+  <millis>1763761410940</millis>
+  <nanos>35634</nanos>
+  <sequence>189</sequence>
   <logger>fr.tp.server.RobotSimulationControllerApplication</logger>
   <level>INFO</level>
   <class>fr.tp.server.RobotSimulationControllerApplication</class>
   <method>retrieveFactory</method>
   <thread>46</thread>
-  <message>simulating: {default.factory=Factory [name=Simple Test Puck Factory, id=default.factory, numComponents=15, isRunning=true, height=200, components=[Room [name=Production Room 1 xCoordinate=20, yCoordinate=20, shape=RectangularShape at Position = (20, 20) [width=75, heigth=75] areas=[Area [name=Production Area 1 xCoordinate=35, yCoordinate=35, shape=RectangularShape at Position = (35, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=50, yCoordinate=50, shape=RectangularShape at Position = (50, 50) [width=15, heigth=15]]]]], Door [name=Entrance xCoordinate=30, yCoordinate=95, shape=RectangularShape at Position = (30, 95) [width=20, heigth=1]], Area [name=Production Area 1 xCoordinate=35, yCoordinate=35, shape=RectangularShape at Position = (35, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=50, yCoordinate=50, shape=RectangularShape at Position = (50, 50) [width=15, heigth=15]]], Machine [name=Machine 1 xCoordinate=50, yCoordinate=50, shape=RectangularShape at Position = (50, 50) [width=15, heigth=15]], Room [name=Production Room 2 xCoordinate=120, yCoordinate=22, shape=RectangularShape at Position = (120, 22) [width=75, heigth=75] areas=[Area [name=Production Area 1 xCoordinate=135, yCoordinate=35, shape=RectangularShape at Position = (135, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=150, yCoordinate=50, shape=RectangularShape at Position = (150, 50) [width=15, heigth=15]]]]], Door [name=Entrance xCoordinate=120, yCoordinate=32, shape=RectangularShape at Position = (120, 32) [width=1, heigth=20]], Area [name=Production Area 1 xCoordinate=135, yCoordinate=35, shape=RectangularShape at Position = (135, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=150, yCoordinate=50, shape=RectangularShape at Position = (150, 50) [width=15, heigth=15]]], Machine [name=Machine 1 xCoordinate=150, yCoordinate=50, shape=RectangularShape at Position = (150, 50) [width=15, heigth=15]], Room [name=Charging Room xCoordinate=125, yCoordinate=125, shape=RectangularShape at Position = (125, 125) [width=50, heigth=50] areas=[]], Door [name=Entrance xCoordinate=175, yCoordinate=135, shape=RectangularShape at Position = (175, 135) [width=1, heigth=20]], ChargingStation [name=Charging Station xCoordinate=150, yCoordinate=145, shape=RectangularShape at Position = (150, 145) [width=15, heigth=15]], Robot [name=Robot 1 xCoordinate=5, yCoordinate=5, shape=CircularShape at Position = (5, 5) [radius=2] battery=Battery [capacity=10.0]], Conveyor [name=Conveyor 1 xCoordinate=7, yCoordinate=165, shape=BasicPolygonShape at Position = (7, 165)], Robot [name=Robot 2 xCoordinate=45, yCoordinate=5, shape=CircularShape at Position = (45, 5) [radius=2] battery=Battery [capacity=10.0]], Conveyor [name=Conveyor 1 xCoordinate=7, yCoordinate=165, shape=BasicPolygonShape at Position = (7, 165)]]]}</message>
+  <message>simulating: {default.factory=Factory [name=Simple Test Puck Factory, id=default.factory, numComponents=15, isRunning=true, height=200, components=[Room [name=Production Room 1 xCoordinate=20, yCoordinate=20, shape=RectangularShape at Position = (20, 20) [width=75, heigth=75] areas=[Area [name=Production Area 1 xCoordinate=35, yCoordinate=35, shape=RectangularShape at Position = (35, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=50, yCoordinate=50, shape=RectangularShape at Position = (50, 50) [width=15, heigth=15]]]]], Door [name=Entrance xCoordinate=30, yCoordinate=95, shape=RectangularShape at Position = (30, 95) [width=20, heigth=1]], Area [name=Production Area 1 xCoordinate=35, yCoordinate=35, shape=RectangularShape at Position = (35, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=50, yCoordinate=50, shape=RectangularShape at Position = (50, 50) [width=15, heigth=15]]], Machine [name=Machine 1 xCoordinate=50, yCoordinate=50, shape=RectangularShape at Position = (50, 50) [width=15, heigth=15]], Room [name=Production Room 2 xCoordinate=120, yCoordinate=22, shape=RectangularShape at Position = (120, 22) [width=75, heigth=75] areas=[Area [name=Production Area 1 xCoordinate=135, yCoordinate=35, shape=RectangularShape at Position = (135, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=150, yCoordinate=50, shape=RectangularShape at Position = (150, 50) [width=15, heigth=15]]]]], Door [name=Entrance xCoordinate=120, yCoordinate=32, shape=RectangularShape at Position = (120, 32) [width=1, heigth=20]], Area [name=Production Area 1 xCoordinate=135, yCoordinate=35, shape=RectangularShape at Position = (135, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=150, yCoordinate=50, shape=RectangularShape at Position = (150, 50) [width=15, heigth=15]]], Machine [name=Machine 1 xCoordinate=150, yCoordinate=50, shape=RectangularShape at Position = (150, 50) [width=15, heigth=15]], Room [name=Charging Room xCoordinate=125, yCoordinate=125, shape=RectangularShape at Position = (125, 125) [width=50, heigth=50] areas=[]], Door [name=Entrance xCoordinate=175, yCoordinate=135, shape=RectangularShape at Position = (175, 135) [width=1, heigth=20]], ChargingStation [name=Charging Station xCoordinate=150, yCoordinate=145, shape=RectangularShape at Position = (150, 145) [width=15, heigth=15]], Robot [name=Robot 1 xCoordinate=5, yCoordinate=160, shape=CircularShape at Position = (5, 160) [radius=2] battery=Battery [capacity=10.0]], Conveyor [name=Conveyor 1 xCoordinate=7, yCoordinate=165, shape=BasicPolygonShape at Position = (7, 165)], Robot [name=Robot 2 xCoordinate=5, yCoordinate=165, shape=CircularShape at Position = (5, 165) [radius=2] battery=Battery [capacity=10.0]], Conveyor [name=Conveyor 1 xCoordinate=7, yCoordinate=165, shape=BasicPolygonShape at Position = (7, 165)]]]}</message>
 </record>
 <record>
-  <date>2025-11-21T19:38:48.093207481Z</date>
-  <millis>1763753928093</millis>
-  <nanos>207481</nanos>
-  <sequence>12</sequence>
+  <date>2025-11-21T21:43:31.039294506Z</date>
+  <millis>1763761411039</millis>
+  <nanos>294506</nanos>
+  <sequence>190</sequence>
   <logger>fr.tp.server.RobotSimulationControllerApplication</logger>
   <level>INFO</level>
   <class>fr.tp.server.RobotSimulationControllerApplication</class>
@@ -158,135 +134,63 @@
   <message>Model id: default.factory stopped its simulation</message>
 </record>
 <record>
-  <date>2025-11-21T19:41:44.046352675Z</date>
-  <millis>1763754104046</millis>
-  <nanos>352675</nanos>
-  <sequence>13</sequence>
+  <date>2025-11-21T21:43:34.167209596Z</date>
+  <millis>1763761414167</millis>
+  <nanos>209596</nanos>
+  <sequence>191</sequence>
   <logger>fr.tp.server.RobotSimulationControllerApplication</logger>
   <level>INFO</level>
   <class>fr.tp.server.RobotSimulationControllerApplication</class>
-  <method>startAnimation</method>
-  <thread>51</thread>
-  <message>start animation called</message>
+  <method>releaseFactory</method>
+  <thread>48</thread>
+  <message>Model id: default.factory removed from memory (Client disconnected).</message>
 </record>
 <record>
-  <date>2025-11-21T19:41:44.047339057Z</date>
-  <millis>1763754104047</millis>
-  <nanos>339057</nanos>
-  <sequence>14</sequence>
-  <logger>fr.tp.server.RobotSimulationControllerApplication</logger>
-  <level>INFO</level>
-  <class>fr.tp.server.RobotSimulationControllerApplication</class>
-  <method>startAnimation</method>
-  <thread>51</thread>
-  <message>reading factory...</message>
-</record>
-<record>
-  <date>2025-11-21T19:41:44.072674890Z</date>
-  <millis>1763754104072</millis>
-  <nanos>674890</nanos>
-  <sequence>15</sequence>
-  <logger>fr.tp.server.RobotSimulationControllerApplication</logger>
-  <level>INFO</level>
-  <class>fr.tp.server.RobotSimulationControllerApplication</class>
-  <method>startAnimation</method>
-  <thread>51</thread>
-  <message>factory read</message>
-</record>
-<record>
-  <date>2025-11-21T19:41:44.075909214Z</date>
-  <millis>1763754104075</millis>
-  <nanos>909214</nanos>
-  <sequence>16</sequence>
-  <logger>fr.tp.server.RobotSimulationControllerApplication</logger>
-  <level>INFO</level>
-  <class>fr.tp.server.RobotSimulationControllerApplication</class>
-  <method>startAnimation</method>
-  <thread>51</thread>
-  <message>Model id: default.factory started its simulation</message>
-</record>
-<record>
-  <date>2025-11-21T19:41:44.107769221Z</date>
-  <millis>1763754104107</millis>
-  <nanos>769221</nanos>
-  <sequence>17</sequence>
-  <logger>fr.tp.server.RobotSimulationControllerApplication</logger>
-  <level>INFO</level>
-  <class>fr.tp.server.RobotSimulationControllerApplication</class>
-  <method>retrieveFactory</method>
-  <thread>52</thread>
-  <message>id: default.factory</message>
-</record>
-<record>
-  <date>2025-11-21T19:41:44.108758466Z</date>
-  <millis>1763754104108</millis>
-  <nanos>758466</nanos>
-  <sequence>18</sequence>
-  <logger>fr.tp.server.RobotSimulationControllerApplication</logger>
-  <level>INFO</level>
-  <class>fr.tp.server.RobotSimulationControllerApplication</class>
-  <method>retrieveFactory</method>
-  <thread>52</thread>
-  <message>simulating: {default.factory=Factory [name=Simple Test Puck Factory, id=default.factory, numComponents=15, isRunning=true, height=200, components=[Room [name=Production Room 1 xCoordinate=20, yCoordinate=20, shape=RectangularShape at Position = (20, 20) [width=75, heigth=75] areas=[Area [name=Production Area 1 xCoordinate=35, yCoordinate=35, shape=RectangularShape at Position = (35, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=50, yCoordinate=50, shape=RectangularShape at Position = (50, 50) [width=15, heigth=15]]]]], Door [name=Entrance xCoordinate=30, yCoordinate=95, shape=RectangularShape at Position = (30, 95) [width=20, heigth=1]], Area [name=Production Area 1 xCoordinate=35, yCoordinate=35, shape=RectangularShape at Position = (35, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=50, yCoordinate=50, shape=RectangularShape at Position = (50, 50) [width=15, heigth=15]]], Machine [name=Machine 1 xCoordinate=50, yCoordinate=50, shape=RectangularShape at Position = (50, 50) [width=15, heigth=15]], Room [name=Production Room 2 xCoordinate=120, yCoordinate=22, shape=RectangularShape at Position = (120, 22) [width=75, heigth=75] areas=[Area [name=Production Area 1 xCoordinate=135, yCoordinate=35, shape=RectangularShape at Position = (135, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=150, yCoordinate=50, shape=RectangularShape at Position = (150, 50) [width=15, heigth=15]]]]], Door [name=Entrance xCoordinate=120, yCoordinate=32, shape=RectangularShape at Position = (120, 32) [width=1, heigth=20]], Area [name=Production Area 1 xCoordinate=135, yCoordinate=35, shape=RectangularShape at Position = (135, 35) [width=50, heigth=50] machine=Machine [name=Machine 1 xCoordinate=150, yCoordinate=50, shape=RectangularShape at Position = (150, 50) [width=15, heigth=15]]], Machine [name=Machine 1 xCoordinate=150, yCoordinate=50, shape=RectangularShape at Position = (150, 50) [width=15, heigth=15]], Room [name=Charging Room xCoordinate=125, yCoordinate=125, shape=RectangularShape at Position = (125, 125) [width=50, heigth=50] areas=[]], Door [name=Entrance xCoordinate=175, yCoordinate=135, shape=RectangularShape at Position = (175, 135) [width=1, heigth=20]], ChargingStation [name=Charging Station xCoordinate=150, yCoordinate=145, shape=RectangularShape at Position = (150, 145) [width=15, heigth=15]], Robot [name=Robot 1 xCoordinate=5, yCoordinate=5, shape=CircularShape at Position = (5, 5) [radius=2] battery=Battery [capacity=10.0]], Conveyor [name=Conveyor 1 xCoordinate=7, yCoordinate=165, shape=BasicPolygonShape at Position = (7, 165)], Robot [name=Robot 2 xCoordinate=45, yCoordinate=5, shape=CircularShape at Position = (45, 5) [radius=2] battery=Battery [capacity=10.0]], Conveyor [name=Conveyor 1 xCoordinate=7, yCoordinate=165, shape=BasicPolygonShape at Position = (7, 165)]]]}</message>
-</record>
-<record>
-  <date>2025-11-21T19:41:44.340149172Z</date>
-  <millis>1763754104340</millis>
-  <nanos>149172</nanos>
-  <sequence>19</sequence>
-  <logger>fr.tp.server.RobotSimulationControllerApplication</logger>
-  <level>INFO</level>
-  <class>fr.tp.server.RobotSimulationControllerApplication</class>
-  <method>stopAnimation</method>
-  <thread>53</thread>
-  <message>Model id: default.factory stopped its simulation</message>
-</record>
-<record>
-  <date>2025-11-21T19:47:36.437135035Z</date>
-  <millis>1763754456437</millis>
-  <nanos>135035</nanos>
-  <sequence>20</sequence>
+  <date>2025-11-21T21:43:44.007694097Z</date>
+  <millis>1763761424007</millis>
+  <nanos>694097</nanos>
+  <sequence>192</sequence>
   <logger>org.apache.coyote.http11.Http11NioProtocol</logger>
   <level>INFO</level>
   <class>org.apache.coyote.AbstractProtocol</class>
   <method>pause</method>
-  <thread>90</thread>
+  <thread>104</thread>
   <message>Pausing ProtocolHandler ["http-nio-8080"]</message>
 </record>
 <record>
-  <date>2025-11-21T19:47:36.440467026Z</date>
-  <millis>1763754456440</millis>
-  <nanos>467026</nanos>
-  <sequence>21</sequence>
+  <date>2025-11-21T21:43:44.010971418Z</date>
+  <millis>1763761424010</millis>
+  <nanos>971418</nanos>
+  <sequence>193</sequence>
   <logger>org.apache.coyote.http11.Http11NioProtocol</logger>
   <level>INFO</level>
   <class>org.apache.coyote.AbstractProtocol</class>
   <method>stop</method>
-  <thread>88</thread>
+  <thread>24</thread>
   <message>Stopping ProtocolHandler ["http-nio-8080"]</message>
 </record>
 <record>
-  <date>2025-11-21T19:47:36.446070187Z</date>
-  <millis>1763754456446</millis>
-  <nanos>70187</nanos>
-  <sequence>22</sequence>
+  <date>2025-11-21T21:43:44.015483122Z</date>
+  <millis>1763761424015</millis>
+  <nanos>483122</nanos>
+  <sequence>194</sequence>
   <logger>org.apache.catalina.core.StandardService</logger>
   <level>INFO</level>
   <class>org.apache.catalina.core.StandardService</class>
   <method>stopInternal</method>
-  <thread>88</thread>
+  <thread>24</thread>
   <message>Stopping service [Tomcat]</message>
 </record>
 <record>
-  <date>2025-11-21T19:47:36.447572265Z</date>
-  <millis>1763754456447</millis>
-  <nanos>572265</nanos>
-  <sequence>23</sequence>
+  <date>2025-11-21T21:43:44.016621122Z</date>
+  <millis>1763761424016</millis>
+  <nanos>621122</nanos>
+  <sequence>195</sequence>
   <logger>org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]</logger>
   <level>INFO</level>
   <class>org.apache.catalina.core.ApplicationContext</class>
   <method>log</method>
-  <thread>88</thread>
+  <thread>24</thread>
   <message>Destroying Spring FrameworkServlet 'dispatcherServlet'</message>
 </record>
 </log>

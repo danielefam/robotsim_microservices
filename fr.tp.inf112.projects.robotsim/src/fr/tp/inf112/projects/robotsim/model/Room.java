@@ -5,39 +5,38 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import fr.tp.inf112.projects.robotsim.model.shapes.PositionedShape;
 import fr.tp.inf112.projects.robotsim.model.shapes.RectangularShape;
 
 @JsonIdentityInfo(
-  generator = ObjectIdGenerators.IntSequenceGenerator.class, 
+  generator = ObjectIdGenerators.IntSequenceGenerator.class,
   property = "@id"
 )
 public class Room extends Component {
-	
+
 	private static final long serialVersionUID = 1449569724908316962L;
 
-	public static enum WALL {LEFT, TOP, RIGHT, BOTTOM};
-	
+	public static enum WALL {LEFT, TOP, RIGHT, BOTTOM}
+
 	private static final int WALL_THICKNESS = 5;
-	
+
 	private final PositionedShape leftWall;
-	
+
 	private final PositionedShape rightWall;
-	
+
 	private final PositionedShape topWall;
-	
+
 	private final PositionedShape bottomWall;
-	
+
 	private final List<Area> areas;
 
 	// @JsonManagedReference(value="door-room")
 	private final List<Door> doors;
 
 	public Room(){
-//		this(new Factory(200, 200, "Simple Test Puck Factory"), 
+//		this(new Factory(200, 200, "Simple Test Puck Factory"),
 //		new RectangularShape(20, 20, 75, 75), "Production Room 1");
 		this(null, new RectangularShape(), null);
 	}
@@ -46,24 +45,24 @@ public class Room extends Component {
 				final RectangularShape shape,
 				final String name) {
 		super(factory, shape, name);
-		
+
 		leftWall = new RectangularShape(getxCoordinate(), getyCoordinate(), WALL_THICKNESS, getHeight() + WALL_THICKNESS);
 		rightWall = new RectangularShape(getxCoordinate() + getWidth(), getyCoordinate(), WALL_THICKNESS, getHeight() + WALL_THICKNESS);
 		topWall = new RectangularShape(getxCoordinate(), getyCoordinate(), getWidth(), WALL_THICKNESS);
 		bottomWall = new RectangularShape(getxCoordinate(), getyCoordinate() + getHeight(), getWidth(), WALL_THICKNESS);
-		
+
 		areas = new ArrayList<>();
 		doors = new ArrayList<>();
 	}
-	
+
 	protected boolean addArea(final Area area) {
 		return areas.add(area);
 	}
-	
+
 	protected boolean addDoor(final Door door) {
 		return doors.add(door);
 	}
-	
+
 	public List<Area> getAreas() {
 		return areas;
 	}
@@ -90,26 +89,26 @@ public class Room extends Component {
 
 	@Override
 	public boolean overlays(final PositionedShape shape) {
-		return leftWall.overlays(shape) || rightWall.overlays(shape) || 
+		return leftWall.overlays(shape) || rightWall.overlays(shape) ||
 			   topWall.overlays(shape) || bottomWall.overlays(shape);
 	}
 
 	@Override
 	public boolean canBeOverlayed(final PositionedShape shape) {
 		final Door overlayedDoor = getOverlayedDoor(shape);
-		
+
 		if (overlayedDoor != null) {
 			return overlayedDoor.canBeOverlayed(shape);
 		}
-		
-		if (leftWall.overlays(shape) || rightWall.overlays(shape) || 
+
+		if (leftWall.overlays(shape) || rightWall.overlays(shape) ||
 			topWall.overlays(shape) || bottomWall.overlays(shape)) {
 			return false;
 		}
-		
+
 		return true;
 	}
-	
+
 	@JsonIgnore
 	private Door getOverlayedDoor(final PositionedShape shape) {
 		for (final Door door : getDoors()) {
@@ -117,7 +116,7 @@ public class Room extends Component {
 				return door;
 			}
 		}
-		
+
 		return null;
 	}
 

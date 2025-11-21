@@ -6,8 +6,6 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -21,13 +19,13 @@ import fr.tp.inf112.projects.robotsim.model.shapes.PositionedShape;
 import fr.tp.inf112.projects.robotsim.model.shapes.RectangularShape;
 
 @JsonIdentityInfo(
-  generator = ObjectIdGenerators.IntSequenceGenerator.class, 
+  generator = ObjectIdGenerators.IntSequenceGenerator.class,
   property = "@id"
 )
 public class Factory extends Component implements Canvas, Observable {
 
 	private static final long serialVersionUID = 5156526483612458192L;
-	
+
 	private static final ComponentStyle DEFAULT = new ComponentStyle(5.0f);
 
 	// @JsonManagedReference(value="factory-controller")
@@ -38,30 +36,30 @@ public class Factory extends Component implements Canvas, Observable {
 
 	// @JsonIgnore
 	// private transient boolean simulationStarted;
-	
+
 	private boolean simulationStarted;
 
 	public Factory(){
 		this(0, 0, null);
 	}
-	
+
 	public Factory(final int width,
 				   final int height,
 				   final String name ) {
 		super(null, new RectangularShape(0, 0, width, height), name);
-		
+
 		components = new ArrayList<>();
 		observers = null;
 		simulationStarted = false;
 	}
 
-	
+
 	@JsonIgnore
 	public List<Observer> getObservers() {
 		if (observers == null) {
 			observers = new ArrayList<>();
 		}
-		
+
 		return observers;
 	}
 
@@ -74,30 +72,31 @@ public class Factory extends Component implements Canvas, Observable {
 	public boolean removeObserver(Observer observer) {
 		return getObservers().remove(observer);
 	}
-	
+
+	@Override
 	public void notifyObservers() {
 		for (final Observer observer : getObservers()) {
 			observer.modelChanged();
 		}
 	}
-	
+
 	public boolean addComponent(final Component component) {
 		if (components.add(component)) {
 			notifyObservers();
-			
+
 			return true;
 		}
-		
+
 		return false;
 	}
 
 	public boolean removeComponent(final Component component) {
 		if (components.remove(component)) {
 			notifyObservers();
-			
+
 			return true;
 		}
-		
+
 		return false;
 	}
 
@@ -116,21 +115,22 @@ public class Factory extends Component implements Canvas, Observable {
 	@Override
 	public String toString() {
 		// return super.toString() + " components=" + components + "]";
-		return "Factory [name=" + getName() + 
-           ", id=" + getId() + 
-           ", numComponents=" + (components != null ? components.size() : 0) + 
+		return "Factory [name=" + getName() +
+           ", id=" + getId() +
+           ", numComponents=" + (components != null ? components.size() : 0) +
 		   ", isRunning=" + isSimulationStarted() +
 		   ", height=" + getHeight()+
 		   ", components=" + components+
 		   "]";
-		
+
 	}
-	
+
+	@Override
 	@JsonProperty("simulationStarted")
 	public boolean isSimulationStarted() {
 		return simulationStarted;
 	}
-	
+
 	@JsonProperty("simulationStarted")
 	public void setSimulationStarted(boolean simulationStarted) {
 		this.simulationStarted =  simulationStarted;
@@ -140,7 +140,7 @@ public class Factory extends Component implements Canvas, Observable {
 		if (!isSimulationStarted()) {
 			this.simulationStarted = true;
 			notifyObservers();
-			
+
 			behave();
 		}
 	}
@@ -148,7 +148,7 @@ public class Factory extends Component implements Canvas, Observable {
 	public void stopSimulation() {
 		if (isSimulationStarted()) {
 			this.simulationStarted = false;
-			
+
 			notifyObservers();
 		}
 	}
@@ -156,20 +156,20 @@ public class Factory extends Component implements Canvas, Observable {
 	@Override
 	public boolean behave() {
 		boolean behaved = true;
-		
+
 		for (final Component component : getComponents()) {
 			Thread componentThread = new Thread(component);
 			componentThread.start();
 		}
-		
+
 		return behaved;
 	}
-	
+
 	@Override
 	public Style getStyle() {
 		return DEFAULT;
 	}
-	
+
 	@JsonIgnore
 	public boolean hasObstacleAt(final PositionedShape shape) {
 		for (final Component component : getComponents()) {
@@ -177,10 +177,10 @@ public class Factory extends Component implements Canvas, Observable {
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
-	
+
 	@JsonIgnore
 	public boolean hasMobileComponentAt(final PositionedShape shape,
 										final Component movingComponent) {
@@ -189,46 +189,47 @@ public class Factory extends Component implements Canvas, Observable {
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
-	
+
 	@JsonIgnore
 	public Component getMobileComponentAt(	final Position position,
 											final Component ignoredComponent) {
 		if (position == null) {
 			return null;
 		}
-		
+
 		return getMobileComponentAt(new RectangularShape(position.getxCoordinate(), position.getyCoordinate(), 2, 2), ignoredComponent);
 	}
-	
+
 	@JsonIgnore
 	public Component getMobileComponentAt(	final PositionedShape shape,
 											final Component ignoredComponent) {
 		if (shape == null) {
 			return null;
 		}
-		
+
 		for (final Component component : getComponents()) {
 			if (component != ignoredComponent && component.isMobile() && component.overlays(shape)) {
 				return component;
 			}
 		}
-		
+
 		return null;
 	}
-	
+
 	public synchronized int moveComponent(final Motion motion, final Component componentToMove) {
 		for (final Component component : getComponents()) {
 			if(!component.equals(componentToMove)) {
-				if(component.getPosition() == motion.getTargetPosition())
+				if(component.getPosition() == motion.getTargetPosition()) {
 					return 0;
-				
+				}
+
 			}
 		}
 		return motion.moveToTarget();
 	}
 
-	
+
 }

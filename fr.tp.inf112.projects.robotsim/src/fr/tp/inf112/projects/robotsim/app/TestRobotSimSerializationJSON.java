@@ -18,23 +18,9 @@ import com.fasterxml.jackson.databind.jsontype.BasicPolymorphicTypeValidator;
 import com.fasterxml.jackson.databind.jsontype.PolymorphicTypeValidator;
 
 import fr.tp.inf112.projects.canvas.model.impl.BasicVertex;
-import fr.tp.inf112.projects.robotsim.model.Area;
-import fr.tp.inf112.projects.robotsim.model.Battery;
-import fr.tp.inf112.projects.robotsim.model.ChargingStation;
 import fr.tp.inf112.projects.robotsim.model.Component;
-import fr.tp.inf112.projects.robotsim.model.Conveyor;
-import fr.tp.inf112.projects.robotsim.model.Door;
 import fr.tp.inf112.projects.robotsim.model.Factory;
-import fr.tp.inf112.projects.robotsim.model.Machine;
-import fr.tp.inf112.projects.robotsim.model.Robot;
-import fr.tp.inf112.projects.robotsim.model.Room;
-import fr.tp.inf112.projects.robotsim.model.path.CustomDijkstraFactoryPathFinder;
-import fr.tp.inf112.projects.robotsim.model.path.FactoryPathFinder;
-import fr.tp.inf112.projects.robotsim.model.path.JGraphTDijkstraFactoryPathFinder;
-import fr.tp.inf112.projects.robotsim.model.shapes.BasicPolygonShape;
-import fr.tp.inf112.projects.robotsim.model.shapes.CircularShape;
 import fr.tp.inf112.projects.robotsim.model.shapes.PositionedShape;
-import fr.tp.inf112.projects.robotsim.model.shapes.RectangularShape;
 
 public class TestRobotSimSerializationJSON {
     private final ObjectMapper objectMapper;
@@ -67,7 +53,7 @@ public class TestRobotSimSerializationJSON {
 		new Door(room2, Room.WALL.LEFT, 10, 20, true, "Entrance");
 		final Area area2 = new Area(room2, new RectangularShape( 135, 35, 50, 50 ), "Production Area 1");
 		final Machine machine2 = new Machine(area2, new RectangularShape( 150, 50, 15, 15 ), "Machine 1");
-		
+
 		final int baselineSize = 3;
 		final int xCoordinate = 10;
 		final int yCoordinate = 165;
@@ -104,10 +90,10 @@ public class TestRobotSimSerializationJSON {
         LOGGER.info(factoryAsJsonString);
         final Factory roundTrip = objectMapper.readValue(factoryAsJsonString, Factory.class);
         LOGGER.info(roundTrip.toString());*/
-    	
-    	
+
+
 		final String BASE_URL = "http://localhost:8080/";
-		
+
 		final HttpClient clientStart = HttpClient.newHttpClient();
 		final URI start = URI.create(BASE_URL+"startAnimation/default.factory");
 		HttpRequest startRequest = HttpRequest.newBuilder()
@@ -115,22 +101,23 @@ public class TestRobotSimSerializationJSON {
 					.GET()
 					.build();
 		clientStart.send(startRequest, HttpResponse.BodyHandlers.ofString());
-   	
-       
+
+
        final URI uri = URI.create(BASE_URL+"retrieveFactory/default.factory");
        HttpRequest request = HttpRequest.newBuilder()
 				.uri(uri)
 				.GET()
 				.build();
-		
+
         final HttpClient client = HttpClient.newHttpClient();
-		HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());	
-		if(response == null)
+		HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+		if(response == null) {
 			System.out.println("errore");
+		}
 
 		final Factory roundTrip = objectMapper.readValue(response.body(), Factory.class);
 		System.out.println(roundTrip.toString());
-		
+
 		final HttpClient clientStop = HttpClient.newHttpClient();
 		final URI stop = URI.create(BASE_URL+"stopAnimation/default.factory");
 		HttpRequest stopRequest = HttpRequest.newBuilder()

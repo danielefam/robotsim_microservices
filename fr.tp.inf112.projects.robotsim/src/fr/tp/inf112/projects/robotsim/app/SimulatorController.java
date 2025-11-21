@@ -9,15 +9,15 @@ import fr.tp.inf112.projects.canvas.model.CanvasPersistenceManager;
 import fr.tp.inf112.projects.robotsim.model.Factory;
 
 public class SimulatorController implements CanvasViewerController {
-	
+
 	private Factory factoryModel;
-	private static final Logger LOGGER = Logger.getLogger(SimulatorController.class.getName()); 
+	private static final Logger LOGGER = Logger.getLogger(SimulatorController.class.getName());
 	private final CanvasPersistenceManager persistenceManager;
-	
+
 	public SimulatorController(final CanvasPersistenceManager persistenceManager) {
 		this(null, persistenceManager);
 	}
-	
+
 	public SimulatorController(final Factory factoryModel,
 							   final CanvasPersistenceManager persistenceManager) {
 		this.factoryModel = factoryModel;
@@ -32,7 +32,7 @@ public class SimulatorController implements CanvasViewerController {
 		if (factoryModel != null) {
 			return factoryModel.addObserver(observer);
 		}
-		
+
 		return false;
 	}
 
@@ -44,10 +44,10 @@ public class SimulatorController implements CanvasViewerController {
 		if (factoryModel != null) {
 			return factoryModel.removeObserver(observer);
 		}
-		
+
 		return false;
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -55,7 +55,7 @@ public class SimulatorController implements CanvasViewerController {
 	public void setCanvas(final Canvas canvasModel) {
 		factoryModel = (Factory) canvasModel;
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */

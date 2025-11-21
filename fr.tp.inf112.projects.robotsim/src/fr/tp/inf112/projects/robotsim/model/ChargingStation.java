@@ -4,9 +4,9 @@ import fr.tp.inf112.projects.robotsim.model.shapes.PositionedShape;
 import fr.tp.inf112.projects.robotsim.model.shapes.RectangularShape;
 
 public class ChargingStation extends Component {
-	
+
 	private static final long serialVersionUID = -154228412357092561L;
-	
+
 	private boolean charging;
 
 	public ChargingStation(){}
@@ -21,7 +21,7 @@ public class ChargingStation extends Component {
 						   final RectangularShape shape,
 						   final String name) {
 		super(factory, shape, name);
-		
+
 		charging = false;
 	}
 
@@ -42,5 +42,5 @@ public class ChargingStation extends Component {
 	public boolean canBeOverlayed(final PositionedShape shape) {
 		return true;
 	}
-	
+
 }

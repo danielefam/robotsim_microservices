@@ -3,7 +3,7 @@ package fr.tp.inf112.projects.robotsim.model.shapes;
 import fr.tp.inf112.projects.canvas.model.OvalShape;
 
 public class CircularShape extends PositionedShape implements OvalShape {
-	
+
 	private static final long serialVersionUID = -1912941556210518344L;
 
 	private final int radius;
@@ -11,12 +11,12 @@ public class CircularShape extends PositionedShape implements OvalShape {
 	public CircularShape(){
 		this(0,0,0);
 	}
-	
+
 	public CircularShape( 	final int xCoordinate,
 							final int yCoordinate,
 							final int radius ) {
 		super( xCoordinate, yCoordinate );
-		
+
 		this.radius = radius;
 	}
 

@@ -28,6 +28,12 @@ public class RobotSimulationControllerApplication {
 		LOGGER.info("start animation called");
 		if(modelInSimulations.containsKey(canvasId)){
 			LOGGER.info("Model already simulating");
+			if(!modelInSimulations.get(canvasId).isSimulationStarted()) {
+				modelInSimulations.get(canvasId).startSimulation();
+				LOGGER.info("Model id: " + canvasId + " started its simulation");
+				isStarted = true;
+				return isStarted;
+			}
 			return isStarted;
 		}
 
@@ -59,7 +65,7 @@ public class RobotSimulationControllerApplication {
 		if(modelInSimulations.containsKey(canvasId)){
 			Factory factory = modelInSimulations.get(canvasId);
 			factory.stopSimulation();
-			modelInSimulations.remove(canvasId);
+//			modelInSimulations.remove(canvasId);
 			LOGGER.info("Model id: " + canvasId + " stopped its simulation");
 			isStopped = true;
 			return isStopped;
@@ -78,4 +84,15 @@ public class RobotSimulationControllerApplication {
 		}
 		return modelInSimulations.get(canvasId);
 	}
+	
+	@GetMapping("/releaseFactory/{canvasId}")
+    public boolean releaseFactory(@PathVariable("canvasId") String canvasId) {
+        if (modelInSimulations.containsKey(canvasId)) {
+            modelInSimulations.get(canvasId).stopSimulation();
+            modelInSimulations.remove(canvasId);
+            LOGGER.info("Model id: " + canvasId + " removed from memory (Client disconnected).");
+            return true;
+        }
+        return false;
+    }
 }
