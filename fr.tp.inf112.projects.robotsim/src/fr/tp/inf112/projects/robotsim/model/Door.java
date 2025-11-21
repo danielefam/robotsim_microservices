@@ -124,7 +124,7 @@ public class Door extends Component {
 		return isOpen() ? OPEN_STYLE : ComponentStyle.DEFAULT_BLACK;
 	}
 
-	private boolean isOpen() {
+	public boolean isOpen() {
 		return open;
 	}
 

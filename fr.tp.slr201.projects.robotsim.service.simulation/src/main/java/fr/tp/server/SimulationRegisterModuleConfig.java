@@ -34,7 +34,7 @@ public class SimulationRegisterModuleConfig {
 		final ObjectMapper objectMapper = new ObjectMapper();
 		objectMapper.activateDefaultTyping(typeValidator,
 				ObjectMapper.DefaultTyping.NON_FINAL);
-		objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+		// objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
 		return objectMapper;
 	}
 }

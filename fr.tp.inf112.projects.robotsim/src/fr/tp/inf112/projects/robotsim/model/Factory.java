@@ -36,7 +36,7 @@ public class Factory extends Component implements Canvas, Observable {
 
 	// @JsonIgnore
 	// private transient boolean simulationStarted;
-
+	@JsonProperty("simulationStarted")
 	private boolean simulationStarted;
 
 	public Factory(){
@@ -126,12 +126,10 @@ public class Factory extends Component implements Canvas, Observable {
 	}
 
 	@Override
-	@JsonProperty("simulationStarted")
 	public boolean isSimulationStarted() {
 		return simulationStarted;
 	}
 
-	@JsonProperty("simulationStarted")
 	public void setSimulationStarted(boolean simulationStarted) {
 		this.simulationStarted =  simulationStarted;
 	}
