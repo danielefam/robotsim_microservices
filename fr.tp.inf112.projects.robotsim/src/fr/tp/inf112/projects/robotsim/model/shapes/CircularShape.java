@@ -30,6 +30,10 @@ public class CircularShape extends PositionedShape implements OvalShape {
 		return getWidth();
 	}
 
+	public int getRadius() {
+		return radius;
+	}
+
 	@Override
 	public String toString() {
 		return super.toString() + " [radius=" + radius + "]";
