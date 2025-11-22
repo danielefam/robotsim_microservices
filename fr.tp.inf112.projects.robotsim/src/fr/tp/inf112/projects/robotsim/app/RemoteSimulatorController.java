@@ -143,10 +143,11 @@ public class RemoteSimulatorController extends SimulatorController {
 			// TODO Auto-generated catch block
 			LOGGER.warning("stopAnimation response failed");
 		}
-	}
+	} 
 
 	@Override
 	public void setCanvas(final Canvas canvasModel) {
+		
 		if(!(getCanvas() instanceof Factory)) {
 			return;
 		}
@@ -191,6 +192,7 @@ public class RemoteSimulatorController extends SimulatorController {
 			LOGGER.info("remote: "+ remoteFactoryModel.toString());
 			LOGGER.fine(""+((Factory) getCanvas()).isSimulationStarted());
 		} while (remoteFactoryModel.isSimulationStarted());
+//		stopAnimation();
 		LOGGER.fine("block 4");
 	}
 	
@@ -221,4 +223,5 @@ public class RemoteSimulatorController extends SimulatorController {
 	    
 	    return removed;
 	}
+	
 }

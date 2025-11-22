@@ -17,6 +17,8 @@ import fr.tp.inf112.projects.canvas.model.Style;
 import fr.tp.inf112.projects.robotsim.model.motion.Motion;
 import fr.tp.inf112.projects.robotsim.model.shapes.PositionedShape;
 import fr.tp.inf112.projects.robotsim.model.shapes.RectangularShape;
+import fr.tp.inf112.projects.robotsim.notifier.FactoryModelChangedNotifier;
+import fr.tp.inf112.projects.robotsim.notifier.LocalNotifier;
 
 @JsonIdentityInfo(
   generator = ObjectIdGenerators.IntSequenceGenerator.class,
@@ -30,9 +32,11 @@ public class Factory extends Component implements Canvas, Observable {
 
 	// @JsonManagedReference(value="factory-controller")
     private final List<Component> components;
+    
+    private transient FactoryModelChangedNotifier notifier;
 
-	@JsonIgnore
-	private transient List<Observer> observers;
+//	@JsonIgnore
+//	private transient List<Observer> observers;
 
 	// @JsonIgnore
 	// private transient boolean simulationStarted;
@@ -49,35 +53,52 @@ public class Factory extends Component implements Canvas, Observable {
 		super(null, new RectangularShape(0, 0, width, height), name);
 
 		components = new ArrayList<>();
-		observers = null;
+//		observers = null;
 		simulationStarted = false;
+		notifier = new LocalNotifier();
 	}
 
 
 	@JsonIgnore
 	public List<Observer> getObservers() {
-		if (observers == null) {
-			observers = new ArrayList<>();
-		}
+//		if (observers == null) {
+//			observers = new ArrayList<>();
+//		}
+//
+//		return observers;
+		return notifier.getObservers();
+	}
+	
+	
 
-		return observers;
+	public FactoryModelChangedNotifier getNotifier() {
+		return notifier;
+	}
+	
+	public void setNotifier(FactoryModelChangedNotifier notifier) {
+		this.notifier = notifier;
 	}
 
 	@Override
 	public boolean addObserver(Observer observer) {
-		return getObservers().add(observer);
+		return notifier.addObserver(observer);
+//		return getObservers().add(observer);
 	}
 
 	@Override
 	public boolean removeObserver(Observer observer) {
-		return getObservers().remove(observer);
+		return notifier.removeObserver(observer);
+//		return getObservers().remove(observer);
 	}
 
 	@Override
 	public void notifyObservers() {
-		for (final Observer observer : getObservers()) {
-			observer.modelChanged();
+		if(notifier!=null) {
+			notifier.notifyObservers();
 		}
+//		for (final Observer observer : getObservers()) {
+//			observer.modelChanged();
+//		}
 	}
 
 	public boolean addComponent(final Component component) {
@@ -100,7 +121,7 @@ public class Factory extends Component implements Canvas, Observable {
 		return false;
 	}
 
-	// modified to public for jackson
+	// modified to public for Jackson
 	public List<Component> getComponents() {
 		return components;
 	}

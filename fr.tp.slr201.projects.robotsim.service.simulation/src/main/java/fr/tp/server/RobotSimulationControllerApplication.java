@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.tp.inf112.projects.canvas.view.FileCanvasChooser;
 import fr.tp.inf112.projects.robotsim.model.Factory;
 import fr.tp.inf112.projects.robotsim.model.RemoteFactoryPersistenceManager;
+import fr.tp.inf112.projects.robotsim.notifier.FactoryModelChangedNotifier;
+import fr.tp.kafka.KafkaFactoryModelChangeNotifier;
 
 @RestController
 public class RobotSimulationControllerApplication {
@@ -20,26 +24,33 @@ public class RobotSimulationControllerApplication {
 	private static final Logger LOGGER = Logger.getLogger(RobotSimulationControllerApplication.class.getName());
 	final FileCanvasChooser canvasChooser = new FileCanvasChooser("factory", "Puck Factory");
 	private final RemoteFactoryPersistenceManager persistenceManager = new RemoteFactoryPersistenceManager(canvasChooser, port);
+	@Autowired
+	private KafkaTemplate<String, Factory> simulationEventTemplate;
 	
 	@GetMapping("/startAnimation/{canvasId}")
 	public boolean startAnimation(@PathVariable("canvasId") String canvasId) {
 		Boolean isStarted = false;
 		Factory factory;
 		LOGGER.info("start animation called");
-		if(modelInSimulations.containsKey(canvasId)){
-			LOGGER.info("Model already simulating");
-			if(!modelInSimulations.get(canvasId).isSimulationStarted()) {
+		if(modelInSimulations.containsKey(canvasId)){			
+//			if(!modelInSimulations.get(canvasId).isSimulationStarted()) {
 				modelInSimulations.get(canvasId).startSimulation();
 				LOGGER.info("Model id: " + canvasId + " started its simulation");
 				isStarted = true;
 				return isStarted;
-			}
-			return isStarted;
+//			}
+//			LOGGER.info("Model already simulating");
+//			return isStarted;
 		}
 
 		try {
 			LOGGER.info("reading factory...");
 			factory = (Factory) persistenceManager.read(canvasId);
+			
+			final FactoryModelChangedNotifier notifier = new 
+					KafkaFactoryModelChangeNotifier(factory, simulationEventTemplate);
+			factory.setNotifier(notifier);
+			
 			LOGGER.info("factory read");
 			if(factory != null) {
 				factory.setId(canvasId);
