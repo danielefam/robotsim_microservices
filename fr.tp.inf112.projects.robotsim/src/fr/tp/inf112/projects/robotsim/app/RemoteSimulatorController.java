@@ -61,7 +61,7 @@ public class RemoteSimulatorController extends SimulatorController {
 												.allowIfSubType(LinkedHashSet.class.getName())
 												.build();
         objectMapper.activateDefaultTyping(typeValidator, ObjectMapper.DefaultTyping.NON_FINAL);
-        objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+//        objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
 	}
 
 	@Override
