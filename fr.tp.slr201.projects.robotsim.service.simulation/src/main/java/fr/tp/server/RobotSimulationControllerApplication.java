@@ -32,37 +32,36 @@ public class RobotSimulationControllerApplication {
 		Boolean isStarted = false;
 		Factory factory;
 		LOGGER.info("start animation called");
-		if(modelInSimulations.containsKey(canvasId)){			
-//			if(!modelInSimulations.get(canvasId).isSimulationStarted()) {
-				modelInSimulations.get(canvasId).startSimulation();
-				LOGGER.info("Model id: " + canvasId + " started its simulation");
-				isStarted = true;
-				return isStarted;
-//			}
-//			LOGGER.info("Model already simulating");
-//			return isStarted;
+		
+		if(modelInSimulations.containsKey(canvasId)){		
+			modelInSimulations.get(canvasId).startSimulation();
+			LOGGER.info("Model id: " + canvasId + " started its simulation");
+			isStarted = true;
+			return isStarted;
 		}
 
 		try {
-			LOGGER.info("reading factory...");
-			factory = (Factory) persistenceManager.read(canvasId);
-			
-			
+			LOGGER.fine("reading factory...");
+			factory = (Factory) persistenceManager.read(canvasId);			
 			LOGGER.info("factory read");
+			
 			if(factory != null) {
 				final FactoryModelChangedNotifier notifier = new 
 						KafkaFactoryModelChangeNotifier(factory, simulationEventTemplate);
 				factory.setNotifier(notifier);
 				factory.setId(canvasId);
 				factory.startSimulation();
+				
 				modelInSimulations.put(canvasId, factory);
 				LOGGER.info("Model id: " + canvasId + " started its simulation");
 				isStarted = true;
 				return isStarted;
-			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			} 
+			
+		}
+		catch (IOException e) {
+			LOGGER.warning("file not found");
+			return isStarted;
 		}
 		
 		LOGGER.info("Model not found");
@@ -88,7 +87,7 @@ public class RobotSimulationControllerApplication {
 	@GetMapping("/retrieveFactory/{canvasId}")
 	public Factory retrieveFactory(@PathVariable("canvasId") String canvasId){
 		LOGGER.info("id: "+canvasId);
-		LOGGER.info("simulating: "+modelInSimulations.toString());
+		LOGGER.fine("simulating: "+modelInSimulations.toString());
 		if(!modelInSimulations.containsKey(canvasId)){
 			LOGGER.info("This model is not running");
 			return null;
@@ -101,7 +100,7 @@ public class RobotSimulationControllerApplication {
         if (modelInSimulations.containsKey(canvasId)) {
             modelInSimulations.get(canvasId).stopSimulation();
             modelInSimulations.remove(canvasId);
-            LOGGER.info("Model id: " + canvasId + " removed from memory (Client disconnected).");
+            LOGGER.info("model: " + canvasId + " removed from memory");
             return true;
         }
         return false;

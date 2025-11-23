@@ -44,7 +44,7 @@ public class RequestProcessor implements Runnable {
             }
 
         } catch (IOException | ClassNotFoundException e){
-            e.printStackTrace();
+//            e.printStackTrace();
         }
     }
 }

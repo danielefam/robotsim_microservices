@@ -61,8 +61,13 @@ public class FactoryPersistenceManager extends AbstractCanvasPersistenceManager 
 	@Override
 	public void persist(Canvas canvasModel)
 	throws IOException {
-		try (
-			final OutputStream fileOutStream = new FileOutputStream(canvasModel.getId());
+		String currentDir;
+		currentDir = System.getProperty("user.dir");
+		String[] aux = canvasModel.getId().split("[/\\\\]");
+		String filename;
+		filename = aux[aux.length-1];
+		try (			
+			final OutputStream fileOutStream = new FileOutputStream(currentDir+"/canvas/"+filename);
 			final OutputStream bufOutStream = new BufferedOutputStream(fileOutStream);
 			final ObjectOutputStream objOutStream = new ObjectOutputStream(bufOutStream);
 		) {

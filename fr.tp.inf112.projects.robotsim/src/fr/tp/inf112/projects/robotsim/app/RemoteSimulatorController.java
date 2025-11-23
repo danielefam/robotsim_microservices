@@ -1,5 +1,6 @@
 package fr.tp.inf112.projects.robotsim.app;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -52,7 +53,6 @@ public class RemoteSimulatorController extends SimulatorController {
 												.allowIfSubType(LinkedHashSet.class.getName())
 												.build();
         objectMapper.activateDefaultTyping(typeValidator, ObjectMapper.DefaultTyping.NON_FINAL);
-//        objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
         localNotifier = new LocalNotifier();
 	}
 
@@ -68,10 +68,9 @@ public class RemoteSimulatorController extends SimulatorController {
 												.allowIfSubType(LinkedHashSet.class.getName())
 												.build();
         objectMapper.activateDefaultTyping(typeValidator, ObjectMapper.DefaultTyping.NON_FINAL);
-//        objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
         localNotifier = new LocalNotifier();
 	}
-
+	
 	@Override
 	public void startAnimation() {
 		String id = this.getCanvas().getId();
@@ -97,13 +96,10 @@ public class RemoteSimulatorController extends SimulatorController {
 					HttpResponse.BodyHandlers.ofString());
 //			ObjectMapper objectMapper = new ObjectMapper();
 			LOGGER.info(response.body());
-			Boolean bool = objectMapper.readValue(response.body(), Boolean.class);
-
-			if(bool) {
-				// super.startAnimation();
-				// LOGGER.fine("start: "+((Factory) getCanvas()).isSimulationStarted());
+			Boolean isStarted = objectMapper.readValue(response.body(), Boolean.class);
+			
+			if(isStarted) {
 				((Factory)getCanvas()).setSimulationStarted(true);
-//				if i do not start a new thread, i cannot stop the current one
 				new Thread(() -> {
 	                try {
 	                	FactorySimulationEventConsumer consumer = new FactorySimulationEventConsumer(this);
@@ -114,7 +110,14 @@ public class RemoteSimulatorController extends SimulatorController {
 	            }).start();
 			}
 			else {
-				LOGGER.info("animation failed starting");
+				
+//				if (uploadFactoryToServer((Factory) getCanvas())) {
+//					LOGGER.info("chiamata");
+//	                startAnimation();
+//	            }
+				getPersistenceManager().persist(getCanvas());
+				startAnimation();
+		        
 			}
 		}
 		catch (MismatchedInputException e) {
