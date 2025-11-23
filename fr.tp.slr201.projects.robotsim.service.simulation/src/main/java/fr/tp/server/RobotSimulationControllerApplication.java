@@ -20,7 +20,7 @@ import fr.tp.kafka.KafkaFactoryModelChangeNotifier;
 @RestController
 public class RobotSimulationControllerApplication {
 	int port = 8081;
-	Map<String, Factory> modelInSimulations = new HashMap<>();
+	private Map<String, Factory> modelInSimulations = new HashMap<>();
 	private static final Logger LOGGER = Logger.getLogger(RobotSimulationControllerApplication.class.getName());
 	final FileCanvasChooser canvasChooser = new FileCanvasChooser("factory", "Puck Factory");
 	private final RemoteFactoryPersistenceManager persistenceManager = new RemoteFactoryPersistenceManager(canvasChooser, port);
