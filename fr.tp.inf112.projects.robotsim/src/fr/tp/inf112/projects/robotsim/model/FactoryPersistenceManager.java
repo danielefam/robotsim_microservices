@@ -33,7 +33,7 @@ public class FactoryPersistenceManager extends AbstractCanvasPersistenceManager 
 		LOGGER.info("path work: " + currentDir);
 		LOGGER.info("path base: " + canvasId);
 		// if run on windows split("\\\\")
-		String[] aux = canvasId.split("/");
+		String[] aux = canvasId.split("[/\\\\]");
 		String filename;
 		filename = aux[aux.length-1];
 		// if run on windows LOGGER.info("path read: " + currentDir+"\\canvas\\"+filename);

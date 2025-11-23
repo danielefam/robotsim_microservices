@@ -71,7 +71,7 @@ public class RemoteSimulatorController extends SimulatorController {
 		if(id == null) {
 			this.getCanvas().setId("default.factory");
 		} else {
-			String[] aux = id.split("/");
+			String[] aux = id.split("[/\\\\]");
 			if(aux.length != 1){
 				String filename;
 				filename = aux[aux.length-1];
