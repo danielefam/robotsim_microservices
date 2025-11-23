@@ -30,16 +30,11 @@ public class Factory extends Component implements Canvas, Observable {
 
 	private static final ComponentStyle DEFAULT = new ComponentStyle(5.0f);
 
-	// @JsonManagedReference(value="factory-controller")
     private final List<Component> components;
     
+    @JsonIgnore
     private transient FactoryModelChangedNotifier notifier;
 
-//	@JsonIgnore
-//	private transient List<Observer> observers;
-
-	// @JsonIgnore
-	// private transient boolean simulationStarted;
 	@JsonProperty("simulationStarted")
 	private boolean simulationStarted;
 
@@ -70,7 +65,7 @@ public class Factory extends Component implements Canvas, Observable {
 	}
 	
 	
-
+	@JsonIgnore
 	public FactoryModelChangedNotifier getNotifier() {
 		return notifier;
 	}

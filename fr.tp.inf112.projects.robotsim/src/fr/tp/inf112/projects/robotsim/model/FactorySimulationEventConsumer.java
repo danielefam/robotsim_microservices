@@ -23,6 +23,7 @@ public class FactorySimulationEventConsumer {
 	private final KafkaConsumer<String, String> consumer;
 	private final RemoteSimulatorController controller;
 	private static final Logger LOGGER = Logger.getLogger(FactorySimulationEventConsumer.class.getName());
+	
 	public FactorySimulationEventConsumer(final RemoteSimulatorController controller) {
 		this.controller = controller;
 		final Properties props = SimulationServiceUtils.getDefaultConsumerProperties();
@@ -36,16 +37,18 @@ public class FactorySimulationEventConsumer {
 		this.consumer.subscribe(Collections.singletonList(topicName));
 	}
 	
-	public void consumeMessages() {
+	public void consumeMessages() throws JsonMappingException, JsonProcessingException {
 		try {
-			while (controller.isAnimationRunning()) {
+			do {
 				final ConsumerRecords<String, String> records =
 						consumer.poll(Duration.ofMillis(100));
+				LOGGER.finer("before for");
 				for (final ConsumerRecord<String, String> record : records) {
+					LOGGER.finer("inside for");
 					LOGGER.fine("Received JSON Factory text '" + record.value() + "'.");
 					controller.setCanvas(record.value());
 				}
-			}
+			} while (controller.isAnimationRunning());
 		}
 		finally {
 			consumer.close();

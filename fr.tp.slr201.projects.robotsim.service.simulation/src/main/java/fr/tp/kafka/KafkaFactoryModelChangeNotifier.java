@@ -12,6 +12,7 @@ import org.springframework.messaging.support.MessageBuilder;
 import fr.tp.inf112.projects.canvas.controller.Observer;
 import fr.tp.inf112.projects.robotsim.model.Factory;
 import fr.tp.inf112.projects.robotsim.notifier.FactoryModelChangedNotifier;
+import fr.tp.inf112.projects.robotsim.notifier.SimulationServiceUtils;
 
 public class KafkaFactoryModelChangeNotifier implements FactoryModelChangedNotifier{
 
@@ -21,14 +22,16 @@ public class KafkaFactoryModelChangeNotifier implements FactoryModelChangedNotif
 	public KafkaFactoryModelChangeNotifier(Factory factoryModel, KafkaTemplate<String, Factory> simulationEventTemplate) {
 		this.factoryModel = factoryModel;
 		this.simulationEventTemplate = simulationEventTemplate;
-		TopicBuilder.name("simulation-" + factoryModel.getId()).build();
+		String topicName = SimulationServiceUtils.getTopicName(factoryModel);
+		TopicBuilder.name(topicName).build();
 	}
 
 	@Override
 	public void notifyObservers() {
+		String topicName = SimulationServiceUtils.getTopicName(factoryModel);
 		final Message<Factory> factoryMessage = MessageBuilder
 				.withPayload(factoryModel)
-				.setHeader(KafkaHeaders.TOPIC, "simulation-" + factoryModel.getId())
+				.setHeader(KafkaHeaders.TOPIC, topicName)
 				.build();
 		
 		final CompletableFuture<SendResult<String, Factory>> sendResult =

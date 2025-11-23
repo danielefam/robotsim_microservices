@@ -41,7 +41,4 @@ public class LocalNotifier implements FactoryModelChangedNotifier {
 		return observers;
 	}
 
-	
-
-
 }

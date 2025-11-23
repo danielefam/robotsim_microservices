@@ -47,12 +47,12 @@ public class RobotSimulationControllerApplication {
 			LOGGER.info("reading factory...");
 			factory = (Factory) persistenceManager.read(canvasId);
 			
-			final FactoryModelChangedNotifier notifier = new 
-					KafkaFactoryModelChangeNotifier(factory, simulationEventTemplate);
-			factory.setNotifier(notifier);
 			
 			LOGGER.info("factory read");
 			if(factory != null) {
+				final FactoryModelChangedNotifier notifier = new 
+						KafkaFactoryModelChangeNotifier(factory, simulationEventTemplate);
+				factory.setNotifier(notifier);
 				factory.setId(canvasId);
 				factory.startSimulation();
 				modelInSimulations.put(canvasId, factory);

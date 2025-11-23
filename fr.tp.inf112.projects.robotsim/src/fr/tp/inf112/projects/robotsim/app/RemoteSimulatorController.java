@@ -13,6 +13,8 @@ import java.util.logging.Logger;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.exc.MismatchedInputException;
 import com.fasterxml.jackson.databind.jsontype.BasicPolymorphicTypeValidator;
@@ -24,7 +26,9 @@ import fr.tp.inf112.projects.canvas.model.CanvasPersistenceManager;
 import fr.tp.inf112.projects.canvas.model.impl.BasicVertex;
 import fr.tp.inf112.projects.robotsim.model.Component;
 import fr.tp.inf112.projects.robotsim.model.Factory;
+import fr.tp.inf112.projects.robotsim.model.FactorySimulationEventConsumer;
 import fr.tp.inf112.projects.robotsim.model.shapes.PositionedShape;
+import fr.tp.inf112.projects.robotsim.notifier.LocalNotifier;
 
 public class RemoteSimulatorController extends SimulatorController {
 
@@ -33,6 +37,8 @@ public class RemoteSimulatorController extends SimulatorController {
     private Integer port = 8080;
 	private final String BASE_URL = "http://localhost:"+port.toString()+"/";
 	private final ObjectMapper objectMapper;
+	
+	private final LocalNotifier localNotifier;
 
 	public RemoteSimulatorController(CanvasPersistenceManager persistenceManager) {
 		super(persistenceManager);
@@ -47,6 +53,7 @@ public class RemoteSimulatorController extends SimulatorController {
 												.build();
         objectMapper.activateDefaultTyping(typeValidator, ObjectMapper.DefaultTyping.NON_FINAL);
 //        objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+        localNotifier = new LocalNotifier();
 	}
 
 	public RemoteSimulatorController(Factory factoryModel, CanvasPersistenceManager persistenceManager) {
@@ -61,7 +68,8 @@ public class RemoteSimulatorController extends SimulatorController {
 												.allowIfSubType(LinkedHashSet.class.getName())
 												.build();
         objectMapper.activateDefaultTyping(typeValidator, ObjectMapper.DefaultTyping.NON_FINAL);
-        objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+//        objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+        localNotifier = new LocalNotifier();
 	}
 
 	@Override
@@ -71,7 +79,7 @@ public class RemoteSimulatorController extends SimulatorController {
 		if(id == null) {
 			this.getCanvas().setId("default.factory");
 		} else {
-			String[] aux = id.split("/");
+			String[] aux = id.split("[/\\\\]");
 			if(aux.length != 1){
 				String filename;
 				filename = aux[aux.length-1];
@@ -94,11 +102,12 @@ public class RemoteSimulatorController extends SimulatorController {
 			if(bool) {
 				// super.startAnimation();
 				// LOGGER.fine("start: "+((Factory) getCanvas()).isSimulationStarted());
-//				updateViewer();
+				((Factory)getCanvas()).setSimulationStarted(true);
 //				if i do not start a new thread, i cannot stop the current one
 				new Thread(() -> {
 	                try {
-	                    updateViewer();
+	                	FactorySimulationEventConsumer consumer = new FactorySimulationEventConsumer(this);
+	                    consumer.consumeMessages();
 	                } catch (Exception e) {
 	                    LOGGER.severe(e.getMessage());
 	                }
@@ -144,56 +153,21 @@ public class RemoteSimulatorController extends SimulatorController {
 			LOGGER.warning("stopAnimation response failed");
 		}
 	} 
-
-	@Override
-	public void setCanvas(final Canvas canvasModel) {
+	
+	public void setCanvas(String stringModel) throws JsonMappingException, JsonProcessingException {
 		
-		if(!(getCanvas() instanceof Factory)) {
-			return;
-		}
-//		Factory myFactory = (Factory) getCanvas();
-//		final List<Observer> observers = myFactory.getObservers();
-		final List<Observer> observers = new ArrayList<>(((Factory) getCanvas()).getObservers());
-		super.setCanvas(canvasModel);
-
-		for (final Observer observer : observers) {
-			((Factory)canvasModel).addObserver(observer);
-		}
-		((Factory)canvasModel).notifyObservers();
-	}
-
-	private void updateViewer() throws InterruptedException, URISyntaxException, IOException {
-
-		if(!(getCanvas() instanceof Factory)) {
-			return;
-		}
-		final URI uri = URI.create(BASE_URL+"retrieveFactory/"+this.getCanvas().getId());
-		LOGGER.info("uri: " + uri.toString());
-		Integer i = 0;
-		Factory remoteFactoryModel;
-		do {
-			LOGGER.fine("iter " + (i++).toString());
-			HttpRequest request = HttpRequest.newBuilder()
-					.uri(uri)
-					.GET()
-					.build();
-			LOGGER.fine("block 1");
-			HttpResponse<String> response = client.send(request,
-					HttpResponse.BodyHandlers.ofString());
-			if(response == null) {
-				break;
-			}
-			LOGGER.fine("block 2");
-			remoteFactoryModel = objectMapper.readValue(response.body(), Factory.class);
-			setCanvas(remoteFactoryModel);
-			Thread.sleep(100);
-			LOGGER.fine("block 3");
-			LOGGER.info("this: " +getCanvas().toString());
-			LOGGER.info("remote: "+ remoteFactoryModel.toString());
-			LOGGER.fine(""+((Factory) getCanvas()).isSimulationStarted());
-		} while (remoteFactoryModel.isSimulationStarted());
-//		stopAnimation();
-		LOGGER.fine("block 4");
+		Factory readFactory = objectMapper.readValue(stringModel, Factory.class);
+		LOGGER.fine(readFactory.toString());
+		super.setCanvas(readFactory);
+//		setCanvas(readFactory);
+		LOGGER.fine("setcanvas, observers before: " + localNotifier.getObservers());
+		localNotifier.notifyObservers();
+		LOGGER.fine("setcanvas, observers after: " + localNotifier.getObservers());
+		
+//		for (final Observer observer : observers) {
+//			readFactory.addObserver(observer);
+//		}
+//		readFactory.notifyObservers();
 	}
 	
 	
@@ -210,14 +184,21 @@ public class RemoteSimulatorController extends SimulatorController {
 	        LOGGER.warning("Failed to release remote factory");
 	    }
 	}
-	
+
+	@Override
+	public boolean addObserver(Observer observer) {
+		LOGGER.finer("add observer");
+	    return localNotifier.addObserver(observer); 
+	}
+
 	@Override
 	public boolean removeObserver(Observer observer) {
-		//I would like the simulation to remain in the memory of the simulated model on the spring boot 
-		// controller when I pause it, but for it to be deleted when I close the window.
-	    boolean removed = super.removeObserver(observer);
-	    if (getCanvas() != null && ((Factory)getCanvas()).getObservers().isEmpty()) {
-	        LOGGER.info("No more observers. Releasing remote factory...");
+		LOGGER.finer("remove observer");
+	    boolean removed = localNotifier.removeObserver(observer);
+	    
+	    
+	    if (localNotifier.getObservers().isEmpty()) {
+	        LOGGER.finer("No more observers on the controller. Releasing remote factory...");
 	        releaseRemoteFactory();
 	    }
 	    
