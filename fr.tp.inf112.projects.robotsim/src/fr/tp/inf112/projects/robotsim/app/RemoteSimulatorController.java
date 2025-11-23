@@ -115,7 +115,8 @@ public class RemoteSimulatorController extends SimulatorController {
 //					LOGGER.info("chiamata");
 //	                startAnimation();
 //	            }
-				getPersistenceManager().persist(getCanvas());
+				
+				getPersistenceManager().persist((Factory)getCanvas());
 				startAnimation();
 		        
 			}
@@ -166,11 +167,6 @@ public class RemoteSimulatorController extends SimulatorController {
 		LOGGER.fine("setcanvas, observers before: " + localNotifier.getObservers());
 		localNotifier.notifyObservers();
 		LOGGER.fine("setcanvas, observers after: " + localNotifier.getObservers());
-		
-//		for (final Observer observer : observers) {
-//			readFactory.addObserver(observer);
-//		}
-//		readFactory.notifyObservers();
 	}
 	
 	

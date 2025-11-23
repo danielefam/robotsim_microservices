@@ -169,6 +169,9 @@ public abstract class Component implements Figure, Serializable, Runnable {
 	@Override
 	public void run() {
 		LOGGER.fine("Thread started: " + Thread.currentThread().getName());
+		if (getFactory() == null) {
+	        return; 
+	    }
 		while(isSimulationStarted()) {
 			behave();
 			try {
